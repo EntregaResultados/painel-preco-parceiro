@@ -1,0 +1,131 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 335.11497278368842
+          },
+          "nodeIndex": "DimAprovadores",
+          "nodeLineageTag": "04f19eb2-7970-46ff-a751-fe9048483da4",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 1,
+          "expandedHeight": 319
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "DimCoordenadores",
+          "nodeLineageTag": "ed95348e-a1ac-4e43-bd60-11eaafe265ef",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 2,
+          "expandedHeight": 210
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 151.90166364263206
+          },
+          "nodeIndex": "DimSupervisores",
+          "nodeLineageTag": "949d9556-fa19-4cc7-bd3c-807991403d3c",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 3,
+          "expandedHeight": 152
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 592.318272154787
+          },
+          "nodeIndex": "RelacaoClienteAprovador",
+          "nodeLineageTag": "9f9556ff-b0a4-4bd9-9a26-645885f37377",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 4,
+          "expandedHeight": 200
+        },
+        {
+          "location": {
+            "x": 985.64669365036,
+            "y": 25.383335659513818
+          },
+          "nodeIndex": "RespostasFormulario",
+          "nodeLineageTag": "9f54f8ba-05d3-45a9-8836-ba02432bf628",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 5,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 624.87677878856562,
+            "y": 21.206682484693843
+          },
+          "nodeIndex": "RespostasFormularioDistintasOS",
+          "nodeLineageTag": "20bd2881-a24f-4c32-9341-ec486296c079",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 348.29514864293219,
+            "y": 196.42580739642111
+          },
+          "nodeIndex": "FactAprovacaoPrecoParceiro",
+          "nodeLineageTag": "124713ca-bad0-4c4a-9441-516265afee93",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 1325.89669365036,
+            "y": 48.659136077393555
+          },
+          "nodeIndex": "_Medidas",
+          "nodeLineageTag": "53560b45-271a-4d51-b155-59224bb35068",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 7
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 80.000000000000014,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

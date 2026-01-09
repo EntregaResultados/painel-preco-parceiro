@@ -1,0 +1,497 @@
+table FactAprovacaoPrecoParceiro
+	lineageTag: 124713ca-bad0-4c4a-9441-516265afee93
+
+	column NumeroOS
+		dataType: int64
+		formatString: 0
+		displayFolder: _OS
+		lineageTag: b88dfb2a-354d-40a7-99e6-321e9f7d8546
+		summarizeBy: none
+		sourceColumn: NumeroOS
+
+		annotation SummarizationSetBy = Automatic
+
+	column TipoOS
+		dataType: string
+		displayFolder: _OS
+		lineageTag: 803efe58-e083-4b7a-9bb9-b2f08204181f
+		summarizeBy: none
+		sourceColumn: TipoOS
+
+		annotation SummarizationSetBy = Automatic
+
+	column DataAprovacao1OS
+		dataType: dateTime
+		formatString: General Date
+		displayFolder: _OS
+		lineageTag: 94414d46-fdde-4cd7-8d17-445823ff3d6b
+		summarizeBy: none
+		sourceColumn: DataAprovacao1OS
+
+		annotation SummarizationSetBy = Automatic
+
+	column NomeUsuario
+		dataType: string
+		displayFolder: _Aprovador
+		lineageTag: 43472e5a-e891-4e28-886f-0be477ab7186
+		summarizeBy: none
+		sourceColumn: NomeUsuario
+
+		annotation SummarizationSetBy = Automatic
+
+	column CodigoUsuario
+		dataType: int64
+		formatString: 0
+		displayFolder: _Aprovador
+		lineageTag: a1cd5bd8-43f0-4692-8b1a-8b5079d139de
+		summarizeBy: sum
+		sourceColumn: CodigoUsuario
+
+		annotation SummarizationSetBy = Automatic
+
+	column CodigoModeloManutencao
+		dataType: int64
+		formatString: 0
+		displayFolder: _Cliente
+		lineageTag: cdcc8732-70ad-42af-a2de-77f54efd755e
+		summarizeBy: sum
+		sourceColumn: CodigoModeloManutencao
+
+		annotation SummarizationSetBy = Automatic
+
+	column NomeCliente
+		dataType: string
+		displayFolder: _Cliente
+		lineageTag: f5b649a1-9787-4c55-915d-00b88355ff50
+		summarizeBy: none
+		sourceColumn: NomeCliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column CodigoCliente
+		dataType: int64
+		formatString: 0
+		displayFolder: _Cliente
+		lineageTag: 34504bff-a297-4821-886e-333120aadf8e
+		summarizeBy: sum
+		sourceColumn: CodigoCliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column InformacaoAdicional2
+		dataType: string
+		displayFolder: _Cliente
+		lineageTag: f0576833-b6a9-4b44-b9d4-44b1e5d74e31
+		summarizeBy: none
+		sourceColumn: InformacaoAdicional2
+
+		annotation SummarizationSetBy = Automatic
+
+	column CodigoEC
+		dataType: int64
+		formatString: 0
+		displayFolder: _EC
+		lineageTag: 97137867-0c14-49a8-8eb1-ff44b129b783
+		summarizeBy: sum
+		sourceColumn: CodigoEC
+
+		annotation SummarizationSetBy = Automatic
+
+	column NomeEC
+		dataType: string
+		displayFolder: _EC
+		lineageTag: de24c6b3-d2bc-483f-8c2e-ef609f302fa3
+		summarizeBy: none
+		sourceColumn: NomeEC
+
+		annotation SummarizationSetBy = Automatic
+
+	column TipoEC
+		dataType: string
+		displayFolder: _EC
+		lineageTag: 67b71895-2f4b-4871-b5a0-271f0f2fb3c9
+		summarizeBy: none
+		sourceColumn: TipoEC
+
+		annotation SummarizationSetBy = Automatic
+
+	column UFEC
+		dataType: string
+		displayFolder: _EC
+		lineageTag: 7d8bfbae-95d4-483a-a169-a30a7b9f86a0
+		summarizeBy: none
+		sourceColumn: UFEC
+
+		annotation SummarizationSetBy = Automatic
+
+	column CidadeEC
+		dataType: string
+		displayFolder: _EC
+		lineageTag: 11f15831-236b-4f88-8868-2790610b3745
+		summarizeBy: none
+		sourceColumn: CidadeEC
+
+		annotation SummarizationSetBy = Automatic
+
+	column ChaveItem
+		dataType: int64
+		formatString: 0
+		displayFolder: _Peça
+		lineageTag: 77e1994f-afc3-4715-95dd-12641816b401
+		summarizeBy: sum
+		sourceColumn: ChaveItem
+
+		annotation SummarizationSetBy = Automatic
+
+	column NomePeca
+		dataType: string
+		displayFolder: _Peça
+		lineageTag: db224a2a-2d7b-4f78-90c1-fafcfaba9e20
+		summarizeBy: none
+		sourceColumn: NomePeca
+
+		annotation SummarizationSetBy = Automatic
+
+	column ComplementoConcatenadoPeca
+		dataType: string
+		displayFolder: _Peça
+		lineageTag: aa0ad2af-bd66-415f-8832-63d5515cdcd1
+		summarizeBy: none
+		sourceColumn: ComplementoConcatenadoPeca
+
+		annotation SummarizationSetBy = Automatic
+
+	column FabricantePeca
+		dataType: string
+		displayFolder: _Peça
+		lineageTag: 4443f7a9-1580-4063-a1ae-c54cd8bea674
+		summarizeBy: none
+		sourceColumn: FabricantePeca
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuantidadePeca
+		dataType: double
+		displayFolder: _ValoresAprovação
+		lineageTag: 5e0f94a9-a636-4481-839c-87af92ab51ed
+		summarizeBy: sum
+		sourceColumn: QuantidadePeca
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ValorUnitarioPeca
+		dataType: double
+		displayFolder: _ValoresAprovação
+		lineageTag: 97904c0e-a96c-4446-a9f4-9c17a1b0de83
+		summarizeBy: sum
+		sourceColumn: ValorUnitarioPeca
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ValorTotalPeca
+		dataType: double
+		displayFolder: _ValoresAprovação
+		lineageTag: 32340e4a-81f1-4e35-a14a-c3d81bca7baa
+		summarizeBy: sum
+		sourceColumn: ValorTotalPeca
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ValorUnitarioNegociado
+		dataType: double
+		displayFolder: _PrecoReferencial/Negociado
+		lineageTag: 909f8960-32f0-40e8-b331-8415740512aa
+		summarizeBy: sum
+		sourceColumn: ValorUnitarioNegociado
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ValorUnitarioReferencial
+		dataType: double
+		displayFolder: _PrecoReferencial/Negociado
+		lineageTag: f173f368-0b78-449c-a4c8-2d3a0e0cfe23
+		summarizeBy: sum
+		sourceColumn: ValorUnitarioReferencial
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ValorUnitarioHierarquiaReferencial
+		dataType: double
+		displayFolder: _PrecoReferencial/Negociado
+		lineageTag: 7efa2741-b22b-4fd0-88bd-4b09e9dcf2dd
+		summarizeBy: sum
+		sourceColumn: ValorUnitarioHierarquiaReferencial
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ValorTotalHierarquiaReferencial
+		dataType: double
+		displayFolder: _PrecoReferencial/Negociado
+		lineageTag: e5fc7058-fd5b-439e-9987-13ac6ef845d6
+		summarizeBy: sum
+		sourceColumn: ValorTotalHierarquiaReferencial
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AderenciaPrecoReferencial
+		dataType: string
+		displayFolder: _PrecoReferencial/Negociado
+		lineageTag: 6519f2e2-bfaa-4454-ab75-e9031078508e
+		summarizeBy: none
+		sourceColumn: AderenciaPrecoReferencial
+
+		annotation SummarizationSetBy = Automatic
+
+	column DataEnvioNegociacaoPrecoParceiro
+		dataType: dateTime
+		formatString: General Date
+		displayFolder: _PreçoParceiro
+		lineageTag: e93185c6-257b-445f-9308-80c263190e8c
+		summarizeBy: none
+		sourceColumn: DataEnvioNegociacaoPrecoParceiro
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValorUnitarioNegociadoPrecoParceiro
+		dataType: decimal
+		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		displayFolder: _PreçoParceiro
+		lineageTag: dc0af61a-366c-4d14-8c85-39bc4a69f190
+		summarizeBy: sum
+		sourceColumn: ValorUnitarioNegociadoPrecoParceiro
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column ValidadeNegociacaoMeses
+		dataType: int64
+		formatString: 0
+		displayFolder: _PreçoParceiro
+		lineageTag: 4fa4f2b5-574d-460b-a4d0-ba0aa87dbe93
+		summarizeBy: sum
+		sourceColumn: ValidadeNegociacaoMeses
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValorTotalNegociadoPrecoParceiro
+		dataType: string
+		displayFolder: _PreçoParceiro
+		lineageTag: 31fed204-1b8b-4a14-a72c-0fbc12daf832
+		summarizeBy: none
+		sourceColumn: ValorTotalNegociadoPrecoParceiro
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactAprovacaoPrecoParceiro = m
+		mode: import
+		source = ```
+				let
+				    Fonte = Azure("
+				
+				WITH param_logs AS (
+				  SELECT
+				    dmplv.ClientId AS CodigoCliente,
+				    CAST(dmplv.ParameterLogOrgValueModificationTimestamp AS TIMESTAMP) AS ts,
+				    COALESCE(dmplv.OldValueDescription, '') AS old_values,
+				    COALESCE(dmplv.NewValueDescription, '') AS new_values
+				  FROM hive_metastore.gold.Dim_MaintenanceParameterLogValue AS dmplv
+				  WHERE dmplv.ParameterId = 586
+				),
+				-- Normaliza old/new em arrays (aceita ; ou , como separadores; remove espaços, vazios e duplicados)
+				sets AS (
+				  SELECT
+				    CodigoCliente,
+				    ts,
+				    array_distinct(
+				      filter(
+				        split(regexp_replace(old_values, '\\s+', ''), '[;,]+'),
+				        x -> x <> ''
+				      )
+				    ) AS old_set,
+				    array_distinct(
+				      filter(
+				        split(regexp_replace(new_values, '\\s+', ''), '[;,]+'),
+				        x -> x <> ''
+				      )
+				    ) AS new_set
+				  FROM param_logs
+				),
+				-- Inclusões (ADD): itens presentes no new_set e ausentes no old_set
+				adds AS (
+				  SELECT
+				    CodigoCliente,
+				    ts,
+				    CAST(approver AS STRING) AS approver
+				  FROM sets
+				  LATERAL VIEW explode(new_set) ns AS approver
+				  WHERE NOT array_contains(old_set, approver)
+				),
+				-- Exclusões (REMOVE): itens presentes no old_set e ausentes no new_set
+				removes AS (
+				  SELECT
+				    CodigoCliente,
+				    ts,
+				    CAST(approver AS STRING) AS approver
+				  FROM sets
+				  LATERAL VIEW explode(old_set) os AS approver
+				  WHERE NOT array_contains(new_set, approver)
+				),
+				events AS (
+				  SELECT CodigoCliente, approver, ts, 'ADD'    AS event_type FROM adds
+				  UNION ALL
+				  SELECT CodigoCliente, approver, ts, 'REMOVE' AS event_type FROM removes
+				),
+				-- Para cada Cliente+Aprovador, DataInicio = ts do ADD, DataFim = ts do próximo evento (normalmente REMOVE)
+				param_intervals AS (
+				  SELECT
+				    CodigoCliente,
+				    approver AS Aprovador,
+				    ts  AS DataInicio,
+				    LEAD(ts) OVER (PARTITION BY CodigoCliente, approver ORDER BY ts) AS DataFim
+				  FROM events
+				  WHERE event_type = 'ADD'
+				),
+				----------------------------------------------------------------------------------------------------------------------------------
+				
+				tabela_preco_parceiro AS (
+				  SELECT DISTINCT OrderServiceId
+				  FROM gold.dim_maintenancelogpriceregulatorpartner
+				  WHERE SendDate IS NOT NULL
+				)
+				
+				
+				
+				-------------------------------------------------------------------------------------------------------------------------------------
+				SELECT
+				    fmi.MaintenanceId                                                       AS NumeroOS,
+				    fmt.MaintenanceType                                                     AS TipoOS,
+				    fms.FirstApprovalTimestamp                                              AS DataAprovacao1OS,
+				
+				    dwu.WebUserName                                                         AS NomeUsuario,
+				    dwu.WebUserSourceCode                                                   AS CodigoUsuario,
+				
+				    dmv.MaintenanceVehicleModelId                                           AS CodigoModeloManutencao,
+				    dfc.CustomerShortName                                                   AS NomeCliente,
+				    dmv.CustomerId                                                          AS CodigoCliente,
+				    dmv.AdditionalInformation2Description                                   AS InformacaoAdicional2,
+				
+				    dmm.SourceNumber                                                        AS CodigoEC,
+				    dmm.MerchantShortenedName                                               AS NomeEC,
+				    dmm.NameMerchantsTypes                                                  AS TipoEC,
+				    dmm.StateName                                                           AS UFEC,
+				    dmm.CityName                                                            AS CidadeEC,
+				
+				
+				    fmi.Sk_MaintenanceItem                                                  AS ChaveItem,
+				    dmp.PartName                                                            AS NomePeca,
+				    dmc.ComplementDescription                                               AS ComplementoConcatenadoPeca,
+				    dmpm.PartManufacturerName                                               AS FabricantePeca,
+				
+				    fmi.PartQuantity                                                        AS QuantidadePeca,
+				    fmi.PartUnitaryPrice                                                    AS ValorUnitarioPeca,
+				    QuantidadePeca * ValorUnitarioPeca                                      AS ValorTotalPeca,
+				
+				    COALESCE(fmi.PartPriceNegociatedCustomer, fmi.PartPriceNegociated)      AS ValorUnitarioNegociado,
+				    COALESCE(fmi.PartPriceReferenceCustomer, fmi.PartReferencePrice)        AS ValorUnitarioReferencial,
+				    COALESCE(ValorUnitarioNegociado,ValorUnitarioReferencial)               AS ValorUnitarioHierarquiaReferencial,
+				    QuantidadePeca * ValorUnitarioHierarquiaReferencial                     AS ValorTotalHierarquiaReferencial,
+				
+				    CASE
+				      WHEN ValorUnitarioPeca IS NULL THEN 'NA'
+				      WHEN ValorUnitarioPeca <= 0.01 THEN 'NA'
+				      WHEN ValorUnitarioHierarquiaReferencial IS NULL THEN 'NA'
+				      WHEN ValorUnitarioHierarquiaReferencial <= 0.01 THEN 'NA'
+				      WHEN ValorUnitarioHierarquiaReferencial >= ValorUnitarioPeca THEN 'OK'
+				      ELSE 'NOK' END                                                        AS AderenciaPrecoReferencial,
+				
+				    dmlprp.SendDate                                                         AS DataEnvioNegociacaoPrecoParceiro,
+				    dmlprp.PricePartInfo                                                    AS InfoPrecoParceiro
+				    
+				    
+				    
+				    
+				    
+				    
+				
+				FROM hive_metastore.gold.fact_maintenanceitems AS fmi
+				
+				  LEFT JOIN hive_metastore.gold.dim_maintenanceparts AS dmp
+				    ON fmi.Sk_MaintenancePart = dmp.Sk_MaintenancePart
+				
+				  LEFT JOIN hive_metastore.gold.dim_maintenancecomplements AS dmc
+				    ON fmi.Sk_MaintenanceComplement = dmc.Sk_MaintenanceComplement
+				
+				  LEFT JOIN hive_metastore.gold.fact_maintenanceservices AS fms
+				    ON fmi.MaintenanceId = fms.OrderServiceCode
+				
+				  LEFT JOIN hive_metastore.gold.dim_maintenancetypes AS fmt
+				    ON fms.Sk_MaintenanceType = fmt.Sk_MaintenanceType
+				
+				  LEFT JOIN hive_metastore.gold.dim_maintenancemerchants AS dmm
+				    ON fms.Sk_MaintenanceMerchant = dmm.Sk_MaintenanceMerchant
+				
+				  LEFT JOIN hive_metastore.gold.dim_maintenancevehicles AS dmv
+				    ON fms.Sk_MaintenanceVehicle = dmv.Sk_MaintenanceVehicle
+				
+				  LEFT JOIN hive_metastore.gold.dim_fuelcustomers AS dfc
+				    ON fms.Sk_FuelCustomer = dfc.Sk_FuelCustomer
+				
+				  LEFT JOIN hive_metastore.gold.dim_webusers AS dwu
+				    ON fms.FirstApproverCode = dwu.WebUserSourceCode
+				  
+				  LEFT JOIN gold.dim_maintenancelogpriceregulatorpartner AS dmlprp
+				    ON fmi.MaintenanceItemSourceCode = dmlprp.OrderServiceItemId
+				
+				  LEFT JOIN hive_metastore.gold.dim_maintenancepartmanufacturers AS dmpm
+				    ON TRY_CAST(fmi.PartManufacturerCode AS BIGINT) = dmpm.PartManufacturerSourceCode
+				
+				  LEFT JOIN tabela_preco_parceiro
+				    ON fmi.MaintenanceId = tabela_preco_parceiro.OrderServiceId 
+				
+				WHERE 1=1
+				  AND (
+				      fmi.CancellationTimestamp IS NULL
+				  AND fmi.ItemDisapprovalTimestamp IS NULL
+				  AND fms.FirstApprovalTimestamp >= TIMESTAMP '2025-04-01'
+				  AND EXISTS (
+				    SELECT 1
+				    FROM param_intervals pi
+				    WHERE pi.CodigoCliente = dmv.CustomerId
+				      AND pi.Aprovador = CAST(dwu.WebUserSourceCode AS STRING)
+				      AND fms.FirstApprovalTimestamp >= pi.DataInicio
+				      AND (pi.DataFim IS NULL OR fms.FirstApprovalTimestamp < pi.DataFim)
+				  )
+				  ) OR tabela_preco_parceiro.OrderServiceId IS NOT NULL
+				
+				
+				"),
+				    #"Coluna Duplicada" = Table.DuplicateColumn(Fonte, "InfoPrecoParceiro", "InfoPrecoParceiro - Copiar"),
+				    Personalizar1 = Table.TransformColumns(#"Coluna Duplicada", {{"InfoPrecoParceiro", each Text.BetweenDelimiters(_, """valornegociar"" : ", ","), type text}}),
+				    Personalizar2 = Table.TransformColumns(#"Personalizar1", {{"InfoPrecoParceiro - Copiar", each Text.BetweenDelimiters(_, """tempovigenciameses"" : ", ","), type text}}),
+				    Personalizar3 = Table.RenameColumns(#"Personalizar2",{{"InfoPrecoParceiro - Copiar", "ValidadeNegociacaoMeses"}, {"InfoPrecoParceiro", "ValorUnitarioNegociadoPrecoParceiro"}}),
+				    Personalizar4 = Table.ReplaceValue(#"Personalizar3",".",",",Replacer.ReplaceText,{"ValorUnitarioNegociadoPrecoParceiro"}),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Personalizar4,{{"ValorUnitarioNegociadoPrecoParceiro", Currency.Type}, {"ValidadeNegociacaoMeses", Int64.Type}}),
+				    #"Personalização Adicionada" = Table.AddColumn(#"Tipo Alterado", "ValorTotalNegociadoPrecoParceiro", each [QuantidadePeca] * [ValorUnitarioNegociadoPrecoParceiro])
+				in
+				    #"Personalização Adicionada"
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

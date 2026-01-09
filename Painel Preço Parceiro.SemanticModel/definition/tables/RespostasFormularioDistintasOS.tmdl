@@ -1,0 +1,36 @@
+table RespostasFormularioDistintasOS
+	isHidden
+	lineageTag: 20bd2881-a24f-4c32-9341-ec486296c079
+
+	column 'Número da ordem'
+		dataType: string
+		isHidden
+		lineageTag: 24a03641-edf9-49fe-89aa-4b992f3c7973
+		summarizeBy: none
+		sourceColumn: Número da ordem
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	partition RespostasFormularioDistintasOS = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(Web.Contents("https://edenred-my.sharepoint.com/personal/lucas_malessa_edenred_com/Documents/Projeto Preço Parceiro.xlsx"), null, true),
+				    OfficeForms.Table_Table = Fonte{[Item="TabelaPrecoParceiro",Kind="Table"]}[Data],
+				    #"Tipo Alterado" = Table.TransformColumnTypes(OfficeForms.Table_Table,{{"Número da ordem", type text}}),
+				    #"Texto Aparado" = Table.TransformColumns(#"Tipo Alterado",{{"Número da ordem", Text.Trim, type text}}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Texto Aparado", {"Número da ordem"}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Duplicatas Removidas", each ([Número da ordem] <> null)),
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Linhas Filtradas",{"Número da ordem"}),
+				    #"Linhas Filtradas1" = Table.SelectRows(#"Outras Colunas Removidas", each ([Número da ordem] <> "1" and [Número da ordem] <> "2" and [Número da ordem] <> "3" and [Número da ordem] <> "4" and [Número da ordem] <> "5"))
+				in
+				    #"Linhas Filtradas1"
+
+	changedProperty = IsHidden
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

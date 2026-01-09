@@ -1,0 +1,163 @@
+table RespostasFormulario
+	lineageTag: 9f54f8ba-05d3-45a9-8836-ba02432bf628
+
+	column Id
+		dataType: string
+		lineageTag: 91aa6bbb-b641-4bcb-b019-2c4702d69bf5
+		summarizeBy: none
+		sourceColumn: Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hora de início'
+		dataType: string
+		lineageTag: 024dcc11-34ad-444d-83c5-f93387daa9db
+		summarizeBy: none
+		sourceColumn: Hora de início
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hora de conclusão'
+		dataType: string
+		lineageTag: 512d97ee-adfe-474d-a2cb-070006f45ad9
+		summarizeBy: none
+		sourceColumn: Hora de conclusão
+
+		annotation SummarizationSetBy = Automatic
+
+	column Email
+		dataType: string
+		lineageTag: c2d84ad4-a673-4de6-be22-1c19c6ae42b3
+		summarizeBy: none
+		sourceColumn: Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column Nome
+		dataType: string
+		lineageTag: aaeaa5fb-a77c-4a99-beed-5b074821f466
+		summarizeBy: none
+		sourceColumn: Nome
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Número da ordem'
+		dataType: string
+		lineageTag: c98cca0a-92f6-41d9-ace1-ff648504056e
+		summarizeBy: none
+		sourceColumn: Número da ordem
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data negociação'
+		dataType: string
+		lineageTag: bc7b51db-689e-46ff-b29f-aeed999dfffc
+		summarizeBy: none
+		sourceColumn: Data negociação
+
+		annotation SummarizationSetBy = Automatic
+
+	column Cliente
+		dataType: string
+		lineageTag: d51dfa50-f71b-4b6f-a7b5-22269cdd7c42
+		summarizeBy: none
+		sourceColumn: Cliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'EC aceitou a negociação?'
+		dataType: string
+		lineageTag: 566ac1b3-6be7-4bdc-a7d6-047ec7c55a43
+		summarizeBy: none
+		sourceColumn: EC aceitou a negociação?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Qual o motivo da recusa?'
+		dataType: string
+		lineageTag: 5abf6d5c-6726-4fef-a9c1-2ea185a5d5fb
+		summarizeBy: none
+		sourceColumn: Qual o motivo da recusa?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Período de trava'
+		dataType: string
+		lineageTag: 558f3e39-5aae-47a1-a059-7659bb6fda2f
+		summarizeBy: none
+		sourceColumn: Período de trava
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Qual o formato aceito pelo EC?'
+		dataType: string
+		lineageTag: 55c1d903-e6b5-4df1-aa44-db8d6358ef7b
+		summarizeBy: none
+		sourceColumn: Qual o formato aceito pelo EC?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Número de itens travados'
+		dataType: string
+		lineageTag: 4ea49311-02bb-4177-81a2-96df9fad0cd1
+		summarizeBy: none
+		sourceColumn: Número de itens travados
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Descreva o valor referencial da ordem de serviço e o valor adequado para o item:'
+		dataType: string
+		lineageTag: dc79d736-5003-4c6e-9909-e401b5f53af3
+		summarizeBy: none
+		sourceColumn: Descreva o valor referencial da ordem de serviço e o valor adequado para o item:
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Qual é a peça com erro de referencial?'
+		dataType: string
+		lineageTag: 8b3b4b88-f7c6-4a07-8774-9f19895dc4e0
+		summarizeBy: none
+		sourceColumn: Qual é a peça com erro de referencial?
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Arquivo complementar (print OS; Cilia; etc)'
+		dataType: string
+		lineageTag: 28df3572-1ca0-45bb-96d7-2f1b5e700925
+		summarizeBy: none
+		sourceColumn: Arquivo complementar (print OS; Cilia; etc)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inclua o ID da ligação Genesys'
+		dataType: string
+		lineageTag: 877e46ef-5a7e-4ed1-8db2-2592cfb67420
+		summarizeBy: none
+		sourceColumn: Inclua o ID da ligação Genesys
+
+		annotation SummarizationSetBy = Automatic
+
+	column Coluna1
+		dataType: string
+		lineageTag: 99d5d30f-6afa-40d9-a158-19fb693fa48d
+		summarizeBy: none
+		sourceColumn: Coluna1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition RespostasFormulario = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(Web.Contents("https://edenred-my.sharepoint.com/personal/lucas_malessa_edenred_com/Documents/Projeto Preço Parceiro.xlsx"), null, true),
+				    OfficeForms.Table_Table = Fonte{[Item="TabelaPrecoParceiro",Kind="Table"]}[Data],
+				    #"Tipo Alterado" = Table.TransformColumnTypes(OfficeForms.Table_Table,{{"Número da ordem", type text}}),
+				    #"Texto Aparado" = Table.TransformColumns(#"Tipo Alterado",{{"Número da ordem", Text.Trim, type text}}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Texto Aparado", each ([Número da ordem] <> null))
+				in
+				    #"Linhas Filtradas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,65 @@
+table _Medidas
+	lineageTag: 53560b45-271a-4d51-b155-59224bb35068
+
+	measure 'VA Peças' =
+			
+			SUM(FactAprovacaoPrecoParceiro[ValorTotalPeca])
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: caa229d5-5570-4902-a42d-92a510bc36ff
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'VA Peças Referencial Sem Negociado' =
+			
+			CALCULATE(
+			    [VA Peças],
+			    FactAprovacaoPrecoParceiro[ValorUnitarioReferencial] > 0                    -- Com preço referencial
+			    && FactAprovacaoPrecoParceiro[ValorUnitarioNegociado] = BLANK()             -- Sem preço negociado
+			)
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 83ba6962-5734-4a67-9d75-7ccc6f471df6
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	/// VA Peças com Referencial, sem Negociado e desconsiderando ECs do tipo Concessionária
+	/// 
+	measure 'VA Peças Potencial' =
+			
+			CALCULATE(
+			    [VA Peças Referencial Sem Negociado],
+			    FactAprovacaoPrecoParceiro[TipoEC] <> "Concessionaria"
+			)
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: ef101ce9-9c0e-496c-84c5-1a15c1ad3e5f
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'VA Peças Travado Preço Parceiro' =
+			
+			CALCULATE(
+			    [VA Peças Potencial],
+			    FactAprovacaoPrecoParceiro[ValorUnitarioNegociadoPrecoParceiro] <> BLANK()
+			)
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: e2881a27-5a3e-464a-8c2a-9feee0f925be
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '% Aproveitamento' =
+			
+			DIVIDE([VA Peças Travado Preço Parceiro],[VA Peças Potencial])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 252124c6-1d9e-4b03-af0f-a74a150b6f7f
+
+	partition _Medidas = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Coluna 1" = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Coluna 1", type text}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"Coluna 1"})
+				in
+				    #"Colunas Removidas"
+
+	annotation PBI_ResultType = Table
+

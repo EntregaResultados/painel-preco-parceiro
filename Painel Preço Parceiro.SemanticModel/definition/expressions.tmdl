@@ -1,0 +1,28 @@
+expression ClusterDB = "/sql/1.0/warehouses/4dc5e8e336ea177a" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+	lineageTag: 458379ee-1567-4eb9-bdc6-83ce0a774c9b
+	queryGroup: Conexção
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Text
+
+expression HostDB = "adb-7941093640821140.0.azuredatabricks.net" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+	lineageTag: 090414f7-6cf7-463f-baf3-a715c0323396
+	queryGroup: Conexção
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Text
+
+expression Azure =
+		let
+		    Fonte = Databricks.Query(HostDB, ClusterDB, [Catalog=null, Database=null, EnableAutomaticProxyDiscovery=null,EnableQueryResultDownload="0"])
+		in
+		    Fonte
+	lineageTag: 21298cf4-d4d3-4786-8d44-6fc2f63b8216
+	queryGroup: Conexção
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Function
+

@@ -1,0 +1,70 @@
+table DimAprovadores
+	lineageTag: 04f19eb2-7970-46ff-a751-fe9048483da4
+
+	column 'Nome Aprovador'
+		dataType: string
+		lineageTag: 1b488faa-d4e0-4024-bb8a-26ddeacfadb8
+		summarizeBy: none
+		sourceColumn: Nome Aprovador
+
+		annotation SummarizationSetBy = Automatic
+
+	column E-mail
+		dataType: string
+		lineageTag: 3748174f-4dd8-4c67-92f1-a414e7304999
+		summarizeBy: none
+		sourceColumn: E-mail
+
+		annotation SummarizationSetBy = Automatic
+
+	column dUsuario
+		dataType: string
+		lineageTag: 6f7eb61a-a324-4c3b-9bcf-6518c72837ab
+		summarizeBy: none
+		sourceColumn: dUsuario
+
+		annotation SummarizationSetBy = Automatic
+
+	column Carteira
+		dataType: string
+		lineageTag: 28272874-d73f-472e-8ca2-b3fa5e170133
+		summarizeBy: none
+		sourceColumn: Carteira
+
+		annotation SummarizationSetBy = Automatic
+
+	column Supervisor
+		dataType: string
+		lineageTag: ca0fad81-06db-4c8d-8e13-99c428f0d04b
+		summarizeBy: none
+		sourceColumn: Supervisor
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimAprovadores = m
+		mode: import
+		queryGroup: Dimensões
+		source =
+				let
+				    Fonte = Excel.Workbook(Web.Contents("https://edenred-my.sharepoint.com/personal/lucas_malessa_edenred_com/Documents/Power BI - Produtividade Aprovação\dim_carteiras.xlsx"), null, true),
+				    Aprovadores_Sheet = Fonte{[Item="Aprovadores",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Aprovadores_Sheet, [PromoteAllScalars=true]),
+				    #"Texto Aparado" = Table.TransformColumns(#"Cabeçalhos Promovidos",{{"Nome Aprovador", Text.Trim, type text}, {"E-mail", Text.Trim, type text}, {"dUsuario", Text.Trim, type text}, {"Carteira", Text.Trim, type text}, {"Supervisor", Text.Trim, type text}, {"Colaborador Terceiro", Text.Trim, type text}, {"Sábado", Text.Trim, type text}}),
+				    #"Texto Limpo" = Table.TransformColumns(#"Texto Aparado",{{"Nome Aprovador", Text.Clean, type text}, {"E-mail", Text.Clean, type text}, {"dUsuario", Text.Clean, type text}, {"Carteira", Text.Clean, type text}, {"Supervisor", Text.Clean, type text}, {"Colaborador Terceiro", Text.Clean, type text}, {"Sábado", Text.Clean, type text}}),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Texto Limpo",{{"Data Admissão", type date}, {"Data Desligamento", type date}}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Tipo Alterado", {"dUsuario"}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Duplicatas Removidas", each ([dUsuario] <> null)),
+				    #"Texto Aparado1" = Table.TransformColumns(#"Linhas Filtradas",{{"dUsuario", Text.Trim, type text}}),
+				    #"Texto Limpo1" = Table.TransformColumns(#"Texto Aparado1",{{"dUsuario", Text.Clean, type text}}),
+				    #"Personalização Adicionada" = Table.AddColumn(#"Texto Limpo1", "Personalizar", each if Duration.Days(DateTime.Date(DateTime.LocalNow()) - [Data Admissão]) <= 180 then "Sim" else "Não"),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Personalização Adicionada",{{"Personalizar", type text}}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Tipo Alterado1",{{"Personalizar", "Em Treinamento?"}}),
+				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Colunas Renomeadas",{"Nome Aprovador", "E-mail", "dUsuario", "Carteira", "Supervisor"}),
+				    #"Duplicatas Removidas1" = Table.Distinct(#"Outras Colunas Removidas", {"dUsuario"})
+				in
+				    #"Duplicatas Removidas1"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

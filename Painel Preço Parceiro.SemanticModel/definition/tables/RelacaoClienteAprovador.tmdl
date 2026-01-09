@@ -1,0 +1,159 @@
+table RelacaoClienteAprovador
+	lineageTag: 9f9556ff-b0a4-4bd9-9a26-645885f37377
+
+	column CodigoCliente
+		dataType: string
+		lineageTag: 690b2511-70f5-43f1-b647-6d2b56c1a485
+		summarizeBy: none
+		sourceColumn: CodigoCliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column Aprovador
+		dataType: string
+		lineageTag: ab8cb616-a6c2-4b59-aaa4-0d9b90d1c9c3
+		summarizeBy: none
+		sourceColumn: Aprovador
+
+		annotation SummarizationSetBy = Automatic
+
+	column nome_aprovador
+		dataType: string
+		lineageTag: b04dcd09-bc95-4a58-b0e9-2f58920088fc
+		summarizeBy: none
+		sourceColumn: nome_aprovador
+
+		annotation SummarizationSetBy = Automatic
+
+	column DataInicio
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: cd046357-7214-455d-9e2b-7ad556714935
+		summarizeBy: none
+		sourceColumn: DataInicio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DataFim
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5280e5ed-441a-4065-a0e7-2396a1f4a746
+		summarizeBy: none
+		sourceColumn: DataFim
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition RelacaoClienteAprovador = m
+		mode: import
+		source = ```
+				let
+				    Fonte = Azure("
+				
+				WITH logs AS (
+				  SELECT
+				    dmplv.ClientId AS CodigoCliente,
+				    CAST(dmplv.ParameterLogOrgValueModificationTimestamp AS TIMESTAMP) AS ts,
+				    COALESCE(dmplv.OldValueDescription, '') AS old_values,
+				    COALESCE(dmplv.NewValueDescription, '') AS new_values
+				  FROM hive_metastore.gold.Dim_MaintenanceParameterLogValue AS dmplv
+				  WHERE dmplv.ParameterId = 586
+				    -- opcional: limitar a um cliente específico
+				    -- AND dmplv.ClientId IN (37514,150797,158555)
+				),
+				
+				-- Normaliza old/new em arrays (aceita ; ou , como separadores, remove espaços, vazios e duplicados)
+				sets AS (
+				  SELECT
+				    CodigoCliente,
+				    ts,
+				    array_distinct(
+				      filter(
+				        split(regexp_replace(old_values, '\\s+', ''), '[;,]+'),
+				        x -> x <> ''
+				      )
+				    ) AS old_set,
+				    array_distinct(
+				      filter(
+				        split(regexp_replace(new_values, '\\s+', ''), '[;,]+'),
+				        x -> x <> ''
+				      )
+				    ) AS new_set
+				  FROM logs
+				),
+				
+				-- Inclusões: itens presentes em new_set e ausentes em old_set (ADD)
+				adds AS (
+				  SELECT
+				    CodigoCliente,
+				    ts,
+				    CAST(approver AS STRING) AS approver
+				  FROM sets
+				  LATERAL VIEW explode(new_set) ns AS approver
+				  WHERE NOT array_contains(old_set, approver)
+				),
+				
+				-- Exclusões: itens presentes em old_set e ausentes em new_set (REMOVE)
+				removes AS (
+				  SELECT
+				    CodigoCliente,
+				    ts,
+				    CAST(approver AS STRING) AS approver
+				  FROM sets
+				  LATERAL VIEW explode(old_set) os AS approver
+				  WHERE NOT array_contains(new_set, approver)
+				),
+				
+				events AS (
+				  SELECT CodigoCliente, approver, ts, 'ADD'    AS event_type FROM adds
+				  UNION ALL
+				  SELECT CodigoCliente, approver, ts, 'REMOVE' AS event_type FROM removes
+				),
+				
+				-- Para cada cliente+aprovador, pegue o próximo evento após um ADD como DataFim
+				ordered AS (
+				  SELECT
+				    CodigoCliente,
+				    approver,
+				    event_type,
+				    ts,
+				    LEAD(ts) OVER (PARTITION BY CodigoCliente, approver ORDER BY ts)         AS next_ts,
+				    LEAD(event_type) OVER (PARTITION BY CodigoCliente, approver ORDER BY ts) AS next_event_type
+				  FROM events
+				)
+				
+				SELECT
+				  CodigoCliente,
+				  -- Se preferir numérico:
+				  -- CAST(approver AS BIGINT) AS Aprovador,
+				  approver AS Aprovador,
+				  dwu.WebUserName AS nome_aprovador,
+				  date_format(ts, 'yyyy-MM-dd HH:mm') AS DataInicio,
+				  date_format(next_ts, 'yyyy-MM-dd HH:mm') AS DataFim
+				FROM ordered
+				LEFT JOIN hive_metastore.gold.dim_webusers AS dwu
+				  ON 
+				  dwu.WebUserSourceCode = ordered.approver
+				WHERE 1=1
+				AND event_type = 'ADD'
+				
+				ORDER BY CodigoCliente, Aprovador, DataInicio
+				
+				
+				"),
+				    #"Linhas Filtradas" = Table.SelectRows(Fonte, each ([CodigoCliente] <> null) and ([Aprovador] <> "0" and [Aprovador] <> "1" and [Aprovador] <> "10") and ([nome_aprovador] <> "Ebubicz")),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Linhas Filtradas",{{"CodigoCliente", type text}}),
+				    #"Texto Extraído Antes do Delimitador" = Table.TransformColumns(#"Tipo Alterado", {{"DataInicio", each Text.BeforeDelimiter(_, " "), type text}}),
+				    #"Texto Extraído Antes do Delimitador1" = Table.TransformColumns(#"Texto Extraído Antes do Delimitador", {{"DataFim", each Text.BeforeDelimiter(_, " "), type text}}),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Texto Extraído Antes do Delimitador1",{{"DataInicio", type date}, {"DataFim", type date}})
+				in
+				    #"Tipo Alterado1"
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

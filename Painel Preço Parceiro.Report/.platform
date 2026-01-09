@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Painel Preço Parceiro"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "dc8ff7b3-5c6c-436c-8df0-5cc6c1c67048"
+  }
+}

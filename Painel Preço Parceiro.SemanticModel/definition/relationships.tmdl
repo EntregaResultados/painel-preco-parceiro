@@ -1,0 +1,24 @@
+relationship AutoDetected_693e5817-be7c-43bf-aaeb-4b4446a63b37
+	fromColumn: DimSupervisores.Coordenador
+	toColumn: DimCoordenadores.Coordenador
+
+relationship 6c62c0f1-7a11-7b81-ee35-46ae4af6868d
+	fromColumn: DimAprovadores.Supervisor
+	toColumn: DimSupervisores.Supervisor
+
+relationship 351f6151-dc8a-af21-d8c3-1f0129ffeb65
+	fromColumn: RelacaoClienteAprovador.nome_aprovador
+	toColumn: DimAprovadores.dUsuario
+
+relationship e8a8a6d4-b215-5868-37a4-a59ff14d980f
+	fromColumn: RespostasFormulario.'Número da ordem'
+	toColumn: RespostasFormularioDistintasOS.'Número da ordem'
+
+relationship 8cf375b7-2fc0-c43b-e569-b2923e4214fb
+	fromColumn: FactAprovacaoPrecoParceiro.NomeUsuario
+	toColumn: DimAprovadores.dUsuario
+
+relationship 4ae15203-cfb3-90dd-a963-f8e6835df321
+	fromColumn: FactAprovacaoPrecoParceiro.NumeroOS
+	toColumn: RespostasFormularioDistintasOS.'Número da ordem'
+

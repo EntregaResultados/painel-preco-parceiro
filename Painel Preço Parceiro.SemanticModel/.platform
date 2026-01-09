@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Painel Preço Parceiro"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "8c657be9-5d44-490c-ba37-ca0a4c8da8b7"
+  }
+}
