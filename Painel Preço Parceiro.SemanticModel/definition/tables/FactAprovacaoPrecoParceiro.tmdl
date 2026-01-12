@@ -22,13 +22,15 @@ table FactAprovacaoPrecoParceiro
 
 	column DataAprovacao1OS
 		dataType: dateTime
-		formatString: General Date
+		formatString: Short Date
 		displayFolder: _OS
 		lineageTag: 94414d46-fdde-4cd7-8d17-445823ff3d6b
 		summarizeBy: none
 		sourceColumn: DataAprovacao1OS
 
 		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
 
 	column NomeUsuario
 		dataType: string
@@ -299,6 +301,7 @@ table FactAprovacaoPrecoParceiro
 
 	partition FactAprovacaoPrecoParceiro = m
 		mode: import
+		queryGroup: Fatos
 		source = ```
 				let
 				    Fonte = Azure("
@@ -486,9 +489,11 @@ table FactAprovacaoPrecoParceiro
 				    Personalizar3 = Table.RenameColumns(#"Personalizar2",{{"InfoPrecoParceiro - Copiar", "ValidadeNegociacaoMeses"}, {"InfoPrecoParceiro", "ValorUnitarioNegociadoPrecoParceiro"}}),
 				    Personalizar4 = Table.ReplaceValue(#"Personalizar3",".",",",Replacer.ReplaceText,{"ValorUnitarioNegociadoPrecoParceiro"}),
 				    #"Tipo Alterado" = Table.TransformColumnTypes(Personalizar4,{{"ValorUnitarioNegociadoPrecoParceiro", Currency.Type}, {"ValidadeNegociacaoMeses", Int64.Type}}),
-				    #"Personalização Adicionada" = Table.AddColumn(#"Tipo Alterado", "ValorTotalNegociadoPrecoParceiro", each [QuantidadePeca] * [ValorUnitarioNegociadoPrecoParceiro])
+				    #"Personalização Adicionada" = Table.AddColumn(#"Tipo Alterado", "ValorTotalNegociadoPrecoParceiro", each [QuantidadePeca] * [ValorUnitarioNegociadoPrecoParceiro]),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Personalização Adicionada",{{"DataAprovacao1OS", type date}}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Tipo Alterado1", each [DataAprovacao1OS] >= #date(2025, 4, 1))
 				in
-				    #"Personalização Adicionada"
+				    #"Linhas Filtradas"
 				```
 
 	annotation PBI_NavigationStepName = Navegação

@@ -1,0 +1,48 @@
+table P_Aproveitamento
+	lineageTag: ada794f2-1df7-4886-9e16-248201ce04f2
+
+	column P_Aproveitamento
+		lineageTag: 173024f8-020a-415b-89ac-0c909fa688c4
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'P_Aproveitamento Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'P_Aproveitamento Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'P_Aproveitamento Campos'
+		isHidden
+		lineageTag: 8519bf1a-0143-4643-96dd-3fea4c7ede2e
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'P_Aproveitamento Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'P_Aproveitamento Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 862797ef-b8e3-4115-be49-fa0a35098899
+		summarizeBy: none
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition P_Aproveitamento = calculated
+		mode: import
+		source =
+				{
+				    ("% Aproveitamento Aderente", NAMEOF('_Medidas'[% Aproveitamento Aderente]), 1),
+				    ("% Aproveitamento", NAMEOF('_Medidas'[% Aproveitamento]), 0)
+				}
+
+	annotation PBI_Id = 5b27fda723514519ba5a70719614bdce
+

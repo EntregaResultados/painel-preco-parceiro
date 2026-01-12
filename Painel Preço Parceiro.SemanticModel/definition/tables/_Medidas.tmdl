@@ -4,7 +4,7 @@ table _Medidas
 	measure 'VA Peças' =
 			
 			SUM(FactAprovacaoPrecoParceiro[ValorTotalPeca])
-		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
 		lineageTag: caa229d5-5570-4902-a42d-92a510bc36ff
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
@@ -16,7 +16,7 @@ table _Medidas
 			    FactAprovacaoPrecoParceiro[ValorUnitarioReferencial] > 0                    -- Com preço referencial
 			    && FactAprovacaoPrecoParceiro[ValorUnitarioNegociado] = BLANK()             -- Sem preço negociado
 			)
-		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
 		lineageTag: 83ba6962-5734-4a67-9d75-7ccc6f471df6
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
@@ -29,7 +29,7 @@ table _Medidas
 			    [VA Peças Referencial Sem Negociado],
 			    FactAprovacaoPrecoParceiro[TipoEC] <> "Concessionaria"
 			)
-		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
 		lineageTag: ef101ce9-9c0e-496c-84c5-1a15c1ad3e5f
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
@@ -40,7 +40,7 @@ table _Medidas
 			    [VA Peças Potencial],
 			    FactAprovacaoPrecoParceiro[ValorUnitarioNegociadoPrecoParceiro] <> BLANK()
 			)
-		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
 		lineageTag: e2881a27-5a3e-464a-8c2a-9feee0f925be
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
@@ -50,6 +50,34 @@ table _Medidas
 			DIVIDE([VA Peças Travado Preço Parceiro],[VA Peças Potencial])
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 252124c6-1d9e-4b03-af0f-a74a150b6f7f
+
+	measure 'VA Peças Potencial Aderente' =
+			
+			CALCULATE(
+			    [VA Peças Potencial],
+			    FactAprovacaoPrecoParceiro[AderenciaPrecoReferencial] = "OK"
+			)
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		lineageTag: 837d40a1-d866-4ce9-9503-606f8d50aa4c
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'VA Peças Travado Preço Parceiro Aderente' =
+			
+			CALCULATE(
+			    [VA Peças Travado Preço Parceiro],
+			    FactAprovacaoPrecoParceiro[AderenciaPrecoReferencial] = "OK"
+			)
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		lineageTag: 1ae8d451-1832-4945-82d6-b28e7396bd00
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '% Aproveitamento Aderente' =
+			
+			DIVIDE([VA Peças Travado Preço Parceiro Aderente],[VA Peças Potencial Aderente])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 23f66bc2-e765-494a-84cd-1108783d80b0
 
 	partition _Medidas = m
 		mode: import

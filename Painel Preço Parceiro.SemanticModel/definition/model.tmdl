@@ -14,9 +14,13 @@ queryGroup Dimensões
 
 	annotation PBI_QueryGroupOrder = 1
 
+queryGroup Fatos
+
+	annotation PBI_QueryGroupOrder = 2
+
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBI_QueryOrder = ["ClusterDB","HostDB","Azure","DimCoordenadores","DimSupervisores","DimAprovadores","RelacaoClienteAprovador","RespostasFormulario","RespostasFormularioDistintasOS","FactAprovacaoPrecoParceiro","_Medidas"]
+annotation PBI_QueryOrder = ["ClusterDB","HostDB","Azure","DimCoordenadores","DimSupervisores","DimAprovadores","DimCalendario","RelacaoClienteAprovador","RespostasFormulario","RespostasFormularioDistintasOS","FactAprovacaoPrecoParceiro","_Medidas","Conexao"]
 
 annotation PBI_ProTooling = ["TMDLView_Desktop","DevMode"]
 
@@ -28,6 +32,11 @@ ref table RespostasFormulario
 ref table RespostasFormularioDistintasOS
 ref table FactAprovacaoPrecoParceiro
 ref table _Medidas
+ref table DimCalendario
+ref table P_Aproveitamento
+ref table P_VA_Potencial
+ref table P_Travado
+ref table Conexao
 
 ref cultureInfo pt-BR
 

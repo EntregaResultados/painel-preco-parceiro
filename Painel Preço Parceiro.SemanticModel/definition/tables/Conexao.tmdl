@@ -1,0 +1,32 @@
+table Conexao
+	lineageTag: 312cc622-d611-4739-97c0-7c3d2a0702d3
+
+	column Codigo
+		dataType: int64
+		formatString: 0
+		lineageTag: c32e67ef-2d2f-4335-bd79-b6a58f740442
+		summarizeBy: none
+		sourceColumn: Codigo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Parametro
+		dataType: string
+		lineageTag: ea1cd7a5-ddb1-4e0b-b9fd-68ab03629b68
+		summarizeBy: none
+		sourceColumn: Parametro
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Conexao = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i45WMlDSUXJPLUrMAdJKsTrRSoZARlBqWmpRal5yZmKOgmMKiFmSCpaPBQA=", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Codigo = _t, Parametro = _t, #"Coluna 1" = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Codigo", Int64.Type}, {"Parametro", type text}, {"Coluna 1", type text}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"Coluna 1"})
+				in
+				    #"Colunas Removidas"
+
+	annotation PBI_ResultType = Table
+

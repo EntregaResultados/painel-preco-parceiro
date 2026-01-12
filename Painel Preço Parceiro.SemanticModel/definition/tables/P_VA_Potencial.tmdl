@@ -1,0 +1,48 @@
+table P_VA_Potencial
+	lineageTag: c1817329-9256-4c02-a48a-aa87778f985d
+
+	column P_VA_Potencial
+		lineageTag: d3e5493b-21f4-4094-bea5-93c8297a0d04
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'P_VA_Potencial Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'P_VA_Potencial Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'P_VA_Potencial Campos'
+		isHidden
+		lineageTag: 1d675752-b6c7-44ce-afde-aa346558562d
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'P_VA_Potencial Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'P_VA_Potencial Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 333cb898-9f9b-4c21-b544-e4109e8b2da4
+		summarizeBy: none
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition P_VA_Potencial = calculated
+		mode: import
+		source =
+				{
+				    ("VA Peças Potencial Aderente", NAMEOF('_Medidas'[VA Peças Potencial Aderente]), 1),
+				    ("VA Peças Potencial", NAMEOF('_Medidas'[VA Peças Potencial]), 0)
+				}
+
+	annotation PBI_Id = 72e77c22660e44358967158b7c429dab
+

@@ -1,0 +1,120 @@
+table DimCalendario
+	lineageTag: 39194cfe-5cf4-4009-9091-da67687fd4ca
+	dataCategory: Time
+
+	column DataCompleta
+		dataType: dateTime
+		isKey
+		formatString: Short Date
+		lineageTag: 15bd3260-ec2c-4b7c-8b8a-3ea6c119e794
+		summarizeBy: none
+		sourceColumn: DataCompleta
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Ano
+		dataType: int64
+		formatString: 0
+		lineageTag: 04cd9773-2d8c-4436-a50c-a47c18489961
+		summarizeBy: none
+		sourceColumn: Ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column MesNumero
+		dataType: int64
+		formatString: 0
+		lineageTag: 5b836374-36fa-45d3-9f58-7c65ea423ef6
+		summarizeBy: none
+		sourceColumn: MesNumero
+
+		annotation SummarizationSetBy = Automatic
+
+	column Semana
+		dataType: int64
+		formatString: 0
+		lineageTag: 16f87518-6973-4d77-96a1-ece85f2bdb74
+		summarizeBy: none
+		sourceColumn: Semana
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dia
+		dataType: int64
+		formatString: 0
+		lineageTag: c777b9f1-7ac3-4b19-b8db-43dd6388ceb1
+		summarizeBy: none
+		sourceColumn: Dia
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mes
+		dataType: string
+		lineageTag: 925f0e4f-5302-41bd-8f43-8b858be030af
+		summarizeBy: none
+		sourceColumn: Mes
+		sortByColumn: MesNumero
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column MesAbreviado
+		dataType: string
+		lineageTag: d87ad3e4-f9e8-42b5-af04-ead0b51ed707
+		summarizeBy: none
+		sourceColumn: MesAbreviado
+		sortByColumn: MesNumero
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'Ano Hierarquia'
+		lineageTag: 707a430e-8c04-4413-a922-1632281bf44a
+
+		level Ano
+			lineageTag: 7f804097-5858-4fd9-a391-e60bf1fa2b7e
+			column: Ano
+
+		level MesAbreviado
+			lineageTag: cbd30994-5b3b-4ae7-a4ae-427cb68c313c
+			column: MesAbreviado
+
+		level Dia
+			lineageTag: 816730da-1244-4c53-a1c7-85ea561a43be
+			column: Dia
+
+	partition DimCalendario = m
+		mode: import
+		queryGroup: Dimensões
+		source = ```
+				let
+				    Fonte = Azure("
+				SELECT
+				  ReferenceDate                               AS DataCompleta,
+				  ReferenceYear                               AS Ano,
+				  ReferenceMonth                              As MesNumero,
+				  YearWeek                                    AS Semana,
+				  YearDay                                     AS Dia,
+				  MonthNamePt                                 AS Mes
+				FROM gold.dim_dates 
+				WHERE 1=1 
+				    AND ReferenceDate >= '2025-04-01'
+				    AND IsTodayOrBefore = True
+				ORDER BY ReferenceDate DESC
+				
+				"),
+				    #"Coluna Duplicada" = Table.DuplicateColumn(Fonte, "Mes", "Mes - Copiar"),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Coluna Duplicada",{{"Mes - Copiar", "MesAbreviado"}}),
+				    #"Primeiros caracteres extraídos" = Table.TransformColumns(#"Colunas Renomeadas", {{"MesAbreviado", each Text.Start(_, 3), type text}})
+				in
+				    #"Primeiros caracteres extraídos"
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

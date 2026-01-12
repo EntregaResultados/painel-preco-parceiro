@@ -1,0 +1,48 @@
+table P_Travado
+	lineageTag: 123c9485-3db8-4181-9e24-41bb7d977d51
+
+	column P_Travado
+		lineageTag: acc12bc9-393e-4e22-b704-70a4ecbac5ee
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'P_Travado Pedido'
+
+		relatedColumnDetails
+			groupByColumn: 'P_Travado Campos'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'P_Travado Campos'
+		isHidden
+		lineageTag: dbf8e435-c8b7-4849-84b4-0accd5b7de37
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'P_Travado Pedido'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'P_Travado Pedido'
+		isHidden
+		formatString: 0
+		lineageTag: 9e78485d-d69c-4ad6-bbb4-0b184f1ca229
+		summarizeBy: none
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition P_Travado = calculated
+		mode: import
+		source =
+				{
+				    ("VA Peças Travado Preço Parceiro Aderente", NAMEOF('_Medidas'[VA Peças Travado Preço Parceiro Aderente]), 1),
+				    ("VA Peças Travado Preço Parceiro", NAMEOF('_Medidas'[VA Peças Travado Preço Parceiro]), 0)
+				}
+
+	annotation PBI_Id = 987bcd2702844f63bb8ab11fedb4b0f3
+

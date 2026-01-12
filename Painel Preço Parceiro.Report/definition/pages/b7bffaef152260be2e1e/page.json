@@ -1,8 +1,47 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
   "name": "b7bffaef152260be2e1e",
-  "displayName": "Página 1",
+  "displayName": "Visão geral de produtividade",
   "displayOption": "FitToPage",
   "height": 720,
-  "width": 1280
+  "width": 1280,
+  "objects": {
+    "outspace": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 0,
+                    "Percent": -0.1
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "ab885a16980ca66e807d",
+      "target": "0021209e2d86dd0585a0",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ab885a16980ca66e807d",
+      "target": "26f85b8fb601ea964001",
+      "type": "DataFilter"
+    }
+  ]
 }
