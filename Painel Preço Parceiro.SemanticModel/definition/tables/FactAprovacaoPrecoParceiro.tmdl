@@ -71,11 +71,10 @@ table FactAprovacaoPrecoParceiro
 		annotation SummarizationSetBy = Automatic
 
 	column CodigoCliente
-		dataType: int64
-		formatString: 0
+		dataType: string
 		displayFolder: _Cliente
 		lineageTag: 34504bff-a297-4821-886e-333120aadf8e
-		summarizeBy: sum
+		summarizeBy: none
 		sourceColumn: CodigoCliente
 
 		annotation SummarizationSetBy = Automatic
@@ -185,6 +184,7 @@ table FactAprovacaoPrecoParceiro
 
 	column ValorUnitarioPeca
 		dataType: double
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: _ValoresAprovação
 		lineageTag: 97904c0e-a96c-4446-a9f4-9c17a1b0de83
 		summarizeBy: sum
@@ -192,10 +192,11 @@ table FactAprovacaoPrecoParceiro
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	column ValorTotalPeca
 		dataType: double
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: _ValoresAprovação
 		lineageTag: 32340e4a-81f1-4e35-a14a-c3d81bca7baa
 		summarizeBy: sum
@@ -203,10 +204,11 @@ table FactAprovacaoPrecoParceiro
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	column ValorUnitarioNegociado
 		dataType: double
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: _PrecoReferencial/Negociado
 		lineageTag: 909f8960-32f0-40e8-b331-8415740512aa
 		summarizeBy: sum
@@ -214,10 +216,11 @@ table FactAprovacaoPrecoParceiro
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	column ValorUnitarioReferencial
 		dataType: double
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: _PrecoReferencial/Negociado
 		lineageTag: f173f368-0b78-449c-a4c8-2d3a0e0cfe23
 		summarizeBy: sum
@@ -225,10 +228,11 @@ table FactAprovacaoPrecoParceiro
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	column ValorUnitarioHierarquiaReferencial
 		dataType: double
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: _PrecoReferencial/Negociado
 		lineageTag: 7efa2741-b22b-4fd0-88bd-4b09e9dcf2dd
 		summarizeBy: sum
@@ -236,10 +240,11 @@ table FactAprovacaoPrecoParceiro
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	column ValorTotalHierarquiaReferencial
 		dataType: double
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: _PrecoReferencial/Negociado
 		lineageTag: e5fc7058-fd5b-439e-9987-13ac6ef845d6
 		summarizeBy: sum
@@ -247,7 +252,7 @@ table FactAprovacaoPrecoParceiro
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
 	column AderenciaPrecoReferencial
 		dataType: string
@@ -270,7 +275,7 @@ table FactAprovacaoPrecoParceiro
 
 	column ValorUnitarioNegociadoPrecoParceiro
 		dataType: decimal
-		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: _PreçoParceiro
 		lineageTag: dc0af61a-366c-4d14-8c85-39bc4a69f190
 		summarizeBy: sum
@@ -291,11 +296,36 @@ table FactAprovacaoPrecoParceiro
 		annotation SummarizationSetBy = Automatic
 
 	column ValorTotalNegociadoPrecoParceiro
-		dataType: string
+		dataType: decimal
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
 		displayFolder: _PreçoParceiro
 		lineageTag: 31fed204-1b8b-4a14-a72c-0fbc12daf832
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: ValorTotalNegociadoPrecoParceiro
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column DiferencaValorUnitarioReferencialXNeggociado
+		dataType: decimal
+		formatString: "R$"\ #,0.00;-"R$"\ #,0.00;"R$"\ #,0.00
+		lineageTag: 98711aff-3666-416e-a9f4-6b387e793e3f
+		summarizeBy: sum
+		sourceColumn: DiferencaValorUnitarioReferencialXNeggociado
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	column '% DiferencaNegociadoXReferencial' =
+			
+			DIVIDE(FactAprovacaoPrecoParceiro[DiferencaValorUnitarioReferencialXNeggociado],FactAprovacaoPrecoParceiro[ValorUnitarioReferencial])
+		formatString: #,0.00%;-#,0.00%;#,0.00%
+		lineageTag: d272d3c7-1fe4-4f27-b3c4-3383e7f9dd2e
+		summarizeBy: sum
 
 		annotation SummarizationSetBy = Automatic
 
@@ -490,10 +520,12 @@ table FactAprovacaoPrecoParceiro
 				    Personalizar4 = Table.ReplaceValue(#"Personalizar3",".",",",Replacer.ReplaceText,{"ValorUnitarioNegociadoPrecoParceiro"}),
 				    #"Tipo Alterado" = Table.TransformColumnTypes(Personalizar4,{{"ValorUnitarioNegociadoPrecoParceiro", Currency.Type}, {"ValidadeNegociacaoMeses", Int64.Type}}),
 				    #"Personalização Adicionada" = Table.AddColumn(#"Tipo Alterado", "ValorTotalNegociadoPrecoParceiro", each [QuantidadePeca] * [ValorUnitarioNegociadoPrecoParceiro]),
-				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Personalização Adicionada",{{"DataAprovacao1OS", type date}}),
-				    #"Linhas Filtradas" = Table.SelectRows(#"Tipo Alterado1", each [DataAprovacao1OS] >= #date(2025, 4, 1))
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Personalização Adicionada",{{"DataAprovacao1OS", type date}, {"ValorTotalNegociadoPrecoParceiro", Currency.Type}}),
+				    #"Linhas Filtradas" = Table.SelectRows(#"Tipo Alterado1", each [DataAprovacao1OS] >= #date(2025, 4, 1)),
+				    #"Personalização Adicionada1" = Table.AddColumn(#"Linhas Filtradas", "DiferencaValorUnitarioReferencialXNeggociado", each [ValorUnitarioNegociadoPrecoParceiro] - [ValorUnitarioReferencial]),
+				    #"Tipo Alterado2" = Table.TransformColumnTypes(#"Personalização Adicionada1",{{"CodigoCliente", type text}})
 				in
-				    #"Linhas Filtradas"
+				    #"Tipo Alterado2"
 				```
 
 	annotation PBI_NavigationStepName = Navegação

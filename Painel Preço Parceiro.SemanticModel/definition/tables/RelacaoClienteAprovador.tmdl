@@ -27,7 +27,7 @@ table RelacaoClienteAprovador
 
 	column DataInicio
 		dataType: dateTime
-		formatString: Long Date
+		formatString: Short Date
 		lineageTag: cd046357-7214-455d-9e2b-7ad556714935
 		summarizeBy: none
 		sourceColumn: DataInicio
@@ -38,7 +38,7 @@ table RelacaoClienteAprovador
 
 	column DataFim
 		dataType: dateTime
-		formatString: Long Date
+		formatString: Short Date
 		lineageTag: 5280e5ed-441a-4065-a0e7-2396a1f4a746
 		summarizeBy: none
 		sourceColumn: DataFim
@@ -155,5 +155,5 @@ table RelacaoClienteAprovador
 
 	annotation PBI_NavigationStepName = Navegação
 
-	annotation PBI_ResultType = Table
+	annotation PBI_ResultType = Exception
 

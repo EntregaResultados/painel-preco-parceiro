@@ -5,6 +5,7 @@ table _Medidas
 			
 			SUM(FactAprovacaoPrecoParceiro[ValorTotalPeca])
 		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		displayFolder: _Aprovações
 		lineageTag: caa229d5-5570-4902-a42d-92a510bc36ff
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
@@ -17,6 +18,7 @@ table _Medidas
 			    && FactAprovacaoPrecoParceiro[ValorUnitarioNegociado] = BLANK()             -- Sem preço negociado
 			)
 		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		displayFolder: _Aprovações
 		lineageTag: 83ba6962-5734-4a67-9d75-7ccc6f471df6
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
@@ -30,6 +32,7 @@ table _Medidas
 			    FactAprovacaoPrecoParceiro[TipoEC] <> "Concessionaria"
 			)
 		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		displayFolder: _Aprovações
 		lineageTag: ef101ce9-9c0e-496c-84c5-1a15c1ad3e5f
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
@@ -39,8 +42,10 @@ table _Medidas
 			CALCULATE(
 			    [VA Peças Potencial],
 			    FactAprovacaoPrecoParceiro[ValorUnitarioNegociadoPrecoParceiro] <> BLANK()
+			    && FactAprovacaoPrecoParceiro[DataEnvioNegociacaoPrecoParceiro] <> BLANK()
 			)
 		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		displayFolder: _Aprovações
 		lineageTag: e2881a27-5a3e-464a-8c2a-9feee0f925be
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
@@ -49,6 +54,7 @@ table _Medidas
 			
 			DIVIDE([VA Peças Travado Preço Parceiro],[VA Peças Potencial])
 		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: _Aprovações
 		lineageTag: 252124c6-1d9e-4b03-af0f-a74a150b6f7f
 
 	measure 'VA Peças Potencial Aderente' =
@@ -58,6 +64,7 @@ table _Medidas
 			    FactAprovacaoPrecoParceiro[AderenciaPrecoReferencial] = "OK"
 			)
 		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		displayFolder: _Aprovações
 		lineageTag: 837d40a1-d866-4ce9-9503-606f8d50aa4c
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
@@ -69,6 +76,7 @@ table _Medidas
 			    FactAprovacaoPrecoParceiro[AderenciaPrecoReferencial] = "OK"
 			)
 		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		displayFolder: _Aprovações
 		lineageTag: 1ae8d451-1832-4945-82d6-b28e7396bd00
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
@@ -77,7 +85,137 @@ table _Medidas
 			
 			DIVIDE([VA Peças Travado Preço Parceiro Aderente],[VA Peças Potencial Aderente])
 		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: _Aprovações
 		lineageTag: 23f66bc2-e765-494a-84cd-1108783d80b0
+
+	measure 'Total de recusas' =
+			
+			CALCULATE(
+			    [Total de respostas formulário],
+			    RespostasFormulario[EC aceitou a negociação?] = "Não"
+			)
+		formatString: 0
+		displayFolder: _Formulário
+		lineageTag: 9135c3ec-9eb6-4bb6-9e36-4d8aa93f0a47
+
+	measure 'Total de respostas formulário' =
+			
+			COUNT(RespostasFormulario[Número da ordem])
+		formatString: 0
+		displayFolder: _Formulário
+		lineageTag: 472a91a6-9104-488f-981c-794ef36328de
+
+	measure '% Recusas formulário' =
+			
+			DIVIDE([Total de recusas], [Total de respostas formulário])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: _Formulário
+		lineageTag: 4cc017a3-bb98-4fd3-b2b6-553c4f8e35d8
+
+	measure 'VA Peças Travado Preço Parceiro Não Aderente' =
+			
+			CALCULATE(
+			    [VA Peças Travado Preço Parceiro],
+			    FactAprovacaoPrecoParceiro[AderenciaPrecoReferencial] = "NOK"
+			)
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		displayFolder: _Aprovações
+		lineageTag: a15992b8-e704-4540-90c0-2d9fe707b334
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '% Travado não aderente' =
+			
+			DIVIDE([VA Peças Travado Preço Parceiro Não Aderente],[VA Peças Travado Preço Parceiro])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: _Aprovações
+		lineageTag: 1a334f68-2e69-467f-acd1-1557055b412e
+
+	measure 'VA Travado Não Aderente' =
+			
+			CALCULATE(
+			    [VA Peças],
+			    FactAprovacaoPrecoParceiro[AderenciaPrecoReferencial] = "NOK"
+			    && FactAprovacaoPrecoParceiro[ValorUnitarioNegociadoPrecoParceiro] > 0
+			)
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		displayFolder: _Auditoria
+		lineageTag: 6af4eade-7b0e-4e87-8c6d-546c652d9e4f
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'VA Travado Aderente' = ```
+			
+			CALCULATE(
+			    [VA Peças],
+			    FactAprovacaoPrecoParceiro[AderenciaPrecoReferencial] = "OK" 
+			    && FactAprovacaoPrecoParceiro[ValorUnitarioNegociadoPrecoParceiro] > 0
+			)
+			```
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		displayFolder: _Auditoria
+		lineageTag: 7cb4fc59-c1c4-411e-9611-a7a8d70d9830
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'VA Travado Sem Referencial' =
+			
+			CALCULATE(
+			    [VA Peças],
+			    FactAprovacaoPrecoParceiro[AderenciaPrecoReferencial] = "NA"
+			    && FactAprovacaoPrecoParceiro[ValorUnitarioNegociadoPrecoParceiro] > 0
+			)
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		displayFolder: _Auditoria
+		lineageTag: 9974a471-147d-45c9-bf66-1bf0597b7683
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Total VA travado' =
+			
+			[VA Travado Não Aderente] + [VA Travado Sem Referencial] + [VA Travado Aderente]
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		displayFolder: _Auditoria
+		lineageTag: 28b62eb5-3a37-4525-8ab4-1a0421fea430
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '% VA Travado Aderente' =
+			
+			DIVIDE([VA Travado Aderente], [Total VA travado])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: _Auditoria
+		lineageTag: 0c628995-e79b-444d-ba0d-582da2da15ee
+
+	measure '% VA Travado Não Aderente' =
+			
+			DIVIDE([VA Travado Não Aderente], [Total VA travado])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: _Auditoria
+		lineageTag: 01107fa2-7d04-4c5c-a536-1831e8b5de3e
+
+	measure '% VA Travado Sem Referencial' =
+			
+			DIVIDE([VA Travado Sem Referencial], [Total VA travado])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: _Auditoria
+		lineageTag: 2c24a36c-b580-4f10-9aa5-e0dcf3131728
+
+	measure 'VA Travado Incorreto' =
+			
+			[VA Travado Não Aderente] + [VA Travado Sem Referencial]
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		displayFolder: _Auditoria
+		lineageTag: c3dc4adc-e465-48bc-b97c-3155f72e6ed9
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure '% VA Travado Incorreto' =
+			
+			DIVIDE([VA Travado Incorreto], [Total VA travado])
+		formatString: 0.00%;-0.00%;0.00%
+		displayFolder: _Auditoria
+		lineageTag: 37ce2535-041a-4076-8e53-d7968fa91668
 
 	partition _Medidas = m
 		mode: import

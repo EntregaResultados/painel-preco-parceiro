@@ -40,8 +40,8 @@ table P_Aproveitamento
 		mode: import
 		source =
 				{
-				    ("% Aproveitamento Aderente", NAMEOF('_Medidas'[% Aproveitamento Aderente]), 1),
-				    ("% Aproveitamento", NAMEOF('_Medidas'[% Aproveitamento]), 0)
+				    ("% Aproveitamento VA Aderente", NAMEOF('_Medidas'[% Aproveitamento Aderente]), 1),
+				    ("% Aproveitamento VA", NAMEOF('_Medidas'[% Aproveitamento]), 0)
 				}
 
 	annotation PBI_Id = 5b27fda723514519ba5a70719614bdce

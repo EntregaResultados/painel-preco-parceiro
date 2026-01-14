@@ -1,0 +1,388 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "f66f61de089b606d2450",
+  "position": {
+    "x": 15.779663918988334,
+    "y": 131.87290560868823,
+    "z": 3000,
+    "height": 568.06790108358,
+    "width": 1252.2290438568598,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RespostasFormulario"
+                    }
+                  },
+                  "Property": "Nome"
+                }
+              },
+              "queryRef": "RespostasFormulario.Nome",
+              "nativeQueryRef": "Nome"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RespostasFormulario"
+                    }
+                  },
+                  "Property": "Número da ordem"
+                }
+              },
+              "queryRef": "RespostasFormulario.Número da ordem",
+              "nativeQueryRef": "Número da ordem"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RespostasFormulario"
+                    }
+                  },
+                  "Property": "Cliente"
+                }
+              },
+              "queryRef": "RespostasFormulario.Cliente",
+              "nativeQueryRef": "Cliente"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RespostasFormulario"
+                    }
+                  },
+                  "Property": "Data negociação"
+                }
+              },
+              "queryRef": "RespostasFormulario.Data negociação",
+              "nativeQueryRef": "Data negociação"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RespostasFormulario"
+                    }
+                  },
+                  "Property": "Descreva o valor referencial da ordem de serviço e o valor adequado para o item:"
+                }
+              },
+              "queryRef": "RespostasFormulario.Descreva o valor referencial da ordem de serviço e o valor adequado para o item:",
+              "nativeQueryRef": "Descreva o valor referencial da ordem de serviço e o valor adequado para o item:"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RespostasFormulario"
+                    }
+                  },
+                  "Property": "EC aceitou a negociação?"
+                }
+              },
+              "queryRef": "RespostasFormulario.EC aceitou a negociação?",
+              "nativeQueryRef": "EC aceitou a negociação?"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RespostasFormulario"
+                    }
+                  },
+                  "Property": "Hora de conclusão"
+                }
+              },
+              "queryRef": "RespostasFormulario.Hora de conclusão",
+              "nativeQueryRef": "Hora de conclusão"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RespostasFormulario"
+                    }
+                  },
+                  "Property": "Inclua o ID da ligação Genesys"
+                }
+              },
+              "queryRef": "RespostasFormulario.Inclua o ID da ligação Genesys",
+              "nativeQueryRef": "Inclua o ID da ligação Genesys"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RespostasFormulario"
+                    }
+                  },
+                  "Property": "Número de itens travados"
+                }
+              },
+              "queryRef": "RespostasFormulario.Número de itens travados",
+              "nativeQueryRef": "Número de itens travados"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RespostasFormulario"
+                    }
+                  },
+                  "Property": "Período de trava"
+                }
+              },
+              "queryRef": "RespostasFormulario.Período de trava",
+              "nativeQueryRef": "Período de trava"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RespostasFormulario"
+                    }
+                  },
+                  "Property": "Qual é a peça com erro de referencial?"
+                }
+              },
+              "queryRef": "RespostasFormulario.Qual é a peça com erro de referencial?",
+              "nativeQueryRef": "Qual é a peça com erro de referencial?"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RespostasFormulario"
+                    }
+                  },
+                  "Property": "Qual o formato aceito pelo EC?"
+                }
+              },
+              "queryRef": "RespostasFormulario.Qual o formato aceito pelo EC?",
+              "nativeQueryRef": "Qual o formato aceito pelo EC?"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RespostasFormulario"
+                    }
+                  },
+                  "Property": "Qual o motivo da recusa?"
+                }
+              },
+              "queryRef": "RespostasFormulario.Qual o motivo da recusa?",
+              "nativeQueryRef": "Qual o motivo da recusa?"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "RespostasFormulario"
+                  }
+                },
+                "Property": "Data negociação"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "199.1285591670661D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "RespostasFormulario.Descreva o valor referencial da ordem de serviço e o valor adequado para o item:"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "83.48557524140244D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "RespostasFormulario.Número da ordem"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "100.67889163599025D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "RespostasFormulario.EC aceitou a negociação?"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "103.7666440407267D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "RespostasFormulario.Número de itens travados"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "87.97776332275303D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "RespostasFormulario.Período de trava"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "168.6555190314993D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "RespostasFormulario.Qual é a peça com erro de referencial?"
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "5880380e06d7b5e0254a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "RespostasFormulario"
+              }
+            },
+            "Property": "Nome"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "r",
+              "Entity": "RespostasFormulario",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "r"
+                              }
+                            },
+                            "Property": "Nome"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'DIEFERSON ROSA'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "isLockedInViewMode": true,
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

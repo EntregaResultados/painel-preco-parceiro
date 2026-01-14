@@ -2,20 +2,17 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "ab885a16980ca66e807d",
   "position": {
-    "x": 946.65334881084141,
-    "y": 312.23389034365465,
-    "z": 8001,
-    "height": 391.84731258267419,
-    "width": 320.9416084010474,
-    "tabOrder": 8001
+    "x": 890.42389257148454,
+    "y": 423.79668810997237,
+    "z": 10000,
+    "height": 280.65259398772105,
+    "width": 377.58481520436368,
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "pivotTable",
     "query": {
       "queryState": {
-        "Columns": {
-          "projections": []
-        },
         "Rows": {
           "projections": [
             {
@@ -46,7 +43,7 @@
               },
               "queryRef": "DimSupervisores.Supervisor",
               "nativeQueryRef": "Supervisor",
-              "active": false
+              "active": true
             },
             {
               "field": {
@@ -61,7 +58,7 @@
               },
               "queryRef": "DimAprovadores.dUsuario",
               "nativeQueryRef": "dUsuario",
-              "active": false
+              "active": true
             }
           ]
         },
@@ -75,12 +72,42 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "% Aproveitamento Aderente"
+                  "Property": "% Aproveitamento"
                 }
               },
-              "queryRef": "_Medidas.% Aproveitamento Aderente",
-              "nativeQueryRef": "% Aproveitamento Aderente",
-              "displayName": "% Aproveitamento Aderente"
+              "queryRef": "_Medidas.% Aproveitamento",
+              "nativeQueryRef": "% Aproveitamento VA",
+              "displayName": "% Aproveitamento VA"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "VA Peças Travado Preço Parceiro"
+                }
+              },
+              "queryRef": "_Medidas.VA Peças Travado Preço Parceiro",
+              "nativeQueryRef": "VA Peças Travado Preço Parceiro",
+              "displayName": "VA Peças Travado Preço Parceiro"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "VA Peças Potencial"
+                }
+              },
+              "queryRef": "_Medidas.VA Peças Potencial",
+              "nativeQueryRef": "VA Peças Potencial",
+              "displayName": "VA Peças Potencial"
             }
           ],
           "fieldParameters": [
@@ -97,6 +124,35 @@
               },
               "index": 0,
               "length": 1
+            },
+            {
+              "parameterExpr": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "P_Travado"
+                    }
+                  },
+                  "Property": "P_Travado"
+                }
+              },
+              "index": 1,
+              "length": 1,
+              "sortDirection": "Descending"
+            },
+            {
+              "parameterExpr": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "P_VA_Potencial"
+                    }
+                  },
+                  "Property": "P_VA_Potencial"
+                }
+              },
+              "index": 2,
+              "length": 1
             }
           ]
         }
@@ -105,42 +161,16 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "DimCoordenadores"
+                    "Entity": "_Medidas"
                   }
                 },
-                "Property": "Coordenador"
+                "Property": "VA Peças Travado Preço Parceiro"
               }
             },
-            "direction": "Ascending"
-          },
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "DimSupervisores"
-                  }
-                },
-                "Property": "Supervisor"
-              }
-            },
-            "direction": "Ascending"
-          },
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "DimAprovadores"
-                  }
-                },
-                "Property": "dUsuario"
-              }
-            },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
@@ -155,14 +185,36 @@
             "queryRefs": [
               "DimCoordenadores.Coordenador"
             ],
-            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCoordenadores"
+                    }
+                  },
+                  "Property": "Coordenador"
+                }
+              }
+            ],
             "isPinned": true
           },
           {
             "queryRefs": [
               "DimSupervisores.Supervisor"
             ],
-            "isCollapsed": true,
+            "identityKeys": [
+              {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimSupervisores"
+                    }
+                  },
+                  "Property": "Supervisor"
+                }
+              }
+            ],
             "isPinned": true
           },
           {
@@ -183,7 +235,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "132.2997675777373D"
+                  "Value": "118.91997145329158D"
                 }
               }
             }
@@ -197,13 +249,69 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "166.2372222015796D"
+                  "Value": "125.63053400844026D"
                 }
               }
             }
           },
           "selector": {
             "metadata": "DimCoordenadores.Coordenador"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "118.61210374443246D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Medidas.% Aproveitamento"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "109.06683131193643D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Medidas.VA Peças Travado Preço Parceiro Aderente"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "106.14802228070197D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Medidas.VA Peças Travado Preço Parceiro"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "99D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Medidas.VA Peças Potencial Aderente"
           }
         }
       ],
@@ -263,55 +371,98 @@
           "selector": {
             "metadata": "_Medidas.% Aproveitamento"
           }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Medidas.VA Peças Travado Preço Parceiro"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Medidas.VA Peças Potencial Aderente"
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            },
+            "titleAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
         }
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "f49801582a35b7090cbe",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimCoordenadores"
-              }
-            },
-            "Property": "Coordenador"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "015a257605bb77382e6d",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimSupervisores"
-              }
-            },
-            "Property": "Supervisor"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "2215f0f4d3a0102b0d32",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimAprovadores"
-              }
-            },
-            "Property": "dUsuario"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

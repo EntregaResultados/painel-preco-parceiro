@@ -153,6 +153,16 @@
           "name": "Nova_Fonte8365181651894036.json",
           "path": "Nova_Fonte8365181651894036.json",
           "type": "CustomTheme"
+        },
+        {
+          "name": "filtroOFF06279575478618538.png",
+          "path": "filtroOFF06279575478618538.png",
+          "type": "Image"
+        },
+        {
+          "name": "filtroON4520861946171132.png",
+          "path": "filtroON4520861946171132.png",
+          "type": "Image"
         }
       ]
     }

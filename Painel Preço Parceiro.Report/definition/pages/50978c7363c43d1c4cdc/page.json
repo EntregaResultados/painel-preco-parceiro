@@ -1,0 +1,62 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "50978c7363c43d1c4cdc",
+  "displayName": "Visão clientes e ECs",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "objects": {
+    "outspace": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 0,
+                    "Percent": -0.1
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "6d6141fe00640003ab64",
+      "target": "b3718a5041200556020c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "6d6141fe00640003ab64",
+      "target": "992b8ee085e0a9953bb3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "f741c80045514a020381",
+      "target": "b3718a5041200556020c",
+      "type": "DataFilter"
+    },
+    {
+      "source": "f741c80045514a020381",
+      "target": "992b8ee085e0a9953bb3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "992b8ee085e0a9953bb3",
+      "target": "b3718a5041200556020c",
+      "type": "HighlightFilter"
+    }
+  ]
+}

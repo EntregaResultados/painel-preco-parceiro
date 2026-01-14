@@ -1,0 +1,87 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "2919a16523745073c901",
+  "displayName": "Visão auditoria",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "objects": {
+    "outspace": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 0,
+                    "Percent": -0.1
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "4408fc498600b9cb0d65",
+      "target": "c05ba94f15381995ac13",
+      "type": "DataFilter"
+    },
+    {
+      "source": "4408fc498600b9cb0d65",
+      "target": "929e844836aa74921669",
+      "type": "DataFilter"
+    },
+    {
+      "source": "4408fc498600b9cb0d65",
+      "target": "ab4e2eb0ee06600836e9",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ab4e2eb0ee06600836e9",
+      "target": "4408fc498600b9cb0d65",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ab4e2eb0ee06600836e9",
+      "target": "c05ba94f15381995ac13",
+      "type": "DataFilter"
+    },
+    {
+      "source": "ab4e2eb0ee06600836e9",
+      "target": "929e844836aa74921669",
+      "type": "DataFilter"
+    },
+    {
+      "source": "929e844836aa74921669",
+      "target": "c05ba94f15381995ac13",
+      "type": "DataFilter"
+    },
+    {
+      "source": "929e844836aa74921669",
+      "target": "ab4e2eb0ee06600836e9",
+      "type": "DataFilter"
+    },
+    {
+      "source": "c05ba94f15381995ac13",
+      "target": "ab4e2eb0ee06600836e9",
+      "type": "DataFilter"
+    },
+    {
+      "source": "c05ba94f15381995ac13",
+      "target": "929e844836aa74921669",
+      "type": "DataFilter"
+    }
+  ]
+}

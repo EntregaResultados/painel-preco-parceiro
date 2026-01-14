@@ -1,0 +1,154 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "d2d3131083462e5a0964",
+  "position": {
+    "x": 16.906782770344641,
+    "y": 133.00002446004453,
+    "z": 4000,
+    "height": 565.81366338086741,
+    "width": 1249.9748061541472,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimCoordenadores"
+                    }
+                  },
+                  "Property": "Coordenador"
+                }
+              },
+              "queryRef": "DimCoordenadores.Coordenador",
+              "nativeQueryRef": "Coordenador"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimSupervisores"
+                    }
+                  },
+                  "Property": "Supervisor"
+                }
+              },
+              "queryRef": "DimSupervisores.Supervisor",
+              "nativeQueryRef": "Supervisor"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimAprovadores"
+                    }
+                  },
+                  "Property": "Carteira"
+                }
+              },
+              "queryRef": "DimAprovadores.Carteira",
+              "nativeQueryRef": "Carteira"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DimAprovadores"
+                    }
+                  },
+                  "Property": "Nome Aprovador"
+                }
+              },
+              "queryRef": "DimAprovadores.Nome Aprovador",
+              "nativeQueryRef": "Nome Aprovador"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RelacaoClienteAprovador"
+                    }
+                  },
+                  "Property": "nome_aprovador"
+                }
+              },
+              "queryRef": "RelacaoClienteAprovador.nome_aprovador",
+              "nativeQueryRef": "Usuário",
+              "displayName": "Usuário"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RelacaoClienteAprovador"
+                    }
+                  },
+                  "Property": "CodigoCliente"
+                }
+              },
+              "queryRef": "RelacaoClienteAprovador.CodigoCliente",
+              "nativeQueryRef": "CodigoCliente"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RelacaoClienteAprovador"
+                    }
+                  },
+                  "Property": "DataInicio"
+                }
+              },
+              "queryRef": "RelacaoClienteAprovador.DataInicio",
+              "nativeQueryRef": "DataInicio"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RelacaoClienteAprovador"
+                    }
+                  },
+                  "Property": "DataFim"
+                }
+              },
+              "queryRef": "RelacaoClienteAprovador.DataFim",
+              "nativeQueryRef": "DataFim"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "RelacaoClienteAprovador"
+                  }
+                },
+                "Property": "nome_aprovador"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,24 +1,30 @@
 relationship AutoDetected_693e5817-be7c-43bf-aaeb-4b4446a63b37
+	crossFilteringBehavior: bothDirections
 	fromColumn: DimSupervisores.Coordenador
 	toColumn: DimCoordenadores.Coordenador
 
 relationship 6c62c0f1-7a11-7b81-ee35-46ae4af6868d
+	crossFilteringBehavior: bothDirections
 	fromColumn: DimAprovadores.Supervisor
 	toColumn: DimSupervisores.Supervisor
 
 relationship 351f6151-dc8a-af21-d8c3-1f0129ffeb65
+	crossFilteringBehavior: bothDirections
 	fromColumn: RelacaoClienteAprovador.nome_aprovador
 	toColumn: DimAprovadores.dUsuario
 
 relationship e8a8a6d4-b215-5868-37a4-a59ff14d980f
+	crossFilteringBehavior: bothDirections
 	fromColumn: RespostasFormulario.'Número da ordem'
 	toColumn: RespostasFormularioDistintasOS.'Número da ordem'
 
 relationship 8cf375b7-2fc0-c43b-e569-b2923e4214fb
+	crossFilteringBehavior: bothDirections
 	fromColumn: FactAprovacaoPrecoParceiro.NomeUsuario
 	toColumn: DimAprovadores.dUsuario
 
 relationship 4ae15203-cfb3-90dd-a963-f8e6835df321
+	crossFilteringBehavior: bothDirections
 	fromColumn: FactAprovacaoPrecoParceiro.NumeroOS
 	toColumn: RespostasFormularioDistintasOS.'Número da ordem'
 
@@ -26,12 +32,6 @@ relationship b944332b-1f4b-4e69-b4da-e409fdbb0321
 	crossFilteringBehavior: bothDirections
 	fromColumn: FactAprovacaoPrecoParceiro.DataAprovacao1OS
 	toColumn: DimCalendario.DataCompleta
-
-relationship 96cbf541-6e73-d475-96b0-76f03fa5dc98
-	crossFilteringBehavior: bothDirections
-	fromCardinality: one
-	fromColumn: P_Aproveitamento.'P_Aproveitamento Pedido'
-	toColumn: Conexao.Codigo
 
 relationship 9e2e7d23-d89d-69a7-7053-8749763618ac
 	crossFilteringBehavior: bothDirections
@@ -43,5 +43,11 @@ relationship fefc8042-d78e-fdce-a30f-380da4fb6738
 	crossFilteringBehavior: bothDirections
 	fromCardinality: one
 	fromColumn: P_Travado.'P_Travado Pedido'
+	toColumn: Conexao.Codigo
+
+relationship 96cbf541-6e73-d475-96b0-76f03fa5dc98
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: P_Aproveitamento.'P_Aproveitamento Pedido'
 	toColumn: Conexao.Codigo
 
