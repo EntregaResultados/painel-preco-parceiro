@@ -1,0 +1,185 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "name": "eeeb163c4c27d44a32e9",
+  "position": {
+    "x": 0,
+    "y": 299.81361446077835,
+    "z": 0,
+    "height": 314.46615952841034,
+    "width": 1280.4070151407677
+  },
+  "visual": {
+    "visualType": "multiRowCard",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "VA Peças"
+                }
+              },
+              "queryRef": "_Medidas.VA Total Peça",
+              "nativeQueryRef": "VA Peças"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "VA Peças Referencial Sem Negociado"
+                }
+              },
+              "queryRef": "_Medidas.VA Peças Com Preço Referencial",
+              "nativeQueryRef": "VA Peças Referencial Sem Negociado"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "VA Peças Potencial"
+                }
+              },
+              "queryRef": "_Medidas.VA Peças Potencial",
+              "nativeQueryRef": "VA Peças Potencial"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "VA Peças Travado Preço Parceiro"
+                }
+              },
+              "queryRef": "_Medidas.VA Peças Travado Preço Parceiro",
+              "nativeQueryRef": "VA Peças Travado Preço Parceiro"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "% Aproveitamento"
+                }
+              },
+              "queryRef": "_Medidas.% Aproveitamento",
+              "nativeQueryRef": "% Aproveitamento"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "_Medidas"
+                  }
+                },
+                "Property": "VA Peças"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "eafd0c8e84c94b301d27",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "VA Peças"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "353a74630c60115555a7",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "VA Peças Referencial Sem Negociado"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "39deae09e3e743742040",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "VA Peças Potencial"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "efea2f2078c52347e5ed",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "VA Peças Travado Preço Parceiro"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "6d452c86a107abbc647e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "% Aproveitamento"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
