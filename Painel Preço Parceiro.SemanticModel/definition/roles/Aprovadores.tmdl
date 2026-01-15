@@ -1,0 +1,7 @@
+role Aprovadores
+	modelPermission: read
+
+	tablePermission DimAprovadores = DimAprovadores[E-mail] == USERNAME()
+
+	annotation PBI_Id = 6df7c129c1c94b3eb8a4505d9c3c234c
+

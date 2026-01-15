@@ -2738,6 +2738,16 @@ cultureInfo pt-BR
 			          }
 			        },
 			        {
+			          "% Aproveitamento VA": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
 			          "Aproveitamento": {
 			            "State": "Suggested",
 			            "Source": {
@@ -2833,16 +2843,6 @@ cultureInfo pt-BR
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.591
-			          }
-			        },
-			        {
-			          "% Aproveitamento VA Aderente": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        },
 			        {

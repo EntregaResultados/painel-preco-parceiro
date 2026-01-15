@@ -1,0 +1,9 @@
+role Coordenadores
+	modelPermission: read
+
+	tablePermission DimAprovadores
+
+	tablePermission DimCoordenadores = DimCoordenadores[E-mail] == USERNAME()
+
+	annotation PBI_Id = 8ff3910a54054eeb88e88790a37d4183
+
