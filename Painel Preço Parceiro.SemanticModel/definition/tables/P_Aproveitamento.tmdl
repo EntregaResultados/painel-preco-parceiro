@@ -1,7 +1,9 @@
 table P_Aproveitamento
+	isHidden
 	lineageTag: ada794f2-1df7-4886-9e16-248201ce04f2
 
 	column P_Aproveitamento
+		isHidden
 		lineageTag: 173024f8-020a-415b-89ac-0c909fa688c4
 		summarizeBy: none
 		sourceColumn: [Value1]

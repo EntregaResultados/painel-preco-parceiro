@@ -37,6 +37,10 @@ ref table P_Aproveitamento
 ref table P_VA_Potencial
 ref table P_Travado
 ref table Conexao
+ref table Doc_Tabelas
+ref table Doc_Colunas
+ref table Doc_Medidas
+ref table Doc_Relacionamentos
 
 ref role Admin
 ref role Aprovadores

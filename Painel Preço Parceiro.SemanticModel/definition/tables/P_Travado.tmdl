@@ -1,7 +1,9 @@
 table P_Travado
+	isHidden
 	lineageTag: 123c9485-3db8-4181-9e24-41bb7d977d51
 
 	column P_Travado
+		isHidden
 		lineageTag: acc12bc9-393e-4e22-b704-70a4ecbac5ee
 		summarizeBy: none
 		sourceColumn: [Value1]

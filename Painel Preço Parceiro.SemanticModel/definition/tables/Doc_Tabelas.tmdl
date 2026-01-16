@@ -1,0 +1,120 @@
+table Doc_Tabelas
+	lineageTag: 1d70de80-a888-4e01-a9c7-f7deb3fffb3e
+
+	column ID
+		formatString: 0
+		lineageTag: 6f0fbd43-9159-4e9c-9477-503e97878cbf
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: [ID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		lineageTag: 0d8edd9a-8232-4a72-ae87-b22a7a01e3a7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Name]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Model
+		lineageTag: 0531a183-7ee5-4a46-a26a-c467e22282ea
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Model]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DataCategory
+		lineageTag: 6440879d-548d-42a3-89ce-f95adca02813
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DataCategory]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		lineageTag: 74622669-1f8c-4418-8355-7e027a79a0af
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Description]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsHidden
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1912feb2-b9be-4914-91bc-be1661e480aa
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsHidden]
+
+		annotation SummarizationSetBy = Automatic
+
+	column StorageMode
+		lineageTag: 874fef61-5c05-482f-a873-80a352f2bc65
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [StorageMode]
+
+		annotation SummarizationSetBy = Automatic
+
+	column TableStorage
+		lineageTag: ffc389c2-74ce-473f-b012-636abc6f5464
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [TableStorage]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Expression
+		lineageTag: d2367b4e-7565-4c72-887e-c334cfc2d330
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Expression]
+
+		annotation SummarizationSetBy = Automatic
+
+	column ShowAsVariationOnly
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 168bdd26-fb68-45ab-a8f5-f3da483ca857
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ShowAsVariationOnly]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsPrivate
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 1628302a-6305-4690-8af3-d29a94b43cd3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsPrivate]
+
+		annotation SummarizationSetBy = Automatic
+
+	column CalculationGroupPrecedence
+		formatString: 0
+		lineageTag: 7048f0c5-5e0f-4c47-b641-de9a2dcf6119
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [CalculationGroupPrecedence]
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineageTag
+		lineageTag: 7907b9c5-3a0e-4651-b291-9951fa4ac215
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [LineageTag]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Doc_Tabelas = calculated
+		mode: import
+		source =
+				
+				INFO.VIEW.TABLES()
+
+	annotation PBI_Id = c7af9aa9623b4be9861982206333ba5a
+

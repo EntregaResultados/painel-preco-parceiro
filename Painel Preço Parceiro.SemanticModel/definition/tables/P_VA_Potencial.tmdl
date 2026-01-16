@@ -1,7 +1,9 @@
 table P_VA_Potencial
+	isHidden
 	lineageTag: c1817329-9256-4c02-a48a-aa87778f985d
 
 	column P_VA_Potencial
+		isHidden
 		lineageTag: d3e5493b-21f4-4094-bea5-93c8297a0d04
 		summarizeBy: none
 		sourceColumn: [Value1]

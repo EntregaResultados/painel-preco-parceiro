@@ -1,20 +1,27 @@
 table Conexao
+	isHidden
 	lineageTag: 312cc622-d611-4739-97c0-7c3d2a0702d3
 
 	column Codigo
 		dataType: int64
+		isHidden
 		formatString: 0
 		lineageTag: c32e67ef-2d2f-4335-bd79-b6a58f740442
 		summarizeBy: none
 		sourceColumn: Codigo
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column Parametro
 		dataType: string
+		isHidden
 		lineageTag: ea1cd7a5-ddb1-4e0b-b9fd-68ab03629b68
 		summarizeBy: none
 		sourceColumn: Parametro
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -28,5 +35,9 @@ table Conexao
 				in
 				    #"Colunas Removidas"
 
+	changedProperty = IsHidden
+
 	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navegação
 

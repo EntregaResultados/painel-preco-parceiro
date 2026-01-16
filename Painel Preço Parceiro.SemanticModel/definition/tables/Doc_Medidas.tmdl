@@ -1,0 +1,143 @@
+table Doc_Medidas
+	lineageTag: 73be1f2b-a8f6-41b8-8a4c-bdb519b72688
+
+	column ID
+		formatString: 0
+		lineageTag: cde5fb42-f376-430c-b271-31dcc4f6cb8a
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: [ID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		lineageTag: 2a94492d-6a9b-493d-91ca-c0534c3d341e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Name]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Table
+		lineageTag: e9de762e-29ae-41d6-aecd-b4ce0163247b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Table]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		lineageTag: dcb3e3c1-e0f7-42e7-9557-95698c658b22
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Description]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DataType
+		lineageTag: 5ec29054-41a9-41f7-879b-41c1dd7e120d
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DataType]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Expression
+		lineageTag: de1eb5a9-5471-4fe8-971f-7b2a0a26b92b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Expression]
+
+		annotation SummarizationSetBy = Automatic
+
+	column FormatString
+		lineageTag: 44c33f3c-959e-4387-984d-d5acd46f1186
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [FormatString]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsHidden
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: cd5a6881-5a73-47c0-917d-fb0cb061bf90
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsHidden]
+
+		annotation SummarizationSetBy = Automatic
+
+	column State
+		lineageTag: cc5246f0-44c8-4f5b-88cc-6e0b0bf33a55
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [State]
+
+		annotation SummarizationSetBy = Automatic
+
+	column KPIID
+		formatString: 0
+		lineageTag: f3d6554b-e2b1-49ab-b3f3-0c70ea59e24b
+		summarizeBy: count
+		isNameInferred
+		sourceColumn: [KPIID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsSimpleMeasure
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: aa615eab-f3d6-497c-bdc4-9609e5aedfb0
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [IsSimpleMeasure]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DisplayFolder
+		lineageTag: 6d1f36bb-281f-4a88-a129-fd90ad6d34e1
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DisplayFolder]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DetailRowsDefinition
+		lineageTag: 945ecd31-e1d0-4084-a688-f1eb056c4ea4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DetailRowsDefinition]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DataCategory
+		lineageTag: 00f945a3-4073-4c7e-ac6c-65f5d8679883
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DataCategory]
+
+		annotation SummarizationSetBy = Automatic
+
+	column FormatStringDefinition
+		lineageTag: 5ffa4e4a-cf76-4acd-9db6-1c35614a74c5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [FormatStringDefinition]
+
+		annotation SummarizationSetBy = Automatic
+
+	column LineageTag
+		lineageTag: 357582f4-2f9d-4254-91bb-0f7e6dffb4cc
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [LineageTag]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Doc_Medidas = calculated
+		mode: import
+		source =
+				
+				INFO.VIEW.MEASURES()
+
+	annotation PBI_Id = df882aa7de594537ab322c856bf7f82d
+

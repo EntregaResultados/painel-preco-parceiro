@@ -7,6 +7,8 @@ table RelacaoClienteAprovador
 		summarizeBy: none
 		sourceColumn: CodigoCliente
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column Aprovador
@@ -14,6 +16,8 @@ table RelacaoClienteAprovador
 		lineageTag: ab8cb616-a6c2-4b59-aaa4-0d9b90d1c9c3
 		summarizeBy: none
 		sourceColumn: Aprovador
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -23,6 +27,8 @@ table RelacaoClienteAprovador
 		summarizeBy: none
 		sourceColumn: nome_aprovador
 
+		changedProperty = IsHidden
+
 		annotation SummarizationSetBy = Automatic
 
 	column DataInicio
@@ -31,6 +37,8 @@ table RelacaoClienteAprovador
 		lineageTag: cd046357-7214-455d-9e2b-7ad556714935
 		summarizeBy: none
 		sourceColumn: DataInicio
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -42,6 +50,8 @@ table RelacaoClienteAprovador
 		lineageTag: 5280e5ed-441a-4065-a0e7-2396a1f4a746
 		summarizeBy: none
 		sourceColumn: DataFim
+
+		changedProperty = IsHidden
 
 		annotation SummarizationSetBy = Automatic
 
@@ -153,7 +163,9 @@ table RelacaoClienteAprovador
 				    #"Tipo Alterado1"
 				```
 
+	changedProperty = IsHidden
+
 	annotation PBI_NavigationStepName = Navegação
 
-	annotation PBI_ResultType = Exception
+	annotation PBI_ResultType = Table
 
