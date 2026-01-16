@@ -1,4 +1,4 @@
-expression ClusterDB = "/sql/1.0/warehouses/4dc5e8e336ea177a" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
+expression ClusterDB = "/sql/1.0/warehouses/ce56ec5f5d0a3e07" meta [IsParameterQuery=true, Type="Any", IsParameterQueryRequired=true]
 	lineageTag: 458379ee-1567-4eb9-bdc6-83ce0a774c9b
 	queryGroup: Conexção
 
