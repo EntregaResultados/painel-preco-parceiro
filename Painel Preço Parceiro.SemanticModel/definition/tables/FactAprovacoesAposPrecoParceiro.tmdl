@@ -1,0 +1,111 @@
+table FactAprovacoesAposPrecoParceiro
+	lineageTag: 7987b794-46ba-4bb9-ba23-87293d39b395
+
+	column NumeroOS
+		dataType: int64
+		formatString: 0
+		lineageTag: d694095a-2cfb-4b2e-8e0d-f4360a0372dd
+		summarizeBy: sum
+		sourceColumn: NumeroOS
+
+		annotation SummarizationSetBy = Automatic
+
+	column CodigoCliente
+		dataType: string
+		lineageTag: 23f2fb56-b975-4bc6-911c-db395d0816bb
+		summarizeBy: none
+		sourceColumn: CodigoCliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column NomeCliente
+		dataType: string
+		lineageTag: 80d5fe9b-0422-4c33-8836-63fd30255622
+		summarizeBy: none
+		sourceColumn: NomeCliente
+
+		annotation SummarizationSetBy = Automatic
+
+	column DataAprovacao
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9ca18c1e-6f76-48cb-a077-b0b8ac7e2c69
+		summarizeBy: none
+		sourceColumn: DataAprovacao
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column AprovacaoAutomatica
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: fce2ffee-7f3d-4697-9e07-401652c00680
+		summarizeBy: none
+		sourceColumn: AprovacaoAutomatica
+
+		annotation SummarizationSetBy = Automatic
+
+	column TipoManutencao
+		dataType: string
+		lineageTag: 793cf1e8-613c-4424-847f-c0577921e8f6
+		summarizeBy: none
+		sourceColumn: TipoManutencao
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValorAprovado
+		dataType: double
+		lineageTag: 7cf8fb82-865f-4425-85a8-0faa6544ef29
+		summarizeBy: sum
+		sourceColumn: ValorAprovado
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition FactAprovacoesAposPrecoParceiro = m
+		mode: import
+		queryGroup: Fatos
+		source = ```
+				let
+				    Fonte = Azure("
+				SELECT
+				    DISTINCT fms.OrderServiceCode                                  AS NumeroOS
+				  , (fms.PartValue + fms.LaborValue)                               AS ValorAprovado
+				  , dfc.CustomerSourceCode                                         AS CodigoCliente
+				  , dfc.CustomerShortName                                          AS NomeCliente
+				  , date_format(fms.ApprovalTimestamp, 'yyyy-MM-dd')               AS DataAprovacao
+				  , dmt.MaintenanceType                                            AS TipoManutencao
+				  , fms.IsAutomaticApproval                                        AS AprovacaoAutomatica 
+				
+				FROM hive_metastore.gold.fact_maintenanceitems AS fmi
+				
+				  LEFT JOIN hive_metastore.gold.dim_maintenancelogpriceregulatorpartner AS pr1
+				    ON pr1.PricePartReferencePriceNegId = fmi.PartPriceNegociatedId
+				
+				  LEFT JOIN hive_metastore.gold.dim_maintenancelogpriceregulatorpartner AS pr2
+				    ON pr2.PricePartReferencePriceNegId = fmi.PartPriceNegociatedCustomerId
+				  
+				  RIGHT JOIN hive_metastore.gold.fact_maintenanceservices AS fms
+				    ON fmi.MaintenanceID = fms.OrderServiceCoDe
+				  
+				  LEFT JOIN hive_metastore.gold.dim_fuelcustomers AS dfc
+				    ON fms.Sk_FuelCustomer = dfc.Sk_FuelCustomer
+				  
+				  LEFT JOIN hive_metastore.gold.dim_maintenancetypes AS dmt
+				    ON fms.Sk_MaintenanceType = dmt.Sk_MaintenanceType
+				
+				WHERE 1=1
+				  AND fms.ApprovalTimestamp >= '2025-04-01' 
+				  AND (pr1.Sk_PriceRegulatorPartner IS NOT NULL OR pr2.Sk_PriceRegulatorPartner IS NOT NULL)
+				"),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"CodigoCliente", type text}, {"DataAprovacao", type date}})
+				in
+				    #"Tipo Alterado"
+				```
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

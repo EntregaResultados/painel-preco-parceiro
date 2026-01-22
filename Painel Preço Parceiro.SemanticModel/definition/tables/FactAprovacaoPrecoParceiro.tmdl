@@ -320,9 +320,9 @@ table FactAprovacaoPrecoParceiro
 
 		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
 
-	column '% DiferencaNegociadoXReferencial' =
+	column '% DiferencaNegociadoXReferencialHierarquia' =
 			
-			DIVIDE(FactAprovacaoPrecoParceiro[DiferencaValorUnitarioReferencialXNeggociado],FactAprovacaoPrecoParceiro[ValorUnitarioReferencial])
+			DIVIDE(FactAprovacaoPrecoParceiro[DiferencaValorUnitarioReferencialXNeggociado],FactAprovacaoPrecoParceiro[ValorUnitarioHierarquiaReferencial])
 		formatString: #,0.00%;-#,0.00%;#,0.00%
 		lineageTag: d272d3c7-1fe4-4f27-b3c4-3383e7f9dd2e
 		summarizeBy: sum
@@ -433,7 +433,7 @@ table FactAprovacaoPrecoParceiro
 				    fmi.Sk_MaintenanceItem                                                  AS ChaveItem,
 				    dmp.PartName                                                            AS NomePeca,
 				    dmc.ComplementDescription                                               AS ComplementoConcatenadoPeca,
-				    dmpm.PartManufacturerName                                               AS FabricantePeca,
+				    dmif.PartManufacturerName                                               AS FabricantePeca,
 				
 				    fmi.PartQuantity                                                        AS QuantidadePeca,
 				    fmi.PartUnitaryPrice                                                    AS ValorUnitarioPeca,
@@ -490,8 +490,8 @@ table FactAprovacaoPrecoParceiro
 				  LEFT JOIN gold.dim_maintenancelogpriceregulatorpartner AS dmlprp
 				    ON fmi.MaintenanceItemSourceCode = dmlprp.OrderServiceItemId
 				
-				  LEFT JOIN hive_metastore.gold.dim_maintenancepartmanufacturers AS dmpm
-				    ON TRY_CAST(fmi.PartManufacturerCode AS BIGINT) = dmpm.PartManufacturerSourceCode
+				    LEFT JOIN hive_metastore.gold.dim_maintenanceitemmanufacturers AS dmif
+				    ON fmi.Sk_ServiceItemManufacturer = dmif.Sk_ServiceItemManufacturer
 				
 				  LEFT JOIN tabela_preco_parceiro
 				    ON fmi.MaintenanceId = tabela_preco_parceiro.OrderServiceId 
@@ -511,7 +511,6 @@ table FactAprovacaoPrecoParceiro
 				  )
 				  ) OR tabela_preco_parceiro.OrderServiceId IS NOT NULL
 				
-				
 				"),
 				    #"Coluna Duplicada" = Table.DuplicateColumn(Fonte, "InfoPrecoParceiro", "InfoPrecoParceiro - Copiar"),
 				    Personalizar1 = Table.TransformColumns(#"Coluna Duplicada", {{"InfoPrecoParceiro", each Text.BetweenDelimiters(_, """valornegociar"" : ", ","), type text}}),
@@ -522,7 +521,7 @@ table FactAprovacaoPrecoParceiro
 				    #"Personalização Adicionada" = Table.AddColumn(#"Tipo Alterado", "ValorTotalNegociadoPrecoParceiro", each [QuantidadePeca] * [ValorUnitarioNegociadoPrecoParceiro]),
 				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Personalização Adicionada",{{"DataAprovacao1OS", type date}, {"ValorTotalNegociadoPrecoParceiro", Currency.Type}}),
 				    #"Linhas Filtradas" = Table.SelectRows(#"Tipo Alterado1", each [DataAprovacao1OS] >= #date(2025, 4, 1)),
-				    #"Personalização Adicionada1" = Table.AddColumn(#"Linhas Filtradas", "DiferencaValorUnitarioReferencialXNeggociado", each [ValorUnitarioNegociadoPrecoParceiro] - [ValorUnitarioReferencial]),
+				    #"Personalização Adicionada1" = Table.AddColumn(#"Linhas Filtradas", "DiferencaValorUnitarioReferencialXNeggociado", each [ValorUnitarioNegociadoPrecoParceiro] - [ValorUnitarioHierarquiaReferencial]),
 				    #"Tipo Alterado2" = Table.TransformColumnTypes(#"Personalização Adicionada1",{{"CodigoCliente", type text}})
 				in
 				    #"Tipo Alterado2"

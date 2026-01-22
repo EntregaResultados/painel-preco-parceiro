@@ -20,7 +20,7 @@ queryGroup Fatos
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
-annotation PBI_QueryOrder = ["ClusterDB","HostDB","Azure","DimCoordenadores","DimSupervisores","DimAprovadores","DimCalendario","RelacaoClienteAprovador","RespostasFormulario","RespostasFormularioDistintasOS","FactAprovacaoPrecoParceiro","_Medidas","Conexao"]
+annotation PBI_QueryOrder = ["ClusterDB","HostDB","Azure","DimCoordenadores","DimSupervisores","DimAprovadores","DimCalendario","RelacaoClienteAprovador","RespostasFormulario","RespostasFormularioDistintasOS","FactAprovacaoPrecoParceiro","_Medidas","Conexao","FactAprovacoesAposPrecoParceiro"]
 
 annotation PBI_ProTooling = ["TMDLView_Desktop","DevMode"]
 
@@ -41,6 +41,7 @@ ref table Doc_Tabelas
 ref table Doc_Colunas
 ref table Doc_Medidas
 ref table Doc_Relacionamentos
+ref table FactAprovacoesAposPrecoParceiro
 
 ref role Admin
 ref role Aprovadores

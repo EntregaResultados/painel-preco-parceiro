@@ -1,12 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "38eef977ec7b406645ea",
   "position": {
     "x": 0,
     "y": 194.5,
     "z": 0,
     "height": 60,
-    "width": 150
+    "width": 150,
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "slicer",
@@ -44,20 +45,6 @@
               "expr": {
                 "Literal": {
                   "Value": "'Dropdown'"
-                }
-              }
-            },
-            "startDate": {
-              "expr": {
-                "Literal": {
-                  "Value": "datetime'2025-01-01T00:00:00'"
-                }
-              }
-            },
-            "endDate": {
-              "expr": {
-                "Literal": {
-                  "Value": "datetime'2025-08-01T00:00:00'"
                 }
               }
             }

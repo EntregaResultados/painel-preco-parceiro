@@ -1,0 +1,299 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "061d6108c9bba8d29560",
+  "position": {
+    "x": 16.906782770344641,
+    "y": 122.85595479783774,
+    "z": 5000,
+    "height": 279.52547513636478,
+    "width": 855.483208179439,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimCalendario"
+                        }
+                      },
+                      "Hierarchy": "Ano Hierarquia"
+                    }
+                  },
+                  "Level": "Ano"
+                }
+              },
+              "queryRef": "DimCalendario.Ano Hierarquia.Ano",
+              "nativeQueryRef": "Ano Hierarquia Ano",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimCalendario"
+                        }
+                      },
+                      "Hierarchy": "Ano Hierarquia"
+                    }
+                  },
+                  "Level": "MesAbreviado"
+                }
+              },
+              "queryRef": "DimCalendario.Ano Hierarquia.MesAbreviado",
+              "nativeQueryRef": "Ano Hierarquia MesAbreviado",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimCalendario"
+                        }
+                      },
+                      "Hierarchy": "Ano Hierarquia"
+                    }
+                  },
+                  "Level": "Dia"
+                }
+              },
+              "queryRef": "DimCalendario.Ano Hierarquia.Dia",
+              "nativeQueryRef": "Ano Hierarquia Dia",
+              "active": false
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactAprovacoesAposPrecoParceiro"
+                    }
+                  },
+                  "Property": "TipoManutencao"
+                }
+              },
+              "queryRef": "FactAprovacoesAposPrecoParceiro.TipoManutencao",
+              "nativeQueryRef": "TipoManutencao"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Total OS RI PP"
+                }
+              },
+              "queryRef": "_Medidas.Total OS PP RI",
+              "nativeQueryRef": "Total OS RI PP"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'TopCenter'"
+                }
+              }
+            },
+            "showTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'OS Aprovadas por RI com negociação Preço Parceiro'"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e7feb72308cc0a043874",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DimCalendario"
+                  }
+                },
+                "Hierarchy": "Ano Hierarquia"
+              }
+            },
+            "Level": "Ano"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "2a87488849a490be06b0",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DimCalendario"
+                  }
+                },
+                "Hierarchy": "Ano Hierarquia"
+              }
+            },
+            "Level": "MesAbreviado"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "fcbd4ef1b4b84a0263b3",
+        "field": {
+          "HierarchyLevel": {
+            "Expression": {
+              "Hierarchy": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DimCalendario"
+                  }
+                },
+                "Hierarchy": "Ano Hierarquia"
+              }
+            },
+            "Level": "Dia"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "0461afdaa22a792e8916",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactAprovacoesAposPrecoParceiro"
+              }
+            },
+            "Property": "TipoManutencao"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "14f1543303e39d06bd7c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "Total OS RI PP"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
+  "name": "a2a460c0e8b862a68484",
+  "displayName": "Eficiência Preço Parceiro",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "61b2500f50d0c4402e9e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimCalendario"
+              }
+            },
+            "Property": "DataCompleta"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DimCalendario",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "d"
+                              }
+                            },
+                            "Property": "DataCompleta"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "objects": {
+    "outspace": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 0,
+                    "Percent": -0.1
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "061d6108c9bba8d29560",
+      "target": "5a6f1230a2c028d67623",
+      "type": "DataFilter"
+    },
+    {
+      "source": "5a6f1230a2c028d67623",
+      "target": "061d6108c9bba8d29560",
+      "type": "DataFilter"
+    },
+    {
+      "source": "8a532982859b8e35e644",
+      "target": "94d9b08428b5826dd00e",
+      "type": "DataFilter"
+    },
+    {
+      "source": "8a532982859b8e35e644",
+      "target": "5a6f1230a2c028d67623",
+      "type": "DataFilter"
+    },
+    {
+      "source": "8a532982859b8e35e644",
+      "target": "061d6108c9bba8d29560",
+      "type": "DataFilter"
+    },
+    {
+      "source": "061d6108c9bba8d29560",
+      "target": "8a532982859b8e35e644",
+      "type": "DataFilter"
+    },
+    {
+      "source": "061d6108c9bba8d29560",
+      "target": "94d9b08428b5826dd00e",
+      "type": "DataFilter"
+    },
+    {
+      "source": "94d9b08428b5826dd00e",
+      "target": "061d6108c9bba8d29560",
+      "type": "DataFilter"
+    },
+    {
+      "source": "5a6f1230a2c028d67623",
+      "target": "8a532982859b8e35e644",
+      "type": "DataFilter"
+    },
+    {
+      "source": "94d9b08428b5826dd00e",
+      "target": "8a532982859b8e35e644",
+      "type": "DataFilter"
+    },
+    {
+      "source": "5a6f1230a2c028d67623",
+      "target": "94d9b08428b5826dd00e",
+      "type": "DataFilter"
+    },
+    {
+      "source": "94d9b08428b5826dd00e",
+      "target": "5a6f1230a2c028d67623",
+      "type": "DataFilter"
+    },
+    {
+      "source": "5a6f1230a2c028d67623",
+      "target": "4923a798750050de5bcc",
+      "type": "DataFilter"
+    },
+    {
+      "source": "061d6108c9bba8d29560",
+      "target": "4923a798750050de5bcc",
+      "type": "DataFilter"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "f741c80045514a020381",
   "position": {
     "x": 15.779663918988334,
@@ -7,7 +7,7 @@
     "z": 5000,
     "height": 280.65259398772105,
     "width": 865.62727784164576,
-    "tabOrder": 5000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "tableEx",
@@ -38,12 +38,12 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "% Aproveitamento"
+                  "Property": "% Aproveitamento Aderente"
                 }
               },
-              "queryRef": "_Medidas.% Aproveitamento",
-              "nativeQueryRef": "% Aproveitamento VA",
-              "displayName": "% Aproveitamento VA"
+              "queryRef": "_Medidas.% Aproveitamento Aderente",
+              "nativeQueryRef": "% Aproveitamento VA Aderente",
+              "displayName": "% Aproveitamento VA Aderente"
             },
             {
               "field": {
@@ -53,12 +53,12 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "VA Peças Travado Preço Parceiro"
+                  "Property": "VA Peças Travado Preço Parceiro Aderente"
                 }
               },
-              "queryRef": "_Medidas.VA Peças Travado Preço Parceiro",
-              "nativeQueryRef": "VA Peças Travado Preço Parceiro",
-              "displayName": "VA Peças Travado Preço Parceiro"
+              "queryRef": "_Medidas.VA Peças Travado Preço Parceiro Aderente",
+              "nativeQueryRef": "VA Peças Travado Preço Parceiro Aderente",
+              "displayName": "VA Peças Travado Preço Parceiro Aderente"
             },
             {
               "field": {
@@ -146,7 +146,7 @@
                     "Entity": "_Medidas"
                   }
                 },
-                "Property": "VA Peças Travado Preço Parceiro"
+                "Property": "VA Peças Travado Preço Parceiro Aderente"
               }
             },
             "direction": "Descending"

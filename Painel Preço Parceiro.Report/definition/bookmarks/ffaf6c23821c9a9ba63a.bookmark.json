@@ -3,7 +3,8 @@
   "displayName": "5 - Oculto",
   "name": "ffaf6c23821c9a9ba63a",
   "options": {
-    "targetVisualNames": []
+    "targetVisualNames": [],
+    "suppressData": true
   },
   "explorationState": {
     "version": "1.3",
@@ -823,7 +824,7 @@
                           "Entity": "FactAprovacaoPrecoParceiro"
                         }
                       },
-                      "Property": "% DiferencaNegociadoXReferencial"
+                      "Property": "% DiferencaNegociadoXReferencialHierarquia"
                     }
                   },
                   "howCreated": 0

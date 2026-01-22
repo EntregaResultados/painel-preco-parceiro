@@ -57,13 +57,21 @@ table RelacaoClienteAprovador
 
 		annotation UnderlyingDateTimeDataType = Date
 
+	column NomeCliente
+		dataType: string
+		lineageTag: 8f4b9c71-6554-4ece-926b-681ad2e60721
+		summarizeBy: none
+		sourceColumn: NomeCliente
+
+		annotation SummarizationSetBy = Automatic
+
 	partition RelacaoClienteAprovador = m
 		mode: import
-		source = ```
+		source =
 				let
 				    Fonte = Azure("
 				
-				WITH logs AS (
+				 WITH logs AS (
 				  SELECT
 				    dmplv.ClientId AS CodigoCliente,
 				    CAST(dmplv.ParameterLogOrgValueModificationTimestamp AS TIMESTAMP) AS ts,
@@ -137,6 +145,7 @@ table RelacaoClienteAprovador
 				
 				SELECT
 				  CodigoCliente,
+				  dfc.CustomerShortName AS NomeCliente,
 				  -- Se preferir numérico:
 				  -- CAST(approver AS BIGINT) AS Aprovador,
 				  approver AS Aprovador,
@@ -145,8 +154,9 @@ table RelacaoClienteAprovador
 				  date_format(next_ts, 'yyyy-MM-dd HH:mm') AS DataFim
 				FROM ordered
 				LEFT JOIN hive_metastore.gold.dim_webusers AS dwu
-				  ON 
-				  dwu.WebUserSourceCode = ordered.approver
+				  ON dwu.WebUserSourceCode = ordered.approver
+				LEFT JOIN hive_metastore.gold.dim_fuelcustomers AS dfc
+				  ON ordered.codigocliente = dfc.CustomerSourceCode
 				WHERE 1=1
 				AND event_type = 'ADD'
 				
@@ -161,7 +171,6 @@ table RelacaoClienteAprovador
 				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Texto Extraído Antes do Delimitador1",{{"DataInicio", type date}, {"DataFim", type date}})
 				in
 				    #"Tipo Alterado1"
-				```
 
 	changedProperty = IsHidden
 

@@ -3,7 +3,8 @@
   "displayName": "2 - Oculto",
   "name": "29bb95707a60085023b7",
   "options": {
-    "targetVisualNames": []
+    "targetVisualNames": [],
+    "suppressData": true
   },
   "explorationState": {
     "version": "1.40",

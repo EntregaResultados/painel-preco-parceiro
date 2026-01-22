@@ -217,6 +217,64 @@ table _Medidas
 		displayFolder: _Auditoria
 		lineageTag: 37ce2535-041a-4076-8e53-d7968fa91668
 
+	measure 'Total OS PP' =
+			
+			DISTINCTCOUNT(FactAprovacoesAposPrecoParceiro[NumeroOS])
+		formatString: 0
+		displayFolder: _Efetividade
+		lineageTag: bfa51945-feb9-485e-b4c3-b973fe2bb60f
+
+	measure 'Total OS RI PP' =
+			
+			CALCULATE(
+			    [Total OS PP],
+			    FactAprovacoesAposPrecoParceiro[AprovacaoAutomatica] = TRUE()
+			)
+		formatString: 0
+		displayFolder: _Efetividade
+		lineageTag: 3daaac69-64d7-4cc3-b7c6-e3003c2c9f8f
+
+	measure 'Total OS PP Sem RI' =
+			
+			CALCULATE(
+			    [Total OS PP],
+			    FactAprovacoesAposPrecoParceiro[AprovacaoAutomatica] = FALSE()
+			)
+		formatString: 0
+		displayFolder: _Efetividade
+		lineageTag: 2b14e929-c808-4222-90b2-7fee00528149
+
+	measure 'OS Com Preço Travado' =
+			
+			IF([Total VA travado] > 0, "Sim", "Não")
+		lineageTag: 115676a0-e5ab-4c65-bd92-af2c96d6e684
+
+	measure 'Total VA PP' =
+			
+			SUM(FactAprovacoesAposPrecoParceiro[ValorAprovado])
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		displayFolder: _Efetividade
+		lineageTag: bbb32c20-a663-4122-9b26-c842178ffd6c
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'Total VA RI PP' =
+			
+			CALCULATE(
+			    [Total VA PP],
+			    FactAprovacoesAposPrecoParceiro[AprovacaoAutomatica] = TRUE()
+			)
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		displayFolder: _Efetividade
+		lineageTag: b0d6dd77-6bd0-436d-8a97-7af94c3267e9
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
+	measure 'OS Com Formulário Preenchido' =
+			
+			IF([Total de respostas formulário] > 0, "Sim", "Não")
+		lineageTag: 80f03a93-f766-40ac-82ad-38d8f6e317f0
+
 	partition _Medidas = m
 		mode: import
 		source =

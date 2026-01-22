@@ -7,7 +7,7 @@
     "z": 3000,
     "height": 282.37791395539836,
     "width": 1251.7783814517659,
-    "tabOrder": 3000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "tableEx",
@@ -171,213 +171,31 @@
             },
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "FactAprovacaoPrecoParceiro"
+                      "Entity": "_Medidas"
                     }
                   },
-                  "Property": "NomePeca"
+                  "Property": "OS Com Preço Travado"
                 }
               },
-              "queryRef": "FactAprovacaoPrecoParceiro.NomePeca",
-              "nativeQueryRef": "NomePeca"
+              "queryRef": "_Medidas.OS Com Negociado",
+              "nativeQueryRef": "OS Com Preço Travado"
             },
             {
               "field": {
-                "Column": {
+                "Measure": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "FactAprovacaoPrecoParceiro"
+                      "Entity": "_Medidas"
                     }
                   },
-                  "Property": "FabricantePeca"
+                  "Property": "OS Com Formulário Preenchido"
                 }
               },
-              "queryRef": "FactAprovacaoPrecoParceiro.FabricantePeca",
-              "nativeQueryRef": "FabricantePeca"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "FactAprovacaoPrecoParceiro"
-                    }
-                  },
-                  "Property": "ComplementoConcatenadoPeca"
-                }
-              },
-              "queryRef": "FactAprovacaoPrecoParceiro.ComplementoConcatenadoPeca",
-              "nativeQueryRef": "ComplementoConcatenadoPeca"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "FactAprovacaoPrecoParceiro"
-                    }
-                  },
-                  "Property": "QuantidadePeca"
-                }
-              },
-              "queryRef": "Sum(FactAprovacaoPrecoParceiro.QuantidadePeca)",
-              "nativeQueryRef": "QuantidadePeca"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "FactAprovacaoPrecoParceiro"
-                    }
-                  },
-                  "Property": "ValorUnitarioPeca"
-                }
-              },
-              "queryRef": "Sum(FactAprovacaoPrecoParceiro.ValorUnitarioPeca)",
-              "nativeQueryRef": "ValorUnitarioPeca"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "FactAprovacaoPrecoParceiro"
-                    }
-                  },
-                  "Property": "ValorTotalPeca"
-                }
-              },
-              "queryRef": "Sum(FactAprovacaoPrecoParceiro.ValorTotalPeca)",
-              "nativeQueryRef": "ValorTotalPeca"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "FactAprovacaoPrecoParceiro"
-                    }
-                  },
-                  "Property": "AderenciaPrecoReferencial"
-                }
-              },
-              "queryRef": "FactAprovacaoPrecoParceiro.AderenciaPrecoReferencial",
-              "nativeQueryRef": "AderenciaPrecoReferencial"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "FactAprovacaoPrecoParceiro"
-                    }
-                  },
-                  "Property": "ValorUnitarioNegociado"
-                }
-              },
-              "queryRef": "Sum(FactAprovacaoPrecoParceiro.ValorUnitarioNegociado)",
-              "nativeQueryRef": "ValorUnitarioNegociado"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "FactAprovacaoPrecoParceiro"
-                    }
-                  },
-                  "Property": "ValorUnitarioReferencial"
-                }
-              },
-              "queryRef": "Sum(FactAprovacaoPrecoParceiro.ValorUnitarioReferencial)",
-              "nativeQueryRef": "ValorUnitarioReferencial"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "FactAprovacaoPrecoParceiro"
-                    }
-                  },
-                  "Property": "ValorUnitarioHierarquiaReferencial"
-                }
-              },
-              "queryRef": "Sum(FactAprovacaoPrecoParceiro.ValorUnitarioHierarquiaReferencial)",
-              "nativeQueryRef": "ValorUnitarioHierarquiaReferencial"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "FactAprovacaoPrecoParceiro"
-                    }
-                  },
-                  "Property": "ValorTotalHierarquiaReferencial"
-                }
-              },
-              "queryRef": "Sum(FactAprovacaoPrecoParceiro.ValorTotalHierarquiaReferencial)",
-              "nativeQueryRef": "ValorTotalHierarquiaReferencial"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "FactAprovacaoPrecoParceiro"
-                    }
-                  },
-                  "Property": "DataEnvioNegociacaoPrecoParceiro"
-                }
-              },
-              "queryRef": "FactAprovacaoPrecoParceiro.DataEnvioNegociacaoPrecoParceiro",
-              "nativeQueryRef": "DataEnvioNegociacaoPrecoParceiro"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "FactAprovacaoPrecoParceiro"
-                    }
-                  },
-                  "Property": "ValorUnitarioNegociadoPrecoParceiro"
-                }
-              },
-              "queryRef": "Sum(FactAprovacaoPrecoParceiro.ValorUnitarioNegociadoPrecoParceiro)",
-              "nativeQueryRef": "ValorUnitarioNegociadoPrecoParceiro"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "FactAprovacaoPrecoParceiro"
-                    }
-                  },
-                  "Property": "ValorTotalNegociadoPrecoParceiro"
-                }
-              },
-              "queryRef": "Sum(FactAprovacaoPrecoParceiro.ValorTotalNegociadoPrecoParceiro)",
-              "nativeQueryRef": "ValorTotalNegociadoPrecoParceiro"
-            },
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "FactAprovacaoPrecoParceiro"
-                    }
-                  },
-                  "Property": "ValidadeNegociacaoMeses"
-                }
-              },
-              "queryRef": "Sum(FactAprovacaoPrecoParceiro.ValidadeNegociacaoMeses)",
-              "nativeQueryRef": "ValidadeNegociacaoMeses"
+              "queryRef": "_Medidas.OS Com Formulário Preenchido",
+              "nativeQueryRef": "OS Com Formulário Preenchido"
             }
           ]
         }
@@ -386,13 +204,13 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "FactAprovacaoPrecoParceiro"
+                    "Entity": "_Medidas"
                   }
                 },
-                "Property": "NumeroOS"
+                "Property": "OS Com Formulário Preenchido"
               }
             },
             "direction": "Descending"
@@ -401,215 +219,32 @@
       }
     },
     "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
       "columnWidth": [
         {
           "properties": {
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "103D"
+                  "Value": "172.93953272471373D"
                 }
               }
             }
           },
           "selector": {
-            "metadata": "FactAprovacaoPrecoParceiro.NomePeca"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "119.49277261758783D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "FactAprovacaoPrecoParceiro.FabricantePeca"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "249.67791969356188D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "FactAprovacaoPrecoParceiro.ComplementoConcatenadoPeca"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "94.18642754340716D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Sum(FactAprovacaoPrecoParceiro.ValorUnitarioPeca)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "93.44066178904173D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Sum(FactAprovacaoPrecoParceiro.QuantidadePeca)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "86.36768684377445D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Sum(FactAprovacaoPrecoParceiro.ValorTotalPeca)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "124.50001877423598D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "FactAprovacaoPrecoParceiro.AderenciaPrecoReferencial"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "100.37283799536604D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Sum(FactAprovacaoPrecoParceiro.ValorUnitarioNegociado)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "93.73729914100372D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Sum(FactAprovacaoPrecoParceiro.ValorUnitarioReferencial)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "165.37287546338982D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Sum(FactAprovacaoPrecoParceiro.ValorUnitarioHierarquiaReferencial)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "146.1186334415616D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Sum(FactAprovacaoPrecoParceiro.ValorTotalHierarquiaReferencial)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "160.10357280061467D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "FactAprovacaoPrecoParceiro.DataEnvioNegociacaoPrecoParceiro"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "170.8801317665933D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Sum(FactAprovacaoPrecoParceiro.ValorUnitarioNegociadoPrecoParceiro)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "156.39784184156883D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Sum(FactAprovacaoPrecoParceiro.ValorTotalNegociadoPrecoParceiro)"
-          }
-        },
-        {
-          "properties": {
-            "value": {
-              "expr": {
-                "Literal": {
-                  "Value": "164.7492150797405D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Sum(FactAprovacaoPrecoParceiro.ValidadeNegociacaoMeses)"
+            "metadata": "_Medidas.OS Com Negociado"
           }
         }
       ]
@@ -660,6 +295,7 @@
           }
         },
         "type": "Advanced",
+        "howCreated": "User",
         "isLockedInViewMode": true
       }
     ]

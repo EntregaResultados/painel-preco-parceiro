@@ -7,7 +7,7 @@
     "z": 0,
     "height": 60,
     "width": 150,
-    "tabOrder": 4004
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "slicer",
@@ -47,20 +47,6 @@
                   "Value": "'Dropdown'"
                 }
               }
-            },
-            "startDate": {
-              "expr": {
-                "Literal": {
-                  "Value": "datetime'2025-01-01T00:00:00'"
-                }
-              }
-            },
-            "endDate": {
-              "expr": {
-                "Literal": {
-                  "Value": "datetime'2025-08-01T00:00:00'"
-                }
-              }
             }
           }
         }
@@ -85,44 +71,6 @@
                 "Literal": {
                   "Value": "true"
                 }
-              }
-            },
-            "selfFilter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "f",
-                    "Entity": "FactAprovacaoPrecoParceiro",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "Contains": {
-                        "Left": {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "f"
-                              }
-                            },
-                            "Property": "CodigoCliente"
-                          }
-                        },
-                        "Right": {
-                          "Literal": {
-                            "Value": "'2233'"
-                          }
-                        }
-                      }
-                    },
-                    "Annotations": {
-                      "PowerBI.MParameterBehavior": 1
-                    }
-                  }
-                ]
               }
             }
           }

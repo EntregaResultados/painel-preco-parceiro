@@ -51,3 +51,7 @@ relationship 96cbf541-6e73-d475-96b0-76f03fa5dc98
 	fromColumn: P_Aproveitamento.'P_Aproveitamento Pedido'
 	toColumn: Conexao.Codigo
 
+relationship c9d1bdbf-8cac-3442-9e23-5036acdb9948
+	fromColumn: FactAprovacoesAposPrecoParceiro.DataAprovacao
+	toColumn: DimCalendario.DataCompleta
+

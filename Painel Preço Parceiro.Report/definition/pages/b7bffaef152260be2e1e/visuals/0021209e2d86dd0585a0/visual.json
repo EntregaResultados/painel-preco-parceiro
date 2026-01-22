@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "0021209e2d86dd0585a0",
   "position": {
     "x": 15.779663918988334,
@@ -7,7 +7,7 @@
     "z": 7000,
     "height": 279.52547513636478,
     "width": 856.61032703079525,
-    "tabOrder": 5000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "lineClusteredColumnComboChart",
@@ -87,12 +87,12 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "VA Peças Potencial"
+                  "Property": "VA Peças Potencial Aderente"
                 }
               },
-              "queryRef": "_Medidas.VA Peças Potencial",
-              "nativeQueryRef": "VA Peças Potencial",
-              "displayName": "VA Peças Potencial"
+              "queryRef": "_Medidas.VA Peças Potencial Aderente",
+              "nativeQueryRef": "VA Peças Potencial Aderente",
+              "displayName": "VA Peças Potencial Aderente"
             },
             {
               "field": {
@@ -102,12 +102,12 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "VA Peças Travado Preço Parceiro"
+                  "Property": "VA Peças Travado Preço Parceiro Aderente"
                 }
               },
-              "queryRef": "_Medidas.VA Peças Travado Preço Parceiro",
-              "nativeQueryRef": "VA Peças Travado Preço Parceiro",
-              "displayName": "VA Peças Travado Preço Parceiro"
+              "queryRef": "_Medidas.VA Peças Travado Preço Parceiro Aderente",
+              "nativeQueryRef": "VA Peças Travado Preço Parceiro Aderente",
+              "displayName": "VA Peças Travado Preço Parceiro Aderente"
             }
           ],
           "fieldParameters": [

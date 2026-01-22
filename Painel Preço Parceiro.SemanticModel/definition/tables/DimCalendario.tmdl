@@ -18,7 +18,7 @@ table DimCalendario
 		dataType: int64
 		formatString: 0
 		lineageTag: 04cd9773-2d8c-4436-a50c-a47c18489961
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Ano
 
 		annotation SummarizationSetBy = Automatic
@@ -27,7 +27,7 @@ table DimCalendario
 		dataType: int64
 		formatString: 0
 		lineageTag: 5b836374-36fa-45d3-9f58-7c65ea423ef6
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: MesNumero
 
 		annotation SummarizationSetBy = Automatic
@@ -36,7 +36,7 @@ table DimCalendario
 		dataType: int64
 		formatString: 0
 		lineageTag: 16f87518-6973-4d77-96a1-ece85f2bdb74
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Semana
 
 		annotation SummarizationSetBy = Automatic
@@ -45,7 +45,7 @@ table DimCalendario
 		dataType: int64
 		formatString: 0
 		lineageTag: c777b9f1-7ac3-4b19-b8db-43dd6388ceb1
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: Dia
 
 		annotation SummarizationSetBy = Automatic

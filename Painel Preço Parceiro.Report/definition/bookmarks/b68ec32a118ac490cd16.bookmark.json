@@ -3,7 +3,8 @@
   "displayName": "4 - Exibido",
   "name": "b68ec32a118ac490cd16",
   "options": {
-    "targetVisualNames": []
+    "targetVisualNames": [],
+    "suppressData": true
   },
   "explorationState": {
     "version": "1.3",

@@ -7,7 +7,7 @@
     "z": 6000,
     "height": 281.77971283907738,
     "width": 865.62727784164576,
-    "tabOrder": 6000
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "pivotTable",
@@ -211,7 +211,7 @@
                     "Entity": "_Medidas"
                   }
                 },
-                "Property": "% VA Travado Incorreto"
+                "Property": "% VA Travado Sem Referencial"
               }
             },
             "direction": "Descending"

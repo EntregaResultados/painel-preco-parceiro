@@ -7,7 +7,7 @@
     "z": 7000,
     "height": 99.186458919355232,
     "width": 377.58481520436368,
-    "tabOrder": 7000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "slicer",
@@ -94,7 +94,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'Geral'"
+                                "Value": "'Referencial Aderente'"
                               }
                             }
                           ]

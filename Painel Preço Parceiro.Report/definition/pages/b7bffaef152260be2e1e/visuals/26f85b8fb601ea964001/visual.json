@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.2.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
   "name": "26f85b8fb601ea964001",
   "position": {
     "x": 15.779663918988334,
@@ -7,7 +7,7 @@
     "z": 8000,
     "height": 280.65259398772105,
     "width": 856.61032703079525,
-    "tabOrder": 7000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "lineChart",
@@ -87,12 +87,12 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "% Aproveitamento"
+                  "Property": "% Aproveitamento Aderente"
                 }
               },
-              "queryRef": "_Medidas.% Aproveitamento",
-              "nativeQueryRef": "% Aproveitamento VA",
-              "displayName": "% Aproveitamento VA"
+              "queryRef": "_Medidas.% Aproveitamento Aderente",
+              "nativeQueryRef": "% Aproveitamento VA Aderente",
+              "displayName": "% Aproveitamento VA Aderente"
             }
           ],
           "fieldParameters": [

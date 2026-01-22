@@ -7,7 +7,7 @@
     "z": 4000,
     "height": 282.37791395539836,
     "width": 1251.7783814517659,
-    "tabOrder": 4000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "tableEx",
@@ -108,12 +108,12 @@
                       "Entity": "FactAprovacaoPrecoParceiro"
                     }
                   },
-                  "Property": "ValorUnitarioReferencial"
+                  "Property": "ValorUnitarioHierarquiaReferencial"
                 }
               },
-              "queryRef": "Sum(FactAprovacaoPrecoParceiro.ValorUnitarioReferencial)",
-              "nativeQueryRef": "Preço Referencial",
-              "displayName": "Preço Referencial"
+              "queryRef": "FactAprovacaoPrecoParceiro.ValorUnitarioHierarquiaReferencial",
+              "nativeQueryRef": "Preço Hierarquia Referencial",
+              "displayName": "Preço Hierarquia Referencial"
             },
             {
               "field": {
@@ -153,7 +153,7 @@
                       "Entity": "FactAprovacaoPrecoParceiro"
                     }
                   },
-                  "Property": "% DiferencaNegociadoXReferencial"
+                  "Property": "% DiferencaNegociadoXReferencialHierarquia"
                 }
               },
               "queryRef": "Sum(FactAprovacaoPrecoParceiro.% DiferencaNegociadoXReferencial)",
@@ -363,6 +363,20 @@
           },
           "selector": {
             "metadata": "Sum(FactAprovacaoPrecoParceiro.CodigoModeloManutencao)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "126.13329664901687D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "FactAprovacaoPrecoParceiro.ValorUnitarioHierarquiaReferencial"
           }
         }
       ],
