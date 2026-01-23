@@ -215,10 +215,10 @@
                     "Entity": "FactAprovacaoPrecoParceiro"
                   }
                 },
-                "Property": "NomeEC"
+                "Property": "DataAprovacao1OS"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
@@ -621,7 +621,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Peças travadas acima do preço referencial'"
+                  "Value": "'Peças travadas incorretamente'"
                 }
               }
             },
@@ -641,7 +641,118 @@
   "filterConfig": {
     "filters": [
       {
+        "name": "f7ce8565bb0c47c8c33a",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactAprovacaoPrecoParceiro"
+              }
+            },
+            "Property": "% DiferencaNegociadoXReferencialHierarquia"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "95032b791d8cd0de6e0b",
+        "ordinal": 1,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "VA Travado Incorreto"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "_",
+              "Entity": "_Medidas",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 1,
+                  "Left": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "_"
+                        }
+                      },
+                      "Property": "VA Travado Incorreto"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "0L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "0876f713b13c5035aa08",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactAprovacaoPrecoParceiro"
+              }
+            },
+            "Property": "CodigoModeloManutencao"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "a5334a00218e0403aab9",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactAprovacaoPrecoParceiro"
+              }
+            },
+            "Property": "ComplementoConcatenadoPeca"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b48a6432cde044809a6a",
+        "ordinal": 4,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactAprovacaoPrecoParceiro"
+              }
+            },
+            "Property": "DataAprovacao1OS"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
         "name": "d6bdf6d927e1b3009bd2",
+        "ordinal": 5,
         "field": {
           "Column": {
             "Expression": {
@@ -652,42 +763,129 @@
             "Property": "DiferencaValorUnitarioReferencialXNeggociado"
           }
         },
-        "type": "Advanced",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "f",
-              "Entity": "FactAprovacaoPrecoParceiro",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Comparison": {
-                  "ComparisonKind": 1,
-                  "Left": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Source": "f"
-                        }
-                      },
-                      "Property": "DiferencaValorUnitarioReferencialXNeggociado"
-                    }
-                  },
-                  "Right": {
-                    "Literal": {
-                      "Value": "0M"
-                    }
-                  }
-                }
+        "type": "Advanced"
+      },
+      {
+        "name": "23e330b0731e098c08a3",
+        "ordinal": 6,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactAprovacaoPrecoParceiro"
               }
-            }
-          ]
-        }
+            },
+            "Property": "FabricantePeca"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "bf016150aee3e388d3b0",
+        "ordinal": 7,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactAprovacaoPrecoParceiro"
+              }
+            },
+            "Property": "NomeCliente"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "b6b2c9b767080c7e30e2",
+        "ordinal": 8,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactAprovacaoPrecoParceiro"
+              }
+            },
+            "Property": "NomeEC"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4d85363dea28384c82de",
+        "ordinal": 9,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactAprovacaoPrecoParceiro"
+              }
+            },
+            "Property": "NomePeca"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "2bdbd9807733764509c6",
+        "ordinal": 10,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactAprovacaoPrecoParceiro"
+              }
+            },
+            "Property": "NomeUsuario"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "6b22ac7046c76c19be2b",
+        "ordinal": 11,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactAprovacaoPrecoParceiro"
+              }
+            },
+            "Property": "NumeroOS"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "117de790dc62c900d316",
+        "ordinal": 12,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactAprovacaoPrecoParceiro"
+              }
+            },
+            "Property": "ValorUnitarioHierarquiaReferencial"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "53ea3fa4c43d967e92a4",
+        "ordinal": 13,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactAprovacaoPrecoParceiro"
+              }
+            },
+            "Property": "ValorUnitarioNegociadoPrecoParceiro"
+          }
+        },
+        "type": "Advanced"
       }
-    ]
+    ],
+    "filterSortOrder": "Custom"
   }
 }
