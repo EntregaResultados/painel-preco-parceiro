@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
-  "name": "3ef56968215db37a6a1b",
+  "name": "de05e205b5a468daa491",
   "position": {
     "x": 36.074831952055717,
-    "y": 63.441945846718674,
-    "z": 2000,
-    "height": 36.074831952055717,
-    "width": 503.80368760629534,
-    "tabOrder": 1000
+    "y": 2.48791944496936,
+    "z": 1000,
+    "height": 74.6375833490808,
+    "width": 337.11308479334826,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "textbox",
@@ -19,10 +19,10 @@
               {
                 "textRuns": [
                   {
-                    "value": "Eficiência Preço Parceiro RI",
+                    "value": "PREÇO PARCEIRO",
                     "textStyle": {
                       "fontWeight": "bold",
-                      "fontSize": "14pt",
+                      "fontSize": "28pt",
                       "color": "#ffffff"
                     }
                   }

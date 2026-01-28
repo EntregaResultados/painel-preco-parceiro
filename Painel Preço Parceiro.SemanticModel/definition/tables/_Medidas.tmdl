@@ -275,6 +275,35 @@ table _Medidas
 			IF([Total de respostas formulário] > 0, "Sim", "Não")
 		lineageTag: 80f03a93-f766-40ac-82ad-38d8f6e317f0
 
+	measure 'Total Itens Aprovados PP' =
+			
+			SUM(FactAprovacoesAposPrecoParceiro[TotalItensAprovadosNegociados])
+		formatString: #,0
+		displayFolder: _Efetividade
+		lineageTag: bbe73e14-fee5-4ffd-9983-bc0f39ecfca4
+
+	measure 'Total OS Sem RI PP' =
+			
+			CALCULATE(
+			    [Total OS PP],
+			    FactAprovacoesAposPrecoParceiro[AprovacaoAutomatica] = FALSE()
+			)
+		formatString: #,0
+		displayFolder: _Efetividade
+		lineageTag: bfe7ec62-643c-4a4f-b065-1634fab60cbb
+
+	measure 'Total VA Items Aprovação Manual PP' =
+			
+			CALCULATE(
+			    SUM(FactAprovacoesAposPrecoParceiro[ValorAprovadoNegociado]),
+			    FactAprovacoesAposPrecoParceiro[AprovacaoAutomatica] = FALSE()
+			)
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
+		displayFolder: _Efetividade
+		lineageTag: e3ae9c68-0ecb-4160-bf54-eb6e453683b2
+
+		annotation PBI_FormatHint = {"currencyCulture":"pt-BR"}
+
 	partition _Medidas = m
 		mode: import
 		source =

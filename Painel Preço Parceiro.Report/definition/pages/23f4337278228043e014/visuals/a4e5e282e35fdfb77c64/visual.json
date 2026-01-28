@@ -1,6 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
-  "name": "4923a798750050de5bcc",
+  "name": "a4e5e282e35fdfb77c64",
   "position": {
     "x": 391.1102414206394,
     "y": 22.542377027126189,
@@ -23,11 +23,11 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "Total OS RI PP"
+                  "Property": "Total OS Sem RI PP"
                 }
               },
-              "queryRef": "_Medidas.Total OS PP RI",
-              "nativeQueryRef": "Total OS RI PP"
+              "queryRef": "_Medidas.Total OS Sem RI PP",
+              "nativeQueryRef": "Total OS Sem RI PP"
             },
             {
               "field": {
@@ -37,11 +37,27 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "Total VA RI PP"
+                  "Property": "Total Itens Aprovados PP"
                 }
               },
-              "queryRef": "_Medidas.Total VA RI PP",
-              "nativeQueryRef": "Total VA RI PP"
+              "queryRef": "_Medidas.Total Itens Aprovados PP",
+              "nativeQueryRef": "Total Itens Sem RI PP",
+              "displayName": "Total Itens Sem RI PP"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Total VA Items Aprovação Manual PP"
+                }
+              },
+              "queryRef": "_Medidas.Total VA Itens PP",
+              "nativeQueryRef": "Total VA Sem RI PP",
+              "displayName": "Total VA Sem RI PP"
             }
           ]
         }
@@ -56,7 +72,7 @@
                     "Entity": "_Medidas"
                   }
                 },
-                "Property": "Total OS RI PP"
+                "Property": "Total OS Sem RI PP"
               }
             },
             "direction": "Descending"

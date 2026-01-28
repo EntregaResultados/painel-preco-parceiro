@@ -4,10 +4,10 @@
   "position": {
     "x": 16.906782770344641,
     "y": 122.85595479783774,
-    "z": 5000,
+    "z": 4000,
     "height": 279.52547513636478,
     "width": 855.483208179439,
-    "tabOrder": 5000
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -206,94 +206,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "e7feb72308cc0a043874",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "DimCalendario"
-                  }
-                },
-                "Hierarchy": "Ano Hierarquia"
-              }
-            },
-            "Level": "Ano"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "2a87488849a490be06b0",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "DimCalendario"
-                  }
-                },
-                "Hierarchy": "Ano Hierarquia"
-              }
-            },
-            "Level": "MesAbreviado"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "fcbd4ef1b4b84a0263b3",
-        "field": {
-          "HierarchyLevel": {
-            "Expression": {
-              "Hierarchy": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "DimCalendario"
-                  }
-                },
-                "Hierarchy": "Ano Hierarquia"
-              }
-            },
-            "Level": "Dia"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "0461afdaa22a792e8916",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "FactAprovacoesAposPrecoParceiro"
-              }
-            },
-            "Property": "TipoManutencao"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "14f1543303e39d06bd7c",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Medidas"
-              }
-            },
-            "Property": "Total OS RI PP"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

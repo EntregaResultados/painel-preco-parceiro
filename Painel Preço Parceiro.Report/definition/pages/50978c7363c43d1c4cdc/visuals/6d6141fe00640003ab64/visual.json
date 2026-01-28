@@ -38,6 +38,21 @@
                       "Entity": "_Medidas"
                     }
                   },
+                  "Property": "VA Peças Potencial Aderente"
+                }
+              },
+              "queryRef": "_Medidas.VA Peças Potencial Aderente",
+              "nativeQueryRef": "VA Peças Potencial Aderente",
+              "displayName": "VA Peças Potencial Aderente"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
                   "Property": "% Aproveitamento Aderente"
                 }
               },
@@ -115,7 +130,7 @@
                   "Property": "P_Aproveitamento"
                 }
               },
-              "index": 1,
+              "index": 2,
               "length": 1
             },
             {
@@ -129,9 +144,23 @@
                   "Property": "P_Travado"
                 }
               },
-              "index": 2,
+              "index": 3,
               "length": 1,
               "sortDirection": "Descending"
+            },
+            {
+              "parameterExpr": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "P_VA_Potencial"
+                    }
+                  },
+                  "Property": "P_VA_Potencial"
+                }
+              },
+              "index": 1,
+              "length": 1
             }
           ]
         }
@@ -189,7 +218,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "195.50157803133663D"
+                  "Value": "141.14804614825704D"
                 }
               }
             }
@@ -203,7 +232,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "131.0084728733406D"
+                  "Value": "123.11864075271815D"
                 }
               }
             }
@@ -217,7 +246,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "199.76075718935726D"
+                  "Value": "137.69163906735585D"
                 }
               }
             }
@@ -245,7 +274,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "131.88134061278413D"
+                  "Value": "104.08642462829468D"
                 }
               }
             }
@@ -259,7 +288,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "70.91527275754525D"
+                  "Value": "60.32369996177386D"
                 }
               }
             }
@@ -280,6 +309,34 @@
           },
           "selector": {
             "metadata": "_Medidas.% Recusas formulário"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "91.93720597694205D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Medidas.VA Peças Potencial Aderente"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "100.80507496944D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Medidas.VA Peças Potencial"
           }
         }
       ],
@@ -586,6 +643,62 @@
                   "Value": "'Center'"
                 }
               }
+            },
+            "dataBars": {
+              "positiveColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'#99d9ce'"
+                      }
+                    }
+                  }
+                }
+              },
+              "negativeColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'minColor'"
+                      }
+                    }
+                  }
+                }
+              },
+              "axisColor": {
+                "solid": {
+                  "color": {
+                    "expr": {
+                      "Literal": {
+                        "Value": "'foreground'"
+                      }
+                    }
+                  }
+                }
+              },
+              "reverseDirection": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              },
+              "hideText": {
+                "expr": {
+                  "Literal": {
+                    "Value": "false"
+                  }
+                }
+              },
+              "totalMatchingOption": {
+                "expr": {
+                  "Literal": {
+                    "Value": "1L"
+                  }
+                }
+              }
             }
           },
           "selector": {
@@ -702,6 +815,62 @@
           },
           "selector": {
             "metadata": "_Medidas.% Recusas formulário"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Medidas.VA Peças Potencial Aderente"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "styleTotal": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Medidas.VA Peças Potencial"
           }
         }
       ]

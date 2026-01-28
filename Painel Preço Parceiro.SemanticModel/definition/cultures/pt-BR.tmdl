@@ -811,6 +811,16 @@ cultureInfo pt-BR
 			          "aprovador": {
 			            "State": "Generated"
 			          }
+			        },
+			        {
+			          "Código": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -4024,7 +4034,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_aprovacao_preco_parceiro.DiferencaNegociadoXReferencial": {
+			    "fact_aprovacao_preco_parceiro.DiferencaNegociadoXReferencialHierarquia": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "FactAprovacaoPrecoParceiro",
@@ -4034,12 +4044,12 @@ cultureInfo pt-BR
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "% DiferencaNegociadoXReferencial": {
+			          "% DiferencaNegociadoXReferencialHierarquia": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "percentage diferencanegociadoxreferencial": {
+			          "percentage diferencanegociadoxreferencialhierarquia": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -4049,7 +4059,7 @@ cultureInfo pt-BR
 			          }
 			        },
 			        {
-			          "pct diferencanegociadoxreferencial": {
+			          "pct diferencanegociadoxreferencialhierarquia": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -4118,7 +4128,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "entity__medida.total_OS_PP_RI": {
+			    "entity__medida.total_OS_RI_PP": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "_Medidas",
@@ -4128,30 +4138,30 @@ cultureInfo pt-BR
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "total OS PP RI": {
+			          "total OS RI PP": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "RI": {
+			          "PP": {
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
 			        },
 			        {
-			          "PP RI": {
+			          "RI PP": {
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
 			        },
 			        {
-			          "OS PP RI": {
+			          "OS RI PP": {
 			            "State": "Generated",
 			            "Weight": 0.97
 			          }
 			        },
 			        {
-			          "aggregate os pp ri": {
+			          "aggregate os ri pp": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -4161,7 +4171,7 @@ cultureInfo pt-BR
 			          }
 			        },
 			        {
-			          "overall os pp ri": {
+			          "overall os ri pp": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -10881,7 +10891,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "entity__medida.OS_com_negociado": {
+			    "entity__medida.OS_com_preço_travado": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "_Medidas",
@@ -10891,14 +10901,699 @@ cultureInfo pt-BR
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "OS com negociado": {
+			          "OS com preço travado": {
 			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.total_VA_PP": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Total VA PP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total VA PP": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PP": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "VA PP": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "aggregate va pp": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "overall va pp": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.total_VA_RI_PP": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Total VA RI PP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total VA RI PP": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "PP": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "RI PP": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "VA RI PP": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "aggregate va ri pp": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "overall va ri pp": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.OS_com_formulário_preenchido": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "OS Com Formulário Preenchido"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "OS com formulário preenchido": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "fact_aprovacoes_apos_preco_parceiro.valor_aprovado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FactAprovacoesAposPrecoParceiro",
+			          "ConceptualProperty": "ValorAprovado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "valor aprovado": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ValorAprovado": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.total_itens_aprovados_PP": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Total Itens Aprovados PP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total itens aprovados PP": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "aggregate iten aprovado pp": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "overall iten aprovado pp": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "Total Itens Sem RI PP": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.total_OS_sem_RI_PP": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Total OS Sem RI PP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total OS sem RI PP": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "aggregate os sem ri pp": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        },
+			        {
+			          "overall os sem ri pp": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.605
+			          }
+			        }
+			      ]
+			    },
+			    "entity__medida.total_VA_items_aprovação_manual_PP": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Medidas",
+			          "ConceptualProperty": "Total VA Items Aprovação Manual PP"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total VA items aprovação manual PP": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Total VA Sem RI PP": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fact_aprovacoes_apos_preco_parceiro.total_itens_aprovados_negociado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FactAprovacoesAposPrecoParceiro",
+			          "ConceptualProperty": "TotalItensAprovadosNegociados"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "total itens aprovados negociado": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "total iten aprovado negociado": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.78
+			          }
+			        },
+			        {
+			          "TotalItensAprovadosNegociados": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "aggregate iten aprovado negociado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "overall iten aprovado negociado": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "fact_aprovacoes_apos_preco_parceiro.valor_aprovado_negociado": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FactAprovacoesAposPrecoParceiro",
+			          "ConceptualProperty": "ValorAprovadoNegociado"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "valor aprovado negociado": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ValorAprovadoNegociado": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
 			          }
 			        }
 			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "fact_aprovacoes_apos_preco_parceiro_has_entity__medida_total_OS_sem_RI_PP": {
+			      "Binding": {
+			        "ConceptualEntity": "FactAprovacoesAposPrecoParceiro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_aprovacoes_apos_preco_parceiro": {
+			          "Target": {
+			            "Entity": "fact_aprovacoes_apos_preco_parceiro"
+			          }
+			        },
+			        "entity__medida.total_OS_sem_RI_PP": {
+			          "Target": {
+			            "Entity": "entity__medida.total_OS_sem_RI_PP"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_aprovacoes_apos_preco_parceiro"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.total_OS_sem_RI_PP"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_aprovacoes_apos_preco_parceiros_have_total_OS_sem_RI_PP"
+			        }
+			      ]
+			    },
+			    "fact_aprovacoes_apos_preco_parceiro_has_entity__medida_total_itens_aprovados_PP": {
+			      "Binding": {
+			        "ConceptualEntity": "FactAprovacoesAposPrecoParceiro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_aprovacoes_apos_preco_parceiro": {
+			          "Target": {
+			            "Entity": "fact_aprovacoes_apos_preco_parceiro"
+			          }
+			        },
+			        "entity__medida.total_itens_aprovados_PP": {
+			          "Target": {
+			            "Entity": "entity__medida.total_itens_aprovados_PP"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_aprovacoes_apos_preco_parceiro"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.total_itens_aprovados_PP"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_aprovacoes_apos_preco_parceiros_have_total_itens_aprovados_PP"
+			        }
+			      ]
+			    },
+			    "fact_aprovacoes_apos_preco_parceiro_has_valor_aprovado": {
+			      "Binding": {
+			        "ConceptualEntity": "FactAprovacoesAposPrecoParceiro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_aprovacoes_apos_preco_parceiro": {
+			          "Target": {
+			            "Entity": "fact_aprovacoes_apos_preco_parceiro"
+			          }
+			        },
+			        "fact_aprovacoes_apos_preco_parceiro.valor_aprovado": {
+			          "Target": {
+			            "Entity": "fact_aprovacoes_apos_preco_parceiro.valor_aprovado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_aprovacoes_apos_preco_parceiro"
+			            },
+			            "Object": {
+			              "Role": "fact_aprovacoes_apos_preco_parceiro.valor_aprovado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_aprovacoes_apos_preco_parceiros_have_valor_aprovados"
+			        }
+			      ]
+			    },
+			    "respostas_formulario_has_entity__medida_OS_com_formulário_preenchido": {
+			      "Binding": {
+			        "ConceptualEntity": "RespostasFormulario"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "respostas_formulario": {
+			          "Target": {
+			            "Entity": "respostas_formulario"
+			          }
+			        },
+			        "entity__medida.OS_com_formulário_preenchido": {
+			          "Target": {
+			            "Entity": "entity__medida.OS_com_formulário_preenchido"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "respostas_formulario"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.OS_com_formulário_preenchido"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "respostas_formularios_have_OS_com_formulário_preenchido"
+			        }
+			      ]
+			    },
+			    "fact_aprovacoes_apos_preco_parceiro_has_entity__medida_total_VA_RI_PP": {
+			      "Binding": {
+			        "ConceptualEntity": "FactAprovacoesAposPrecoParceiro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_aprovacoes_apos_preco_parceiro": {
+			          "Target": {
+			            "Entity": "fact_aprovacoes_apos_preco_parceiro"
+			          }
+			        },
+			        "entity__medida.total_VA_RI_PP": {
+			          "Target": {
+			            "Entity": "entity__medida.total_VA_RI_PP"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_aprovacoes_apos_preco_parceiro"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.total_VA_RI_PP"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_aprovacoes_apos_preco_parceiros_have_total_VA_RI_PP"
+			        }
+			      ]
+			    },
+			    "fact_aprovacoes_apos_preco_parceiro_has_entity__medida_total_VA_PP": {
+			      "Binding": {
+			        "ConceptualEntity": "FactAprovacoesAposPrecoParceiro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_aprovacoes_apos_preco_parceiro": {
+			          "Target": {
+			            "Entity": "fact_aprovacoes_apos_preco_parceiro"
+			          }
+			        },
+			        "entity__medida.total_VA_PP": {
+			          "Target": {
+			            "Entity": "entity__medida.total_VA_PP"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_aprovacoes_apos_preco_parceiro"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.total_VA_PP"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_aprovacoes_apos_preco_parceiros_have_total_VA_PP"
+			        }
+			      ]
+			    },
+			    "fact_aprovacao_preco_parceiro_has_entity__medida_OS_com_preço_travado": {
+			      "Binding": {
+			        "ConceptualEntity": "FactAprovacaoPrecoParceiro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_aprovacao_preco_parceiro": {
+			          "Target": {
+			            "Entity": "fact_aprovacao_preco_parceiro"
+			          }
+			        },
+			        "entity__medida.OS_com_preço_travado": {
+			          "Target": {
+			            "Entity": "entity__medida.OS_com_preço_travado"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_aprovacao_preco_parceiro"
+			            },
+			            "Object": {
+			              "Role": "entity__medida.OS_com_preço_travado"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_aprovacao_preco_parceiros_have_OS_com_preço_travado"
+			        }
+			      ]
+			    },
+			    "relacao_cliente_aprovador_has_nome_cliente": {
+			      "Binding": {
+			        "ConceptualEntity": "RelacaoClienteAprovador"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "relacao_cliente_aprovador": {
+			          "Target": {
+			            "Entity": "relacao_cliente_aprovador"
+			          }
+			        },
+			        "relacao_cliente_aprovador.nome_cliente": {
+			          "Target": {
+			            "Entity": "relacao_cliente_aprovador.nome_cliente"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "relacao_cliente_aprovador"
+			            },
+			            "Object": {
+			              "Role": "relacao_cliente_aprovador.nome_cliente"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "relacao_cliente_aprovadors_have_nome_clientes"
+			        }
+			      ]
+			    },
+			    "fact_aprovacoes_apos_preco_parceiro_has_tipo_manutencao": {
+			      "Binding": {
+			        "ConceptualEntity": "FactAprovacoesAposPrecoParceiro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_aprovacoes_apos_preco_parceiro": {
+			          "Target": {
+			            "Entity": "fact_aprovacoes_apos_preco_parceiro"
+			          }
+			        },
+			        "fact_aprovacoes_apos_preco_parceiro.tipo_manutencao": {
+			          "Target": {
+			            "Entity": "fact_aprovacoes_apos_preco_parceiro.tipo_manutencao"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_aprovacoes_apos_preco_parceiro"
+			            },
+			            "Object": {
+			              "Role": "fact_aprovacoes_apos_preco_parceiro.tipo_manutencao"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_aprovacoes_apos_preco_parceiros_have_tipo_manutencaos"
+			        }
+			      ]
+			    },
+			    "fact_aprovacoes_apos_preco_parceiro_has_aprovacao_automatica": {
+			      "Binding": {
+			        "ConceptualEntity": "FactAprovacoesAposPrecoParceiro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_aprovacoes_apos_preco_parceiro": {
+			          "Target": {
+			            "Entity": "fact_aprovacoes_apos_preco_parceiro"
+			          }
+			        },
+			        "fact_aprovacoes_apos_preco_parceiro.aprovacao_automatica": {
+			          "Target": {
+			            "Entity": "fact_aprovacoes_apos_preco_parceiro.aprovacao_automatica"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_aprovacoes_apos_preco_parceiro"
+			            },
+			            "Object": {
+			              "Role": "fact_aprovacoes_apos_preco_parceiro.aprovacao_automatica"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_aprovacoes_apos_preco_parceiros_have_aprovacao_automaticas"
+			        }
+			      ]
+			    },
+			    "fact_aprovacoes_apos_preco_parceiro_has_data_aprovacao": {
+			      "Binding": {
+			        "ConceptualEntity": "FactAprovacoesAposPrecoParceiro"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_aprovacoes_apos_preco_parceiro": {
+			          "Target": {
+			            "Entity": "fact_aprovacoes_apos_preco_parceiro"
+			          }
+			        },
+			        "fact_aprovacoes_apos_preco_parceiro.data_aprovacao": {
+			          "Target": {
+			            "Entity": "fact_aprovacoes_apos_preco_parceiro.data_aprovacao"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_aprovacoes_apos_preco_parceiro"
+			            },
+			            "Object": {
+			              "Role": "fact_aprovacoes_apos_preco_parceiro.data_aprovacao"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_aprovacoes_apos_preco_parceiros_have_data_aprovacaos"
+			        }
+			      ]
+			    },
 			    "fact_aprovacoes_apos_preco_parceiro_has_nome_cliente": {
 			      "Binding": {
 			        "ConceptualEntity": "FactAprovacoesAposPrecoParceiro"
@@ -13647,7 +14342,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_aprovacoes_apos_preco_parceiro_has_entity__medida_total_OS_PP_RI": {
+			    "fact_aprovacoes_apos_preco_parceiro_has_entity__medida_total_OS_RI_PP": {
 			      "Binding": {
 			        "ConceptualEntity": "FactAprovacoesAposPrecoParceiro"
 			      },
@@ -13658,9 +14353,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_aprovacoes_apos_preco_parceiro"
 			          }
 			        },
-			        "entity__medida.total_OS_PP_RI": {
+			        "entity__medida.total_OS_RI_PP": {
 			          "Target": {
-			            "Entity": "entity__medida.total_OS_PP_RI"
+			            "Entity": "entity__medida.total_OS_RI_PP"
 			          }
 			        }
 			      },
@@ -13671,12 +14366,12 @@ cultureInfo pt-BR
 			              "Role": "fact_aprovacoes_apos_preco_parceiro"
 			            },
 			            "Object": {
-			              "Role": "entity__medida.total_OS_PP_RI"
+			              "Role": "entity__medida.total_OS_RI_PP"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_aprovacoes_apos_preco_parceiros_have_total_OS_PP_RI"
+			          "ID": "fact_aprovacoes_apos_preco_parceiros_have_total_OS_RI_PP"
 			        }
 			      ]
 			    },
@@ -13713,7 +14408,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_aprovacao_preco_parceiro_has_DiferencaNegociadoXReferencial": {
+			    "fact_aprovacao_preco_parceiro_has_DiferencaNegociadoXReferencialHierarquia": {
 			      "Binding": {
 			        "ConceptualEntity": "FactAprovacaoPrecoParceiro"
 			      },
@@ -13724,9 +14419,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_aprovacao_preco_parceiro"
 			          }
 			        },
-			        "fact_aprovacao_preco_parceiro.DiferencaNegociadoXReferencial": {
+			        "fact_aprovacao_preco_parceiro.DiferencaNegociadoXReferencialHierarquia": {
 			          "Target": {
-			            "Entity": "fact_aprovacao_preco_parceiro.DiferencaNegociadoXReferencial"
+			            "Entity": "fact_aprovacao_preco_parceiro.DiferencaNegociadoXReferencialHierarquia"
 			          }
 			        }
 			      },
@@ -13737,12 +14432,12 @@ cultureInfo pt-BR
 			              "Role": "fact_aprovacao_preco_parceiro"
 			            },
 			            "Object": {
-			              "Role": "fact_aprovacao_preco_parceiro.DiferencaNegociadoXReferencial"
+			              "Role": "fact_aprovacao_preco_parceiro.DiferencaNegociadoXReferencialHierarquia"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_aprovacao_preco_parceiros_have__DiferencaNegociadoXReferencials"
+			          "ID": "fact_aprovacao_preco_parceiros_have__DiferencaNegociadoXReferencialHierarquias"
 			        }
 			      ]
 			    },
@@ -17467,7 +18162,7 @@ cultureInfo pt-BR
 			        }
 			      ]
 			    },
-			    "fact_aprovacoes_apos_preco_parceiro_has_data_aprovacao": {
+			    "fact_aprovacoes_apos_preco_parceiro_has_entity__medida_total_VA_items_aprovação_manual_PP": {
 			      "Binding": {
 			        "ConceptualEntity": "FactAprovacoesAposPrecoParceiro"
 			      },
@@ -17478,9 +18173,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_aprovacoes_apos_preco_parceiro"
 			          }
 			        },
-			        "fact_aprovacoes_apos_preco_parceiro.data_aprovacao": {
+			        "entity__medida.total_VA_items_aprovação_manual_PP": {
 			          "Target": {
-			            "Entity": "fact_aprovacoes_apos_preco_parceiro.data_aprovacao"
+			            "Entity": "entity__medida.total_VA_items_aprovação_manual_PP"
 			          }
 			        }
 			      },
@@ -17491,16 +18186,16 @@ cultureInfo pt-BR
 			              "Role": "fact_aprovacoes_apos_preco_parceiro"
 			            },
 			            "Object": {
-			              "Role": "fact_aprovacoes_apos_preco_parceiro.data_aprovacao"
+			              "Role": "entity__medida.total_VA_items_aprovação_manual_PP"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_aprovacoes_apos_preco_parceiros_have_data_aprovacaos"
+			          "ID": "fact_aprovacoes_apos_preco_parceiros_have_total_VA_items_aprovação_manual_PP"
 			        }
 			      ]
 			    },
-			    "fact_aprovacoes_apos_preco_parceiro_has_aprovacao_automatica": {
+			    "fact_aprovacoes_apos_preco_parceiro_has_total_itens_aprovados_negociado": {
 			      "Binding": {
 			        "ConceptualEntity": "FactAprovacoesAposPrecoParceiro"
 			      },
@@ -17511,9 +18206,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_aprovacoes_apos_preco_parceiro"
 			          }
 			        },
-			        "fact_aprovacoes_apos_preco_parceiro.aprovacao_automatica": {
+			        "fact_aprovacoes_apos_preco_parceiro.total_itens_aprovados_negociado": {
 			          "Target": {
-			            "Entity": "fact_aprovacoes_apos_preco_parceiro.aprovacao_automatica"
+			            "Entity": "fact_aprovacoes_apos_preco_parceiro.total_itens_aprovados_negociado"
 			          }
 			        }
 			      },
@@ -17524,16 +18219,16 @@ cultureInfo pt-BR
 			              "Role": "fact_aprovacoes_apos_preco_parceiro"
 			            },
 			            "Object": {
-			              "Role": "fact_aprovacoes_apos_preco_parceiro.aprovacao_automatica"
+			              "Role": "fact_aprovacoes_apos_preco_parceiro.total_itens_aprovados_negociado"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_aprovacoes_apos_preco_parceiros_have_aprovacao_automaticas"
+			          "ID": "fact_aprovacoes_apos_preco_parceiros_have_total_itens_aprovados_negociados"
 			        }
 			      ]
 			    },
-			    "fact_aprovacoes_apos_preco_parceiro_has_tipo_manutencao": {
+			    "fact_aprovacoes_apos_preco_parceiro_has_valor_aprovado_negociado": {
 			      "Binding": {
 			        "ConceptualEntity": "FactAprovacoesAposPrecoParceiro"
 			      },
@@ -17544,9 +18239,9 @@ cultureInfo pt-BR
 			            "Entity": "fact_aprovacoes_apos_preco_parceiro"
 			          }
 			        },
-			        "fact_aprovacoes_apos_preco_parceiro.tipo_manutencao": {
+			        "fact_aprovacoes_apos_preco_parceiro.valor_aprovado_negociado": {
 			          "Target": {
-			            "Entity": "fact_aprovacoes_apos_preco_parceiro.tipo_manutencao"
+			            "Entity": "fact_aprovacoes_apos_preco_parceiro.valor_aprovado_negociado"
 			          }
 			        }
 			      },
@@ -17557,78 +18252,12 @@ cultureInfo pt-BR
 			              "Role": "fact_aprovacoes_apos_preco_parceiro"
 			            },
 			            "Object": {
-			              "Role": "fact_aprovacoes_apos_preco_parceiro.tipo_manutencao"
+			              "Role": "fact_aprovacoes_apos_preco_parceiro.valor_aprovado_negociado"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "fact_aprovacoes_apos_preco_parceiros_have_tipo_manutencaos"
-			        }
-			      ]
-			    },
-			    "relacao_cliente_aprovador_has_nome_cliente": {
-			      "Binding": {
-			        "ConceptualEntity": "RelacaoClienteAprovador"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "relacao_cliente_aprovador": {
-			          "Target": {
-			            "Entity": "relacao_cliente_aprovador"
-			          }
-			        },
-			        "relacao_cliente_aprovador.nome_cliente": {
-			          "Target": {
-			            "Entity": "relacao_cliente_aprovador.nome_cliente"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "relacao_cliente_aprovador"
-			            },
-			            "Object": {
-			              "Role": "relacao_cliente_aprovador.nome_cliente"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "relacao_cliente_aprovadors_have_nome_clientes"
-			        }
-			      ]
-			    },
-			    "fact_aprovacao_preco_parceiro_has_entity__medida_OS_com_negociado": {
-			      "Binding": {
-			        "ConceptualEntity": "FactAprovacaoPrecoParceiro"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_aprovacao_preco_parceiro": {
-			          "Target": {
-			            "Entity": "fact_aprovacao_preco_parceiro"
-			          }
-			        },
-			        "entity__medida.OS_com_negociado": {
-			          "Target": {
-			            "Entity": "entity__medida.OS_com_negociado"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_aprovacao_preco_parceiro"
-			            },
-			            "Object": {
-			              "Role": "entity__medida.OS_com_negociado"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_aprovacao_preco_parceiros_have_OS_com_negociado"
+			          "ID": "fact_aprovacoes_apos_preco_parceiros_have_valor_aprovado_negociados"
 			        }
 			      ]
 			    },

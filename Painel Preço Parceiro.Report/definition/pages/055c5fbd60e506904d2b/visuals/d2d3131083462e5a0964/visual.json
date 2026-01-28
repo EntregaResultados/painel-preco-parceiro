@@ -79,6 +79,21 @@
                       "Entity": "RelacaoClienteAprovador"
                     }
                   },
+                  "Property": "Aprovador"
+                }
+              },
+              "queryRef": "RelacaoClienteAprovador.Aprovador",
+              "nativeQueryRef": "Código",
+              "displayName": "Código"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "RelacaoClienteAprovador"
+                    }
+                  },
                   "Property": "nome_aprovador"
                 }
               },
@@ -212,7 +227,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "342.4978214761684D"
+                  "Value": "296.351729899045D"
                 }
               }
             }

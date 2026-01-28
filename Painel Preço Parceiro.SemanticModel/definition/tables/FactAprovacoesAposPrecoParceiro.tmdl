@@ -64,14 +64,52 @@ table FactAprovacoesAposPrecoParceiro
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column TotalItensAprovadosNegociados
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d8752d6-f6e9-48ee-8b12-437eb6d20eef
+		summarizeBy: sum
+		sourceColumn: TotalItensAprovadosNegociados
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValorAprovadoNegociado
+		dataType: double
+		lineageTag: ab62cf96-05e2-48a6-b7d7-00e3815036d6
+		summarizeBy: sum
+		sourceColumn: ValorAprovadoNegociado
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	partition FactAprovacoesAposPrecoParceiro = m
 		mode: import
 		queryGroup: Fatos
 		source = ```
 				let
 				    Fonte = Azure("
+				WITH CTE AS (
+				  SELECT
+				    fmi.Sk_MaintenanceItem
+				    , fmi.MaintenanceID
+				    , fmi.PartPriceApproved
+				  FROM hive_metastore.gold.fact_maintenanceitems AS fmi
+				  
+				    LEFT JOIN hive_metastore.gold.dim_maintenancelogpriceregulatorpartner AS pr1
+				      ON pr1.PricePartReferencePriceNegId = fmi.PartPriceNegociatedId
+				
+				    LEFT JOIN hive_metastore.gold.dim_maintenancelogpriceregulatorpartner AS pr2
+				      ON pr2.PricePartReferencePriceNegId = fmi.PartPriceNegociatedCustomerId
+				  
+				  WHERE 1=1
+				    AND fmi.ApprovalTimestamp IS NOT NULL
+				    AND (pr1.Sk_PriceRegulatorPartner IS NOT NULL OR pr2.Sk_PriceRegulatorPartner IS NOT NULL)
+				)
 				SELECT
-				    DISTINCT fms.OrderServiceCode                                  AS NumeroOS
+				    fms.OrderServiceCode                                           AS NumeroOS
+				  , COUNT(DISTINCT CTE.Sk_MaintenanceItem)                         AS TotalItensAprovadosNegociados
+				  , SUM(CTE.PartPriceApproved)                                     AS ValorAprovadoNegociado
 				  , (fms.PartValue + fms.LaborValue)                               AS ValorAprovado
 				  , dfc.CustomerSourceCode                                         AS CodigoCliente
 				  , dfc.CustomerShortName                                          AS NomeCliente
@@ -79,26 +117,29 @@ table FactAprovacoesAposPrecoParceiro
 				  , dmt.MaintenanceType                                            AS TipoManutencao
 				  , fms.IsAutomaticApproval                                        AS AprovacaoAutomatica 
 				
-				FROM hive_metastore.gold.fact_maintenanceitems AS fmi
-				
-				  LEFT JOIN hive_metastore.gold.dim_maintenancelogpriceregulatorpartner AS pr1
-				    ON pr1.PricePartReferencePriceNegId = fmi.PartPriceNegociatedId
-				
-				  LEFT JOIN hive_metastore.gold.dim_maintenancelogpriceregulatorpartner AS pr2
-				    ON pr2.PricePartReferencePriceNegId = fmi.PartPriceNegociatedCustomerId
-				  
-				  RIGHT JOIN hive_metastore.gold.fact_maintenanceservices AS fms
-				    ON fmi.MaintenanceID = fms.OrderServiceCoDe
+				FROM hive_metastore.gold.fact_maintenanceservices AS fms
 				  
 				  LEFT JOIN hive_metastore.gold.dim_fuelcustomers AS dfc
 				    ON fms.Sk_FuelCustomer = dfc.Sk_FuelCustomer
 				  
 				  LEFT JOIN hive_metastore.gold.dim_maintenancetypes AS dmt
 				    ON fms.Sk_MaintenanceType = dmt.Sk_MaintenanceType
+				  
+				  RIGHT JOIN CTE
+				    ON CTE.maintenanceid = fms.OrderServiceCode
 				
 				WHERE 1=1
 				  AND fms.ApprovalTimestamp >= '2025-04-01' 
-				  AND (pr1.Sk_PriceRegulatorPartner IS NOT NULL OR pr2.Sk_PriceRegulatorPartner IS NOT NULL)
+				
+				GROUP BY
+				    fms.OrderServiceCode
+				  , fms.PartValue
+				  , fms.LaborValue
+				  , dfc.CustomerSourceCode
+				  , dfc.CustomerShortName
+				  , fms.ApprovalTimestamp
+				  , dmt.MaintenanceType
+				  , fms.IsAutomaticApproval
 				"),
 				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"CodigoCliente", type text}, {"DataAprovacao", type date}})
 				in

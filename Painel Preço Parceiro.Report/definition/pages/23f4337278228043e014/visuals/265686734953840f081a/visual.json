@@ -1,6 +1,6 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
-  "name": "3ef56968215db37a6a1b",
+  "name": "265686734953840f081a",
   "position": {
     "x": 36.074831952055717,
     "y": 63.441945846718674,
@@ -19,7 +19,7 @@
               {
                 "textRuns": [
                   {
-                    "value": "Eficiência Preço Parceiro RI",
+                    "value": "Eficiência Preço Parceiro Aprovação Manual",
                     "textStyle": {
                       "fontWeight": "bold",
                       "fontSize": "14pt",

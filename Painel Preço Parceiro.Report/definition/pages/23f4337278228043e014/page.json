@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.0.0/schema.json",
-  "name": "a2a460c0e8b862a68484",
-  "displayName": "Eficiência Preço Parceiro RI",
+  "name": "23f4337278228043e014",
+  "displayName": "Eficiência Preço Parceiro Aprovação Manual",
   "displayOption": "FitToPage",
   "height": 720,
   "width": 1280,
@@ -111,73 +111,73 @@
   },
   "visualInteractions": [
     {
-      "source": "061d6108c9bba8d29560",
-      "target": "5a6f1230a2c028d67623",
+      "source": "4b5254fc2af34c7edcc1",
+      "target": "8c703001dc04ffad35f4",
       "type": "DataFilter"
     },
     {
-      "source": "5a6f1230a2c028d67623",
-      "target": "061d6108c9bba8d29560",
+      "source": "8c703001dc04ffad35f4",
+      "target": "4b5254fc2af34c7edcc1",
       "type": "DataFilter"
     },
     {
-      "source": "8a532982859b8e35e644",
-      "target": "94d9b08428b5826dd00e",
+      "source": "0eb4a7ef304203d1b29c",
+      "target": "fc3a7d9cb8b97b99033b",
       "type": "DataFilter"
     },
     {
-      "source": "8a532982859b8e35e644",
-      "target": "5a6f1230a2c028d67623",
+      "source": "0eb4a7ef304203d1b29c",
+      "target": "8c703001dc04ffad35f4",
       "type": "DataFilter"
     },
     {
-      "source": "8a532982859b8e35e644",
-      "target": "061d6108c9bba8d29560",
+      "source": "0eb4a7ef304203d1b29c",
+      "target": "4b5254fc2af34c7edcc1",
       "type": "DataFilter"
     },
     {
-      "source": "061d6108c9bba8d29560",
-      "target": "8a532982859b8e35e644",
+      "source": "4b5254fc2af34c7edcc1",
+      "target": "0eb4a7ef304203d1b29c",
       "type": "DataFilter"
     },
     {
-      "source": "061d6108c9bba8d29560",
-      "target": "94d9b08428b5826dd00e",
+      "source": "4b5254fc2af34c7edcc1",
+      "target": "fc3a7d9cb8b97b99033b",
       "type": "DataFilter"
     },
     {
-      "source": "94d9b08428b5826dd00e",
-      "target": "061d6108c9bba8d29560",
+      "source": "fc3a7d9cb8b97b99033b",
+      "target": "4b5254fc2af34c7edcc1",
       "type": "DataFilter"
     },
     {
-      "source": "5a6f1230a2c028d67623",
-      "target": "8a532982859b8e35e644",
+      "source": "8c703001dc04ffad35f4",
+      "target": "0eb4a7ef304203d1b29c",
       "type": "DataFilter"
     },
     {
-      "source": "94d9b08428b5826dd00e",
-      "target": "8a532982859b8e35e644",
+      "source": "fc3a7d9cb8b97b99033b",
+      "target": "0eb4a7ef304203d1b29c",
       "type": "DataFilter"
     },
     {
-      "source": "5a6f1230a2c028d67623",
-      "target": "94d9b08428b5826dd00e",
+      "source": "8c703001dc04ffad35f4",
+      "target": "fc3a7d9cb8b97b99033b",
       "type": "DataFilter"
     },
     {
-      "source": "94d9b08428b5826dd00e",
-      "target": "5a6f1230a2c028d67623",
+      "source": "fc3a7d9cb8b97b99033b",
+      "target": "8c703001dc04ffad35f4",
       "type": "DataFilter"
     },
     {
-      "source": "5a6f1230a2c028d67623",
-      "target": "4923a798750050de5bcc",
+      "source": "8c703001dc04ffad35f4",
+      "target": "a4e5e282e35fdfb77c64",
       "type": "DataFilter"
     },
     {
-      "source": "061d6108c9bba8d29560",
-      "target": "4923a798750050de5bcc",
+      "source": "4b5254fc2af34c7edcc1",
+      "target": "a4e5e282e35fdfb77c64",
       "type": "DataFilter"
     }
   ]

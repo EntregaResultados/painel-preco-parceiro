@@ -1,34 +1,79 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
-  "name": "94d9b08428b5826dd00e",
+  "name": "0eb4a7ef304203d1b29c",
   "position": {
-    "x": 890.42389257148454,
+    "x": 16.906782770344641,
     "y": 421.54245040725976,
-    "z": 6000,
-    "height": 279.52547513636478,
-    "width": 376.45769635300741,
-    "tabOrder": 6000
+    "z": 5000,
+    "height": 278.39835628500845,
+    "width": 856.61032703079525,
+    "tabOrder": 5000
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "clusteredColumnChart",
     "query": {
       "queryState": {
         "Category": {
           "projections": [
             {
               "field": {
-                "Column": {
+                "HierarchyLevel": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "FactAprovacoesAposPrecoParceiro"
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimCalendario"
+                        }
+                      },
+                      "Hierarchy": "Ano Hierarquia"
                     }
                   },
-                  "Property": "NomeCliente"
+                  "Level": "Ano"
                 }
               },
-              "queryRef": "FactAprovacoesAposPrecoParceiro.NomeCliente",
-              "nativeQueryRef": "NomeCliente",
+              "queryRef": "DimCalendario.Ano Hierarquia.Ano",
+              "nativeQueryRef": "Ano Hierarquia Ano",
               "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimCalendario"
+                        }
+                      },
+                      "Hierarchy": "Ano Hierarquia"
+                    }
+                  },
+                  "Level": "MesAbreviado"
+                }
+              },
+              "queryRef": "DimCalendario.Ano Hierarquia.MesAbreviado",
+              "nativeQueryRef": "Ano Hierarquia MesAbreviado",
+              "active": true
+            },
+            {
+              "field": {
+                "HierarchyLevel": {
+                  "Expression": {
+                    "Hierarchy": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DimCalendario"
+                        }
+                      },
+                      "Hierarchy": "Ano Hierarquia"
+                    }
+                  },
+                  "Level": "Dia"
+                }
+              },
+              "queryRef": "DimCalendario.Ano Hierarquia.Dia",
+              "nativeQueryRef": "Ano Hierarquia Dia",
+              "active": false
             }
           ]
         },
@@ -60,95 +105,17 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "Total VA RI PP"
+                  "Property": "Total VA Items Aprovação Manual PP"
                 }
               },
-              "queryRef": "_Medidas.Total VA RI PP",
-              "nativeQueryRef": "Total VA RI PP"
+              "queryRef": "_Medidas.Total VA Itens PP",
+              "nativeQueryRef": "Total VA Items Aprovação Manual PP"
             }
           ]
         }
-      },
-      "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Measure": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Medidas"
-                  }
-                },
-                "Property": "Total VA RI PP"
-              }
-            },
-            "direction": "Descending"
-          }
-        ],
-        "isDefaultSort": true
       }
     },
     "objects": {
-      "legend": [
-        {
-          "properties": {
-            "position": {
-              "expr": {
-                "Literal": {
-                  "Value": "'TopCenter'"
-                }
-              }
-            },
-            "showTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "categoryAxis": [
-        {
-          "properties": {
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "maxMarginFactor": {
-              "expr": {
-                "Literal": {
-                  "Value": "50L"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "valueAxis": [
-        {
-          "properties": {
-            "showAxisTitle": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            },
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          }
-        }
-      ],
       "labels": [
         {
           "properties": {
@@ -168,6 +135,59 @@
             }
           }
         }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "categoryAxis": [
+        {
+          "properties": {
+            "showAxisTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'TopCenter'"
+                }
+              }
+            },
+            "showTitle": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -177,7 +197,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'VA por RI com negociação Preço Parceiro'"
+                  "Value": "'VA aprovado manualmente com negociação Preço Parceiro'"
                 }
               }
             },

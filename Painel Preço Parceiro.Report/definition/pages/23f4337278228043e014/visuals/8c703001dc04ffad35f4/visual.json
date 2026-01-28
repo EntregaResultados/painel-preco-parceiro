@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
-  "name": "94d9b08428b5826dd00e",
+  "name": "8c703001dc04ffad35f4",
   "position": {
     "x": 890.42389257148454,
-    "y": 421.54245040725976,
-    "z": 6000,
+    "y": 122.85595479783774,
+    "z": 3000,
     "height": 279.52547513636478,
     "width": 376.45769635300741,
-    "tabOrder": 6000
+    "tabOrder": 3000
   },
   "visual": {
     "visualType": "clusteredBarChart",
@@ -60,11 +60,11 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "Total VA RI PP"
+                  "Property": "Total OS PP Sem RI"
                 }
               },
-              "queryRef": "_Medidas.Total VA RI PP",
-              "nativeQueryRef": "Total VA RI PP"
+              "queryRef": "_Medidas.Total OS PP Sem RI",
+              "nativeQueryRef": "Total OS PP Sem RI"
             }
           ]
         }
@@ -79,7 +79,7 @@
                     "Entity": "_Medidas"
                   }
                 },
-                "Property": "Total VA RI PP"
+                "Property": "Total OS PP Sem RI"
               }
             },
             "direction": "Descending"
@@ -158,13 +158,6 @@
                   "Value": "true"
                 }
               }
-            },
-            "labelDisplayUnits": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
             }
           }
         }
@@ -177,7 +170,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'VA por RI com negociação Preço Parceiro'"
+                  "Value": "'OS aprovadas manualmente com negociação Preço Parceiro'"
                 }
               }
             },
