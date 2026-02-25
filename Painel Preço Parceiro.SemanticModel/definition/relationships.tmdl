@@ -29,7 +29,6 @@ relationship 4ae15203-cfb3-90dd-a963-f8e6835df321
 	toColumn: RespostasFormularioDistintasOS.'Número da ordem'
 
 relationship b944332b-1f4b-4e69-b4da-e409fdbb0321
-	crossFilteringBehavior: bothDirections
 	fromColumn: FactAprovacaoPrecoParceiro.DataAprovacao1OS
 	toColumn: DimCalendario.DataCompleta
 
@@ -52,6 +51,11 @@ relationship 96cbf541-6e73-d475-96b0-76f03fa5dc98
 	toColumn: Conexao.Codigo
 
 relationship c9d1bdbf-8cac-3442-9e23-5036acdb9948
+	isActive: false
 	fromColumn: FactAprovacoesAposPrecoParceiro.DataAprovacao
 	toColumn: DimCalendario.DataCompleta
+
+relationship a1b2c3d4-fact2-aprov-link-567890abcdef
+	fromColumn: FactAprovacoesAposPrecoParceiro.NomeUsuario
+	toColumn: DimAprovadores.dUsuario
 

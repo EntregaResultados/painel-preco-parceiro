@@ -19,14 +19,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "FactAprovacaoPrecoParceiro"
+                      "Entity": "DimAprovadores"
                     }
                   },
-                  "Property": "NomeUsuario"
+                  "Property": "dUsuario"
                 }
               },
-              "queryRef": "FactAprovacaoPrecoParceiro.NomeUsuario",
-              "nativeQueryRef": "NomeUsuario",
+              "queryRef": "DimAprovadores.dUsuario",
+              "nativeQueryRef": "dUsuario",
               "active": true
             }
           ]
@@ -70,44 +70,6 @@
                 "Literal": {
                   "Value": "true"
                 }
-              }
-            },
-            "selfFilter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "f",
-                    "Entity": "FactAprovacaoPrecoParceiro",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "Contains": {
-                        "Left": {
-                          "Column": {
-                            "Expression": {
-                              "SourceRef": {
-                                "Source": "f"
-                              }
-                            },
-                            "Property": "NomeUsuario"
-                          }
-                        },
-                        "Right": {
-                          "Literal": {
-                            "Value": "'gu'"
-                          }
-                        }
-                      }
-                    },
-                    "Annotations": {
-                      "PowerBI.MParameterBehavior": 1
-                    }
-                  }
-                ]
               }
             }
           }
