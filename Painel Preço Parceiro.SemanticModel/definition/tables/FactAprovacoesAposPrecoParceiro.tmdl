@@ -83,15 +83,79 @@ table FactAprovacoesAposPrecoParceiro
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column NomeUsuario
+		dataType: string
+		lineageTag: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+		summarizeBy: none
+		sourceColumn: NomeUsuario
+
+		annotation SummarizationSetBy = Automatic
+
 	partition FactAprovacoesAposPrecoParceiro = m
 		mode: import
 		queryGroup: Fatos
-		source =
+		source = ```
 				let
-				    Fonte = Azure("WITH CTE AS (#(lf)  SELECT#(lf)    fmi.Sk_MaintenanceItem#(lf)    , fmi.MaintenanceID#(lf)    , fmi.PartPriceApproved#(lf)  FROM hive_metastore.gold.fact_maintenanceitems AS fmi#(lf)  #(lf)    LEFT JOIN hive_metastore.gold.dim_maintenancelogpriceregulatorpartner AS pr1#(lf)      ON pr1.PricePartReferencePriceNegId = fmi.PartPriceNegociatedId#(lf)#(lf)    LEFT JOIN hive_metastore.gold.dim_maintenancelogpriceregulatorpartner AS pr2#(lf)      ON pr2.PricePartReferencePriceNegId = fmi.PartPriceNegociatedCustomerId#(lf)#(lf)    LEFT JOIN hive_metastore.gold.dim_maintenancelabors AS dml#(lf)      ON fmi.Sk_MaintenanceLabor = dml.Sk_MaintenanceLabor#(lf)  #(lf)  WHERE 1=1#(lf)    AND fmi.ApprovalTimestamp IS NOT NULL#(lf)    AND (pr1.Sk_PriceRegulatorPartner IS NOT NULL OR pr2.Sk_PriceRegulatorPartner IS NOT NULL)#(lf)    AND (dml.LaborName IS NULL OR dml.LaborName NOT LIKE '%GUINCHO%')#(lf))#(lf)SELECT#(lf)    fms.OrderServiceCode                                           AS NumeroOS#(lf)  , COUNT(DISTINCT CTE.Sk_MaintenanceItem)                         AS TotalItensAprovadosNegociados#(lf)  , SUM(CTE.PartPriceApproved)                                     AS ValorAprovadoNegociado#(lf)  , (fms.PartValue + fms.LaborValue)                               AS ValorAprovado#(lf)  , dfc.CustomerSourceCode                                         AS CodigoCliente#(lf)  , dfc.CustomerShortName                                          AS NomeCliente#(lf)  , date_format(fms.ApprovalTimestamp, 'yyyy-MM-dd')               AS DataAprovacao#(lf)  , dmt.MaintenanceType                                            AS TipoManutencao#(lf)  , fms.IsAutomaticApproval                                        AS AprovacaoAutomatica #(lf)#(lf)FROM hive_metastore.gold.fact_maintenanceservices AS fms#(lf)  #(lf)  LEFT JOIN hive_metastore.gold.dim_fuelcustomers AS dfc#(lf)    ON fms.Sk_FuelCustomer = dfc.Sk_FuelCustomer#(lf)  #(lf)  LEFT JOIN hive_metastore.gold.dim_maintenancetypes AS dmt#(lf)    ON fms.Sk_MaintenanceType = dmt.Sk_MaintenanceType#(lf)  #(lf)  RIGHT JOIN CTE#(lf)    ON CTE.maintenanceid = fms.OrderServiceCode#(lf)#(lf)WHERE 1=1#(lf)  AND fms.ApprovalTimestamp >= '2025-04-01' #(lf)#(lf)GROUP BY#(lf)    fms.OrderServiceCode#(lf)  , fms.PartValue#(lf)  , fms.LaborValue#(lf)  , dfc.CustomerSourceCode#(lf)  , dfc.CustomerShortName#(lf)  , fms.ApprovalTimestamp#(lf)  , dmt.MaintenanceType#(lf)  , fms.IsAutomaticApproval"),
-				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"CodigoCliente", type text}, {"DataAprovacao", type date}})
+				    Fonte = Azure("
+				WITH CTE AS (
+				  SELECT
+				    fmi.Sk_MaintenanceItem
+				    , fmi.MaintenanceID
+				    , fmi.PartPriceApproved
+				  FROM hive_metastore.gold.fact_maintenanceitems AS fmi
+				  
+				    LEFT JOIN hive_metastore.gold.dim_maintenancelogpriceregulatorpartner AS pr1
+				      ON pr1.PricePartReferencePriceNegId = fmi.PartPriceNegociatedId
+				
+				    LEFT JOIN hive_metastore.gold.dim_maintenancelogpriceregulatorpartner AS pr2
+				      ON pr2.PricePartReferencePriceNegId = fmi.PartPriceNegociatedCustomerId
+				  
+				  WHERE 1=1
+				    AND fmi.ApprovalTimestamp IS NOT NULL
+				    AND (pr1.Sk_PriceRegulatorPartner IS NOT NULL OR pr2.Sk_PriceRegulatorPartner IS NOT NULL)
+				)
+				SELECT
+				    fms.OrderServiceCode                                           AS NumeroOS
+				  , COUNT(DISTINCT CTE.Sk_MaintenanceItem)                         AS TotalItensAprovadosNegociados
+				  , SUM(CTE.PartPriceApproved)                                     AS ValorAprovadoNegociado
+				  , (fms.PartValue + fms.LaborValue)                               AS ValorAprovado
+				  , dfc.CustomerSourceCode                                         AS CodigoCliente
+				  , dfc.CustomerShortName                                          AS NomeCliente
+				  , date_format(fms.ApprovalTimestamp, 'yyyy-MM-dd')               AS DataAprovacao
+				  , dmt.MaintenanceType                                            AS TipoManutencao
+				  , fms.IsAutomaticApproval                                        AS AprovacaoAutomatica 
+				
+				FROM hive_metastore.gold.fact_maintenanceservices AS fms
+				  
+				  LEFT JOIN hive_metastore.gold.dim_fuelcustomers AS dfc
+				    ON fms.Sk_FuelCustomer = dfc.Sk_FuelCustomer
+				  
+				  LEFT JOIN hive_metastore.gold.dim_maintenancetypes AS dmt
+				    ON fms.Sk_MaintenanceType = dmt.Sk_MaintenanceType
+				  
+				  RIGHT JOIN CTE
+				    ON CTE.maintenanceid = fms.OrderServiceCode
+				
+				WHERE 1=1
+				  AND fms.ApprovalTimestamp >= '2025-04-01' 
+				
+				GROUP BY
+				    fms.OrderServiceCode
+				  , fms.PartValue
+				  , fms.LaborValue
+				  , dfc.CustomerSourceCode
+				  , dfc.CustomerShortName
+				  , fms.ApprovalTimestamp
+				  , dmt.MaintenanceType
+				  , fms.IsAutomaticApproval
+				"),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"CodigoCliente", type text}, {"DataAprovacao", type date}}),
+				    LookupAprovador = Azure("SELECT DISTINCT fms.OrderServiceCode AS NumeroOS, dwu.WebUserName AS NomeUsuario FROM hive_metastore.gold.fact_maintenanceservices AS fms LEFT JOIN hive_metastore.gold.dim_webusers AS dwu ON fms.FirstApproverCode = dwu.WebUserSourceCode WHERE fms.ApprovalTimestamp >= '2025-04-01'"),
+				    #"Merge" = Table.NestedJoin(#"Tipo Alterado", {"NumeroOS"}, LookupAprovador, {"NumeroOS"}, "Lookup", JoinKind.LeftOuter),
+				    #"NomeUsuario Expandido" = Table.ExpandTableColumn(#"Merge", "Lookup", {"NomeUsuario"}, {"NomeUsuario"})
 				in
-				    #"Tipo Alterado"
+				    #"NomeUsuario Expandido"
+				```
 
 	annotation PBI_NavigationStepName = Navegação
 

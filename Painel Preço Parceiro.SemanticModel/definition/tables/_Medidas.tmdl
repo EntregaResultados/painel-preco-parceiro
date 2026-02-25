@@ -219,7 +219,13 @@ table _Medidas
 
 	measure 'Total OS PP' =
 			
-			DISTINCTCOUNT(FactAprovacoesAposPrecoParceiro[NumeroOS])
+			CALCULATE(
+			    DISTINCTCOUNT(FactAprovacoesAposPrecoParceiro[NumeroOS]),
+			    USERELATIONSHIP(
+			        FactAprovacoesAposPrecoParceiro[DataAprovacao],
+			        DimCalendario[DataCompleta]
+			    )
+			)
 		formatString: 0
 		displayFolder: _Efetividade
 		lineageTag: bfa51945-feb9-485e-b4c3-b973fe2bb60f
@@ -228,7 +234,10 @@ table _Medidas
 			
 			CALCULATE(
 			    [Total OS PP],
-			    FactAprovacoesAposPrecoParceiro[AprovacaoAutomatica] = TRUE()
+			    FactAprovacoesAposPrecoParceiro[AprovacaoAutomatica] = TRUE(),
+			    REMOVEFILTERS(DimAprovadores),
+			    REMOVEFILTERS(DimSupervisores),
+			    REMOVEFILTERS(DimCoordenadores)
 			)
 		formatString: 0
 		displayFolder: _Efetividade
@@ -251,7 +260,13 @@ table _Medidas
 
 	measure 'Total VA PP' =
 			
-			SUM(FactAprovacoesAposPrecoParceiro[ValorAprovado])
+			CALCULATE(
+			    SUM(FactAprovacoesAposPrecoParceiro[ValorAprovado]),
+			    USERELATIONSHIP(
+			        FactAprovacoesAposPrecoParceiro[DataAprovacao],
+			        DimCalendario[DataCompleta]
+			    )
+			)
 		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
 		displayFolder: _Efetividade
 		lineageTag: bbb32c20-a663-4122-9b26-c842178ffd6c
@@ -262,7 +277,10 @@ table _Medidas
 			
 			CALCULATE(
 			    [Total VA PP],
-			    FactAprovacoesAposPrecoParceiro[AprovacaoAutomatica] = TRUE()
+			    FactAprovacoesAposPrecoParceiro[AprovacaoAutomatica] = TRUE(),
+			    REMOVEFILTERS(DimAprovadores),
+			    REMOVEFILTERS(DimSupervisores),
+			    REMOVEFILTERS(DimCoordenadores)
 			)
 		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
 		displayFolder: _Efetividade
@@ -277,7 +295,13 @@ table _Medidas
 
 	measure 'Total Itens Aprovados PP' =
 			
-			SUM(FactAprovacoesAposPrecoParceiro[TotalItensAprovadosNegociados])
+			CALCULATE(
+			    SUM(FactAprovacoesAposPrecoParceiro[TotalItensAprovadosNegociados]),
+			    USERELATIONSHIP(
+			        FactAprovacoesAposPrecoParceiro[DataAprovacao],
+			        DimCalendario[DataCompleta]
+			    )
+			)
 		formatString: #,0
 		displayFolder: _Efetividade
 		lineageTag: bbe73e14-fee5-4ffd-9983-bc0f39ecfca4
@@ -296,7 +320,11 @@ table _Medidas
 			
 			CALCULATE(
 			    SUM(FactAprovacoesAposPrecoParceiro[ValorAprovadoNegociado]),
-			    FactAprovacoesAposPrecoParceiro[AprovacaoAutomatica] = FALSE()
+			    FactAprovacoesAposPrecoParceiro[AprovacaoAutomatica] = FALSE(),
+			    USERELATIONSHIP(
+			        FactAprovacoesAposPrecoParceiro[DataAprovacao],
+			        DimCalendario[DataCompleta]
+			    )
 			)
 		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
 		displayFolder: _Efetividade

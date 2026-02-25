@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "FactAprovacaoPrecoParceiro"
+                      "Entity": "DimAprovadores"
                     }
                   },
-                  "Property": "NomeUsuario"
+                  "Property": "dUsuario"
                 }
               },
-              "queryRef": "FactAprovacaoPrecoParceiro.NomeUsuario",
-              "nativeQueryRef": "NomeUsuario",
+              "queryRef": "DimAprovadores.dUsuario",
+              "nativeQueryRef": "dUsuario",
               "active": true
             }
           ]
