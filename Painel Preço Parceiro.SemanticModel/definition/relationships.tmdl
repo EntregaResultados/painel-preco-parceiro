@@ -29,6 +29,7 @@ relationship 4ae15203-cfb3-90dd-a963-f8e6835df321
 	toColumn: RespostasFormularioDistintasOS.'Número da ordem'
 
 relationship b944332b-1f4b-4e69-b4da-e409fdbb0321
+	crossFilteringBehavior: bothDirections
 	fromColumn: FactAprovacaoPrecoParceiro.DataAprovacao1OS
 	toColumn: DimCalendario.DataCompleta
 

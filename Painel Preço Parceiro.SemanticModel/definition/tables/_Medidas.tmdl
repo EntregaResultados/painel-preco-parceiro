@@ -91,7 +91,7 @@ table _Medidas
 	measure 'Total de recusas' =
 			
 			CALCULATE(
-			    [Total de respostas formulário],
+			    COUNTROWS(RespostasFormularioDistintasOS),
 			    RespostasFormulario[EC aceitou a negociação?] = "Não"
 			)
 		formatString: 0
@@ -100,7 +100,7 @@ table _Medidas
 
 	measure 'Total de respostas formulário' =
 			
-			COUNT(RespostasFormulario[Número da ordem])
+			COUNTROWS(RespostasFormularioDistintasOS)
 		formatString: 0
 		displayFolder: _Formulário
 		lineageTag: 472a91a6-9104-488f-981c-794ef36328de
