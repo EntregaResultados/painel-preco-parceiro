@@ -23,11 +23,11 @@
                       "Entity": "FactAprovacaoPrecoParceiro"
                     }
                   },
-                  "Property": "CodigoCliente"
+                  "Property": "NomeCliente"
                 }
               },
-              "queryRef": "FactAprovacaoPrecoParceiro.CodigoCliente",
-              "nativeQueryRef": "CodigoCliente",
+              "queryRef": "FactAprovacaoPrecoParceiro.NomeCliente",
+              "nativeQueryRef": "NomeCliente",
               "active": true
             }
           ]

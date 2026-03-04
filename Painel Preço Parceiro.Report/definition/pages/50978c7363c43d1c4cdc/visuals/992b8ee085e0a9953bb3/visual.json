@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "RespostasFormulario"
+                      "Entity": "RespostasFormularioDistintasOS"
                     }
                   },
                   "Property": "Qual o motivo da recusa?"
                 }
               },
-              "queryRef": "RespostasFormulario.Qual o motivo da recusa?",
+              "queryRef": "RespostasFormularioDistintasOS.Qual o motivo da recusa?",
               "nativeQueryRef": "Qual o motivo da recusa?",
               "active": true
             }
