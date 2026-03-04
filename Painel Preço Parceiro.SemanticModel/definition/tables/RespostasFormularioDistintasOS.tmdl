@@ -13,20 +13,41 @@ table RespostasFormularioDistintasOS
 
 		annotation SummarizationSetBy = Automatic
 
+	/// Coluna de aceite deduplicada — mantém apenas a última resposta por OS (maior Id)
+	column 'EC aceitou a negociação?'
+		dataType: string
+		lineageTag: a1b2c3d4-e5f6-7890-abcd-ef1234567890
+		summarizeBy: none
+		sourceColumn: EC aceitou a negociação?
+
+		annotation SummarizationSetBy = Automatic
+
+	/// Motivo de recusa deduplicado — mantém apenas a última resposta por OS (maior Id)
+	column 'Qual o motivo da recusa?'
+		dataType: string
+		lineageTag: b2c3d4e5-f6a7-8901-bcde-f23456789012
+		summarizeBy: none
+		sourceColumn: Qual o motivo da recusa?
+
+		annotation SummarizationSetBy = Automatic
+
 	partition RespostasFormularioDistintasOS = m
 		mode: import
 		source =
 				let
 				    Fonte = Excel.Workbook(Web.Contents("https://edenred-my.sharepoint.com/personal/lucas_malessa_edenred_com/Documents/Projeto Preço Parceiro.xlsx"), null, true),
 				    OfficeForms.Table_Table = Fonte{[Item="TabelaPrecoParceiro",Kind="Table"]}[Data],
-				    #"Tipo Alterado" = Table.TransformColumnTypes(OfficeForms.Table_Table,{{"Número da ordem", type text}}),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(OfficeForms.Table_Table,{{"Número da ordem", type text}, {"Id", Int64.Type}}),
 				    #"Texto Aparado" = Table.TransformColumns(#"Tipo Alterado",{{"Número da ordem", Text.Trim, type text}}),
-				    #"Duplicatas Removidas" = Table.Distinct(#"Texto Aparado", {"Número da ordem"}),
-				    #"Linhas Filtradas" = Table.SelectRows(#"Duplicatas Removidas", each ([Número da ordem] <> null)),
-				    #"Outras Colunas Removidas" = Table.SelectColumns(#"Linhas Filtradas",{"Número da ordem"}),
-				    #"Linhas Filtradas1" = Table.SelectRows(#"Outras Colunas Removidas", each ([Número da ordem] <> "1" and [Número da ordem] <> "2" and [Número da ordem] <> "3" and [Número da ordem] <> "4" and [Número da ordem] <> "5"))
+				    #"Linhas Filtradas" = Table.SelectRows(#"Texto Aparado", each ([Número da ordem] <> null)),
+				    #"Linhas Filtradas1" = Table.SelectRows(#"Linhas Filtradas", each ([Número da ordem] <> "1" and [Número da ordem] <> "2" and [Número da ordem] <> "3" and [Número da ordem] <> "4" and [Número da ordem] <> "5")),
+				    // Ordenar por Id DESC para que Table.Distinct mantenha a última resposta
+				    #"Ordenado" = Table.Sort(#"Linhas Filtradas1",{{"Id", Order.Descending}}),
+				    // Deduplicar por 'Número da ordem' — mantém primeira linha (= maior Id = última resposta)
+				    #"Duplicatas Removidas" = Table.Distinct(#"Ordenado", {"Número da ordem"}),
+				    #"Colunas Selecionadas" = Table.SelectColumns(#"Duplicatas Removidas",{"Número da ordem", "EC aceitou a negociação?", "Qual o motivo da recusa?"})
 				in
-				    #"Linhas Filtradas1"
+				    #"Colunas Selecionadas"
 
 	changedProperty = IsHidden
 

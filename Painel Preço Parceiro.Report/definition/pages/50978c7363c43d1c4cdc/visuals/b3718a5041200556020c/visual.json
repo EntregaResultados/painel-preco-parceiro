@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "RespostasFormulario"
+                      "Entity": "RespostasFormularioDistintasOS"
                     }
                   },
                   "Property": "EC aceitou a negociação?"
                 }
               },
-              "queryRef": "RespostasFormulario.EC aceitou a negociação?",
+              "queryRef": "RespostasFormularioDistintasOS.EC aceitou a negociação?",
               "nativeQueryRef": "EC aceitou a negociação?",
               "active": true
             }
